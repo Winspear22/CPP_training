@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 13:09:32 by adaloui           #+#    #+#             */
-/*   Updated: 2022/04/25 18:37:48 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/04/25 19:08:36 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,13 @@ PhoneBook::PhoneBook(void)
 PhoneBook::~PhoneBook(void)
 {
     return ;
+}
+
+std::string PhoneBook::ft_append_string(std::string str)
+{
+	if (str.length() >= 10)
+		str = str.substr(0, 9).append(".");
+	return (str);
 }
 
 Contact PhoneBook::register_info(Contact contact)
@@ -86,7 +93,7 @@ void PhoneBook::display_phone_book(void) const
 	std::cout << std::setw(10) << "Nickname" << std::endl;
 }
 
-void PhoneBook::display_contacts_in_pb(int index, Contact *contact) const
+void PhoneBook::display_contacts_in_pb(int index, Contact *contact)
 {
 	int i;
 
@@ -95,16 +102,16 @@ void PhoneBook::display_contacts_in_pb(int index, Contact *contact) const
 		{
 			std::cout << std::setw(10) << i + 1;
 			std::cout << "|";
-			std::cout << std::setw(10) << contact[i].First_name;
+			std::cout << std::setw(10) << this->ft_append_string(contact[i].First_name);
 			std::cout << "|";
-			std::cout << std::setw(10) << contact[i].Last_name;
+			std::cout << std::setw(10) << this->ft_append_string(contact[i].Last_name);;
 			std::cout << "|";
-			std::cout << std::setw(10) << contact[i].Nick_name << std::endl;
+			std::cout << std::setw(10) << this->ft_append_string(contact[i].Nick_name) << std::endl;
 			i++;
 		}
 }
 
-void PhoneBook::search_contacts(Contact *contact, int index) const
+void PhoneBook::search_contacts(Contact *contact, int index)
 {	
 	int search;
 	std::string tmp;

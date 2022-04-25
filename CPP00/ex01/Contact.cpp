@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 15:31:02 by adaloui           #+#    #+#             */
-/*   Updated: 2022/04/25 18:49:35 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/04/25 19:02:49 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ bool Contact::ft_isalpha(std::string str) const
 	}
 	return (SUCCESS);
 }
-
 
 bool Contact::set_first_name(std::string tmp)
 {
