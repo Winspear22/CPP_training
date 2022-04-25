@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 13:09:36 by adaloui           #+#    #+#             */
-/*   Updated: 2022/04/25 17:21:02 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/04/25 18:48:19 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ public:
 	~Contact(void);
 
 	std::string _get_darkest_secret(void) const;
-	bool phone_nb_check(std::string str) const;
+	bool ft_isdigit(std::string str) const;
+	bool ft_isalpha(std::string str) const;
 
 	bool set_first_name(std::string str);
 	bool set_last_name(std::string str);
@@ -64,8 +65,6 @@ public:
 	void display_phone_book(void) const;
 	void display_contacts_in_pb(int index, Contact *contact) const;
 	void display_info(Contact *contact, int i) const;
-
-	
 
 };
 

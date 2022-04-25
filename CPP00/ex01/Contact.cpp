@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 15:31:02 by adaloui           #+#    #+#             */
-/*   Updated: 2022/04/25 16:50:59 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/04/25 18:49:35 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,21 @@ Contact::~Contact(void)
 	return ;
 }
 
+bool Contact::ft_isalpha(std::string str) const
+{
+	int i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] >= 48 && str[i] <= 57)
+			return (FAILURE);
+		i++;
+	}
+	return (SUCCESS);
+}
+
+
 bool Contact::set_first_name(std::string tmp)
 {
 	std::cout << "Write first name : ";
@@ -31,6 +46,11 @@ bool Contact::set_first_name(std::string tmp)
 		{
 			std::cout << "\033[1;31mError. You cannot leave this empty\n\033[0m";
 			std::cout << "Please type your \033[1;37mfirst name : \033[0m";
+		}
+		else if (this->ft_isalpha(tmp) == FAILURE)
+		{
+			std::cout << "\033[1;31mError. You cannot use characters other than letters\n\033[0m";
+			std::cout << "Please type your \033[1;37mfirst name with letters : \033[0m";
 		}
 		else
 		{
@@ -53,6 +73,11 @@ bool Contact::set_last_name(std::string tmp)
 			std::cout << "\033[1;31mError. You cannot leave this empty\n\033[0m";
 			std::cout << "Please type your \033[1;37mlast name : \033[0m";
 		}
+		else if (this->ft_isalpha(tmp) == FAILURE)
+		{
+			std::cout << "\033[1;31mError. You cannot use characters other than letters\n\033[0m";
+			std::cout << "Please type your \033[1;37mlast name with letters : \033[0m";
+		}
 		else
 		{
 			this->Last_name = tmp;
@@ -74,6 +99,11 @@ bool Contact::set_nick_name(std::string tmp)
 			std::cout << "\033[1;31mError. You cannot leave this empty\n\033[0m";
 			std::cout << "Please type your \033[1;37mnickname : \033[0m";
 		}
+		else if (this->ft_isalpha(tmp) == FAILURE)
+		{
+			std::cout << "\033[1;31mError. You cannot use characters other than letters\n\033[0m";
+			std::cout << "Please type your \033[1;37mnickname with letters : \033[0m";
+		}
 		else
 		{
 			this->Nick_name = tmp;
@@ -85,7 +115,7 @@ bool Contact::set_nick_name(std::string tmp)
 	return (SUCCESS);
 }
 
-bool Contact::phone_nb_check(std::string str) const
+bool Contact::ft_isdigit(std::string str) const
 {
 	int i;
 
@@ -109,7 +139,7 @@ bool Contact::set_phone_number(std::string tmp)
 			std::cout << "\033[1;31mError. You cannot leave this empty\n\033[0m";
 			std::cout << "Please type your \033[1;37mphone number : \033[0m";
 		}
-		else if (this->phone_nb_check(tmp) == FAILURE)
+		else if (this->ft_isdigit(tmp) == FAILURE)
 		{
 			std::cout << "\033[1;31mError. You cannot use characters other than numbers\n\033[0m";
 			std::cout << "Please type your \033[1;37mphone number with numbers : \033[0m";
@@ -141,6 +171,11 @@ bool Contact::_set_darkest_secret(std::string tmp)
 		{
 			std::cout << "\033[1;31mError. You cannot leave this empty\n\033[0m";
 			std::cout << "Please type your \033[1;37mdarkest secret : \033[0m";
+		}
+		else if (this->ft_isalpha(tmp) == FAILURE)
+		{
+			std::cout << "\033[1;31mError. You cannot use characters other than letters\n\033[0m";
+			std::cout << "Please type your \033[1;37mdarkest with letters : \033[0m";
 		}
 		else
 		{
