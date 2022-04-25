@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 13:09:32 by adaloui           #+#    #+#             */
-/*   Updated: 2022/04/25 17:27:04 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/04/25 18:37:48 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ int PhoneBook::ft_stoi(std::string str) const
 		num = num * 10 + (str[i] - 48);
 		i++;
 	}
-	std::cout << "num == " << num << std::endl;
 	return (num * signe);
 }
 
@@ -74,7 +73,6 @@ void PhoneBook::display_info(Contact *contact, int search) const
 	std::cout << "Last name : " << contact[search - 1].Last_name << std::endl;
 	std::cout << "Nickname : " << contact[search - 1].Nick_name << std::endl;
 	std::cout << "Phone number : " << contact[search - 1].Phone_number << std::endl;
-	std::cin.ignore(10000, '\n');
 }
 
 void PhoneBook::display_phone_book(void) const
@@ -123,21 +121,18 @@ void PhoneBook::search_contacts(Contact *contact, int index) const
 		this->display_contacts_in_pb(index, contact);
 	}
 	std::cout << "Please choose the contact you want to see." << std::endl << "> ";
-	std::cin >> search;
-	while (getline(std::cin, tmp))// || (search < 1 || search >= index + 1))
+	while (getline(std::cin, tmp))
 	{
-		if (this->ft_isalpha(tmp) == SUCCESS)
+		if (tmp == "")
+			std::cout << "> ";
+		else if (this->ft_isalpha(tmp) == FAILURE)
 		{
-			std::cout << "je suis ici\n";
 			search = this->ft_stoi(tmp);
-			std::cout << "search == " << search << std::endl;
 			if (search < 1 || search >= index + 1)
 			{
 				std::cout << "\033[1;31mError. Adaloui's phonebook™ only contains\033[1;33m " << index << "\033[1;31m contacts.\033[0m" << std::endl;
 				std::cout << "\033[1;37mPlease type a number ranging between \033[1;32m1 and " << index << ".\033[0m" << std::endl;
 				std::cout << "> ";
-				std::cin.clear();
-				std::cin.ignore(1000,'\n');
 			}
 			else
 				break ;
@@ -147,11 +142,7 @@ void PhoneBook::search_contacts(Contact *contact, int index) const
 			std::cout << "\033[1;31mError. Adaloui's phonebook™ only contains\033[1;33m " << index << "\033[1;31m contacts.\033[0m" << std::endl;
 			std::cout << "\033[1;37mPlease type a number ranging between \033[1;32m1 and " << index << ".\033[0m" << std::endl;
 			std::cout << "> ";
-			std::cin.clear();
-			std::cin.ignore(1000,'\n');
 		}
-		std::cout << "je suis la\n";
 	}
-	std::cout << "je suis popo\n";
 	this->display_info(contact, search);
 }
