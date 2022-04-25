@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 13:09:32 by adaloui           #+#    #+#             */
-/*   Updated: 2022/04/25 19:39:07 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/04/25 20:07:50 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,10 +113,10 @@ bool PhoneBook::pick_contact_nb(int search, int index, Contact *contact)
 
 void PhoneBook::display_info(Contact *contact, int search) const
 {
-	std::cout << "First name : " << contact[search - 1].First_name << std::endl;
-	std::cout << "Last name : " << contact[search - 1].Last_name << std::endl;
-	std::cout << "Nickname : " << contact[search - 1].Nick_name << std::endl;
-	std::cout << "Phone number : " << contact[search - 1].Phone_number << std::endl;
+	std::cout << "First name : " << contact[search - 1].get_first_name() << std::endl;
+	std::cout << "Last name : " << contact[search - 1].get_last_name() << std::endl;
+	std::cout << "Nickname : " << contact[search - 1].get_nickname() << std::endl;
+	std::cout << "Phone number : " << contact[search - 1].get_phone_number() << std::endl;
 }
 
 void PhoneBook::display_phone_book(void) const
@@ -136,16 +136,16 @@ void PhoneBook::display_contacts_in_pb(int index, Contact *contact)
 
 	i = 0;
 	while (i < index)
-		{
-			std::cout << std::setw(10) << i + 1;
-			std::cout << "|";
-			std::cout << std::setw(10) << this->ft_append_string(contact[i].First_name);
-			std::cout << "|";
-			std::cout << std::setw(10) << this->ft_append_string(contact[i].Last_name);;
-			std::cout << "|";
-			std::cout << std::setw(10) << this->ft_append_string(contact[i].Nick_name) << std::endl;
-			i++;
-		}
+	{
+		std::cout << std::setw(10) << i + 1;
+		std::cout << "|";
+		std::cout << std::setw(10) << this->ft_append_string(contact[i].get_first_name());
+		std::cout << "|";
+		std::cout << std::setw(10) << this->ft_append_string(contact[i].get_last_name());
+		std::cout << "|";
+		std::cout << std::setw(10) << this->ft_append_string(contact[i].get_nickname()) << std::endl;
+		i++;
+	}
 }
 
 void PhoneBook::search_contacts(Contact *contact, int index)

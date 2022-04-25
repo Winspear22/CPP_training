@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 15:31:02 by adaloui           #+#    #+#             */
-/*   Updated: 2022/04/25 19:21:33 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/04/25 20:07:50 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,31 @@ Contact::Contact(void)
 Contact::~Contact(void)
 {
 	return ;
+}
+
+std::string Contact::get_first_name(void) const
+{
+	return (this->_First_name);
+}
+
+std::string Contact::get_last_name(void) const
+{
+	return (this->_Last_name);
+}
+
+std::string Contact::get_nickname(void) const
+{
+	return (this->_Nick_name);
+}
+
+std::string Contact::get_phone_number(void) const
+{
+	return (this->_Phone_number);
+}
+
+std::string Contact::get_darkest_secret(void) const
+{
+	return (this->_Darkest_secret);
 }
 
 bool Contact::ft_isalpha(std::string str) const
@@ -39,7 +64,7 @@ bool Contact::ft_isalpha(std::string str) const
 bool Contact::set_first_name(std::string tmp)
 {
 	std::cout << "Write first name : ";
-	while (getline(std::cin, tmp)) // on met dans une boucle while pour le ctrl + d
+	while (getline(std::cin, tmp))
 	{
 		if (tmp.empty() == SUCCESS)
 		{
@@ -53,11 +78,11 @@ bool Contact::set_first_name(std::string tmp)
 		}
 		else
 		{
-			this->First_name = tmp;
+			this->_First_name = tmp;
 			break ;
 		}
 	}
-	if (this->First_name.length() == 0)
+	if (this->_First_name.length() == 0)
 		return (FAILURE);
 	return (SUCCESS);
 }
@@ -79,16 +104,16 @@ bool Contact::set_last_name(std::string tmp)
 		}
 		else
 		{
-			this->Last_name = tmp;
+			this->_Last_name = tmp;
 			break ;
 		}
 	}
-	if (this->Last_name.length() == 0)
+	if (this->_Last_name.length() == 0)
 		return (FAILURE);
 	return (SUCCESS);
 }
 
-bool Contact::set_nick_name(std::string tmp)
+bool Contact::set_nickname(std::string tmp)
 {
 	std::cout << "Write nickname : ";
 	while (getline(std::cin, tmp))
@@ -105,11 +130,11 @@ bool Contact::set_nick_name(std::string tmp)
 		}
 		else
 		{
-			this->Nick_name = tmp;
+			this->_Nick_name = tmp;
 			break ;
 		}
 	}
-	if (this->Nick_name.length() == 0)
+	if (this->_Nick_name.length() == 0)
 		return (FAILURE);
 	return (SUCCESS);
 }
@@ -145,24 +170,19 @@ bool Contact::set_phone_number(std::string tmp)
 		}
 		else
 		{
-			this->Phone_number = tmp;
+			this->_Phone_number = tmp;
 			break ;
 		}
 	}
-	if (this->Phone_number.length() == 0)
+	if (this->_Phone_number.length() == 0)
 		return (FAILURE);
 	return (SUCCESS);
 }
 
-std::string Contact::_get_darkest_secret(void) const
-{
-	return (this->_Darkest_secret);
-}
-
-bool Contact::_set_darkest_secret(std::string tmp)
+bool Contact::set_darkest_secret(std::string tmp)
 {
 	
-	tmp = this->_get_darkest_secret();
+	tmp = this->get_darkest_secret();
 	std::cout << "Write darkest secret : ";
 	while (getline(std::cin, tmp))
 	{
@@ -201,7 +221,7 @@ bool Contact::set_all_info(void)
 		std::cout << std::endl << "\033[1;33mSee you later in Adaloui's phonebook™!\033[0m" << std::endl;
 		exit(0);
 	}
-	if (!this->set_nick_name(tmp))
+	if (!this->set_nickname(tmp))
 	{
 		std::cout << std::endl << "\033[1;33mSee you later in Adaloui's phonebook™!\033[0m" << std::endl;
 		exit(0);
@@ -211,7 +231,7 @@ bool Contact::set_all_info(void)
 		std::cout << std::endl << "\033[1;33mSee you later in Adaloui's phonebook™!\033[0m" << std::endl;
 		exit(0);
 	}
-	if (!this->_set_darkest_secret(tmp))
+	if (!this->set_darkest_secret(tmp))
 	{
 		std::cout << std::endl << "\033[1;33mSee you later in Adaloui's phonebook™!\033[0m" << std::endl;
 		exit(0);
