@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 15:31:02 by adaloui           #+#    #+#             */
-/*   Updated: 2022/04/25 19:02:49 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/04/25 19:21:33 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,6 +182,8 @@ bool Contact::_set_darkest_secret(std::string tmp)
 			break ;
 		}
 	}
+	if (this->_Darkest_secret.length() == 0)
+		return (FAILURE);
 	return (SUCCESS);
 }
 
