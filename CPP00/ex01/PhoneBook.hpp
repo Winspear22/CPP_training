@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 13:09:36 by adaloui           #+#    #+#             */
-/*   Updated: 2022/04/25 19:07:18 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/04/25 19:37:48 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ public:
 	void display_phone_book(void) const;
 	void display_contacts_in_pb(int index, Contact *contact);
 	void display_info(Contact *contact, int i) const;
+	bool pick_contact_nb(int search, int index, Contact *contact);
 
 };
 

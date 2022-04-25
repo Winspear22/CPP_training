@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 13:09:32 by adaloui           #+#    #+#             */
-/*   Updated: 2022/04/25 19:08:36 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/04/25 19:39:07 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,43 @@ int PhoneBook::ft_stoi(std::string str) const
 	return (num * signe);
 }
 
+bool PhoneBook::pick_contact_nb(int search, int index, Contact *contact)
+{
+	std::string tmp;
+	
+	while (getline(std::cin, tmp))
+	{
+		if (tmp == "")
+			std::cout << "> ";
+		else if (this->ft_isalpha(tmp) == FAILURE)
+		{
+			search = this->ft_stoi(tmp);
+			if (search < 1 || search >= index + 1)
+			{
+				std::cout << "\033[1;31mError. Adaloui's phonebook™ only contains\033[1;33m " << index << "\033[1;31m contacts.\033[0m" << std::endl;
+				std::cout << "\033[1;37mPlease type a number ranging between \033[1;32m1 and " << index << ".\033[0m" << std::endl;
+				std::cout << "> ";
+			}
+			else
+				break ;
+		}
+		else
+		{
+			std::cout << "\033[1;31mError. Adaloui's phonebook™ only contains\033[1;33m " << index << "\033[1;31m contacts.\033[0m" << std::endl;
+			std::cout << "\033[1;37mPlease type a number ranging between \033[1;32m1 and " << index << ".\033[0m" << std::endl;
+			std::cout << "> ";
+		}
+	}
+	if (tmp == "")
+	{
+		std::cout << std::endl << "\033[1;33mSee you later in Adaloui's phonebook™!\033[0m" << std::endl;
+		exit(0);
+	}
+	else
+		this->display_info(contact, search);
+	return (SUCCESS);
+}
+
 void PhoneBook::display_info(Contact *contact, int search) const
 {
 	std::cout << "First name : " << contact[search - 1].First_name << std::endl;
@@ -128,28 +165,5 @@ void PhoneBook::search_contacts(Contact *contact, int index)
 		this->display_contacts_in_pb(index, contact);
 	}
 	std::cout << "Please choose the contact you want to see." << std::endl << "> ";
-	while (getline(std::cin, tmp))
-	{
-		if (tmp == "")
-			std::cout << "> ";
-		else if (this->ft_isalpha(tmp) == FAILURE)
-		{
-			search = this->ft_stoi(tmp);
-			if (search < 1 || search >= index + 1)
-			{
-				std::cout << "\033[1;31mError. Adaloui's phonebook™ only contains\033[1;33m " << index << "\033[1;31m contacts.\033[0m" << std::endl;
-				std::cout << "\033[1;37mPlease type a number ranging between \033[1;32m1 and " << index << ".\033[0m" << std::endl;
-				std::cout << "> ";
-			}
-			else
-				break ;
-		}
-		else
-		{
-			std::cout << "\033[1;31mError. Adaloui's phonebook™ only contains\033[1;33m " << index << "\033[1;31m contacts.\033[0m" << std::endl;
-			std::cout << "\033[1;37mPlease type a number ranging between \033[1;32m1 and " << index << ".\033[0m" << std::endl;
-			std::cout << "> ";
-		}
-	}
-	this->display_info(contact, search);
+	this->pick_contact_nb(search, index, contact);
 }
