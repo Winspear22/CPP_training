@@ -6,11 +6,12 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 16:36:27 by adaloui           #+#    #+#             */
-/*   Updated: 2022/04/27 16:46:00 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/04/27 18:24:11 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
+#include <ctime>
 
 Account::Account( int initial_deposit )
 {
@@ -24,6 +25,10 @@ Account::~Account( void )
 
 static void Account::_displayTimestamp( void )
 {
+    time_t timestamp = time( NULL );
+    struct tm * now = localtime( & timestamp );
+
+	std::cout << "[" << now->tm_year+1900 << now->tm_mon+1 << now->tm_mday << "_" << now->tm_hour << now->tm_min << now->tm_sec << "] " <<  std::endl;
     return ;
 }
 
