@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 13:09:32 by adaloui           #+#    #+#             */
-/*   Updated: 2022/04/25 20:07:50 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/04/27 15:34:35 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ PhoneBook::~PhoneBook(void)
     return ;
 }
 
-std::string PhoneBook::ft_append_string(std::string str)
+std::string PhoneBook::_ft_append_string(std::string str)
 {
 	if (str.length() >= 10)
 		str = str.substr(0, 9).append(".");
@@ -35,7 +35,7 @@ Contact PhoneBook::register_info(Contact contact)
 	return (contact);
 }
 
-bool PhoneBook::ft_isalpha(std::string str) const
+bool PhoneBook::_ft_isalpha(std::string str) const
 {
 	int i;
 
@@ -49,7 +49,7 @@ bool PhoneBook::ft_isalpha(std::string str) const
 	return (FAILURE);
 }
 
-int PhoneBook::ft_stoi(std::string str) const
+int PhoneBook::_ft_stoi(std::string str) const
 {
 	int i;
 	int signe;
@@ -74,7 +74,7 @@ int PhoneBook::ft_stoi(std::string str) const
 	return (num * signe);
 }
 
-bool PhoneBook::pick_contact_nb(int search, int index, Contact *contact)
+bool PhoneBook::_pick_contact_nb(int search, int index, Contact *contact)
 {
 	std::string tmp;
 	
@@ -82,9 +82,9 @@ bool PhoneBook::pick_contact_nb(int search, int index, Contact *contact)
 	{
 		if (tmp == "")
 			std::cout << "> ";
-		else if (this->ft_isalpha(tmp) == FAILURE)
+		else if (this->_ft_isalpha(tmp) == FAILURE)
 		{
-			search = this->ft_stoi(tmp);
+			search = this->_ft_stoi(tmp);
 			if (search < 1 || search >= index + 1)
 			{
 				std::cout << "\033[1;31mError. Adaloui's phonebook™ only contains\033[1;33m " << index << "\033[1;31m contacts.\033[0m" << std::endl;
@@ -107,19 +107,20 @@ bool PhoneBook::pick_contact_nb(int search, int index, Contact *contact)
 		exit(0);
 	}
 	else
-		this->display_info(contact, search);
+		this->_display_info(contact, search);
 	return (SUCCESS);
 }
 
-void PhoneBook::display_info(Contact *contact, int search) const
+void PhoneBook::_display_info(Contact *contact, int search) const
 {
 	std::cout << "First name : " << contact[search - 1].get_first_name() << std::endl;
 	std::cout << "Last name : " << contact[search - 1].get_last_name() << std::endl;
 	std::cout << "Nickname : " << contact[search - 1].get_nickname() << std::endl;
 	std::cout << "Phone number : " << contact[search - 1].get_phone_number() << std::endl;
+	std::cout << "Darkest secret : " << contact[search - 1].get_darkest_secret() << std::endl;
 }
 
-void PhoneBook::display_phone_book(void) const
+void PhoneBook::_display_phone_book(void) const
 {
 	std::cout << std::setw(10) << "Index";
 	std::cout << "|";
@@ -130,7 +131,7 @@ void PhoneBook::display_phone_book(void) const
 	std::cout << std::setw(10) << "Nickname" << std::endl;
 }
 
-void PhoneBook::display_contacts_in_pb(int index, Contact *contact)
+void PhoneBook::_display_contacts_in_pb(int index, Contact *contact)
 {
 	int i;
 
@@ -139,11 +140,11 @@ void PhoneBook::display_contacts_in_pb(int index, Contact *contact)
 	{
 		std::cout << std::setw(10) << i + 1;
 		std::cout << "|";
-		std::cout << std::setw(10) << this->ft_append_string(contact[i].get_first_name());
+		std::cout << std::setw(10) << this->_ft_append_string(contact[i].get_first_name());
 		std::cout << "|";
-		std::cout << std::setw(10) << this->ft_append_string(contact[i].get_last_name());
+		std::cout << std::setw(10) << this->_ft_append_string(contact[i].get_last_name());
 		std::cout << "|";
-		std::cout << std::setw(10) << this->ft_append_string(contact[i].get_nickname()) << std::endl;
+		std::cout << std::setw(10) << this->_ft_append_string(contact[i].get_nickname()) << std::endl;
 		i++;
 	}
 }
@@ -161,9 +162,9 @@ void PhoneBook::search_contacts(Contact *contact, int index)
 	}
 	else
 	{
-		this->display_phone_book();
-		this->display_contacts_in_pb(index, contact);
+		this->_display_phone_book();
+		this->_display_contacts_in_pb(index, contact);
 	}
 	std::cout << "Please choose the contact you want to see." << std::endl << "> ";
-	this->pick_contact_nb(search, index, contact);
+	this->_pick_contact_nb(search, index, contact);
 }

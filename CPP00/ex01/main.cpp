@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 13:15:54 by adaloui           #+#    #+#             */
-/*   Updated: 2022/04/27 15:22:31 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/04/27 15:31:06 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int main(void)
 {
 	std::string temp;
-//	Contact phone.all_contacts[8];
 	PhoneBook phone;
 	int index;
 	int index_two;
