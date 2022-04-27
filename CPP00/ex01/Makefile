@@ -6,12 +6,12 @@
 #    By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 13:09:25 by adaloui           #+#    #+#              #
-#    Updated: 2022/04/24 19:15:52 by adaloui          ###   ########.fr        #
+#    Updated: 2022/04/27 16:29:40 by adaloui          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME= PhoneBook
-SRCS= *.cpp
+SRCS= Contact.cpp main.cpp PhoneBook.cpp
 SRCSDIR = .
 
 CC= clang++

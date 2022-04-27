@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 15:07:43 by adaloui           #+#    #+#             */
-/*   Updated: 2022/04/27 15:38:06 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/04/27 16:22:30 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ public:
 	std::string get_nickname(void) const;
 	std::string get_phone_number(void) const;
 	bool set_all_info(void);
-
 private:	
 	std::string _First_name;
 	std::string _Last_name;

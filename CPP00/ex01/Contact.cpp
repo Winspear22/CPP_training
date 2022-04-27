@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 15:31:02 by adaloui           #+#    #+#             */
-/*   Updated: 2022/04/27 15:33:56 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/04/27 16:26:10 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ bool Contact::_ft_isalpha(std::string str) const
 	i = 0;
 	while (str[i])
 	{
-		if (str[i] >= 48 && str[i] <= 57)
+		if ((str[i] < 97 || str[i] > 122) && (str[i] < 65 || str[i] > 90))
 			return (FAILURE);
 		i++;
 	}
