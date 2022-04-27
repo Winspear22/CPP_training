@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 13:15:54 by adaloui           #+#    #+#             */
-/*   Updated: 2022/04/25 16:33:21 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/04/27 15:22:31 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int main(void)
 			std::cout << "Adaloui's PhoneBook > ";
 		else
 		{
-			std::cout << "\033[1;31mInvalid command.\033[0m" << std::endl;
+			std::cout << "\033[1;31mInvalid command. Please try either \033[1;33mADD\033[1;31m, \033[1;33mSEARCH\033[1;31m or \033[1;33mEXIT\033[1;31m.\033[0m" << std::endl;
 			std::cout << "Adaloui's PhoneBook > ";
 		}
 			
