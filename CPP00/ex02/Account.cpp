@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 16:36:27 by adaloui           #+#    #+#             */
-/*   Updated: 2022/04/29 16:07:33 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/04/29 16:18:53 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ void Account::_displayTimestamp( void )
     struct tm *now = localtime( & timestamp );
 
 	std::cout << "[" << now->tm_year+1900 << now->tm_mon+1 << now->tm_mday << "_" << now->tm_hour << now->tm_min << now->tm_sec << "] ";
-	std::cout << "[19920104_091532] ";
 	return ;
 }
 
