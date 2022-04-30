@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 20:16:44 by adaloui           #+#    #+#             */
-/*   Updated: 2022/04/30 16:37:10 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/04/30 19:50:39 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,12 @@ class HumanB
 public:
 	HumanB(std::string name);
 	~HumanB(void);
+
+	void attack(void);
+	void setWeapon(Weapon& n_weapon);
 private:
-    std::string _name;
+    std::string _nameB;
+	Weapon* _weapon_B; 
 };
 
 #endif
