@@ -4,11 +4,14 @@
 # include <iomanip>
 # include <iostream>
 # include <fstream>
+# include <algorithm>
+# include <cstring>
 
-class sed
+class Sed
 {
-	sed(void);
-	~sed(void);
+public:
+	Sed(void);
+	~Sed(void);
 };
 
 #endif

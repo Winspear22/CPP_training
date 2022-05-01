@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+         #
+#    By: user42 <user42@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/30 20:02:03 by adaloui           #+#    #+#              #
-#    Updated: 2022/04/30 20:12:10 by adaloui          ###   ########.fr        #
+#    Updated: 2022/05/01 16:46:28 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME= sed_is_for_losers
-SRCS= main.cpp
+SRCS= main.cpp sed.cpp
 SRCSDIR = .
 
 CC= clang++
