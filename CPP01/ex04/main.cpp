@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/30 20:02:39 by adaloui           #+#    #+#             */
-/*   Updated: 2022/05/03 03:16:28 by user42           ###   ########.fr       */
+/*   Updated: 2022/05/03 19:35:38 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,24 +40,18 @@ char *ft_strjoin(const char *s1, const char *s2)
 
 int main(int argc, char **argv)
 {
-    (void)argc;
-	char *name;
-	Sed str;
+	std::string file_name;
+	std::string popo;
+	std::ifstream stdin(argv[1]);
 	
-	if (argc == 4)
-	{
-		name = ft_strjoin(argv[1], ".replace");
-		str.s1 = argv[2];
-		str.s2 = argv[3];
-		str.size = strlen(argv[2]);
-		std::ofstream ofs(name);
-		str.ft_replace(str);
-		ofs << "coucou les amis" << std::endl;
-		ofs.close();
-		delete [] name;
-	}
-	else
+	file_name = argv[1];
+	file_name = file_name + ".replace";
+	if (argc != 4)
 		std::cout << "\033[1;31mError. Too much or not enough arguments. You have \033[1;33m" << argc << " \033[1;31myou need \033[1;33m4\033[1;31m.\033[0m" << std::endl;
-	
+	if (!stdin)
+		std::cout << "\033[1;31mError. Cannoy open the file \033[1;33m" << argv[1] << "\033[1;31m. Please create it before using \033[1;33msed_is_for_losers\033[1;31m.\033[0m" << std::endl;
+	popo = file_name.c_str();
+	std::cout << file_name << std::endl;
+	std::cout << "popo " << popo;
     return (0);
 }
