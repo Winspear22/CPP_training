@@ -10,8 +10,16 @@
 class Sed
 {
 public:
+
+	std::string s1;
+	std::string s2;
+	std::ofstream ofs();
+	int size;
+
 	Sed(void);
 	~Sed(void);
+
+	bool ft_replace(Sed str);
 };
 
 #endif
