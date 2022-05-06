@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: user42 <user42@student.42.fr>              +#+  +:+       +#+         #
+#    By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/30 20:02:03 by adaloui           #+#    #+#              #
-#    Updated: 2022/05/01 16:46:28 by user42           ###   ########.fr        #
+#    Updated: 2022/05/06 20:33:46 by adaloui          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,10 +22,10 @@ all: $(NAME)
 $(NAME): $(SRCSDIR)/$(SRCS)
 	@echo "Compilation du programme $(NAME)"
 	@$(CC) $(FLAGS) -o $@ $^
-clean: 
+clean:
+	rm -Rf $(NAME)
 
 fclean: clean
-	@rm -Rf $(NAME)
 re: fclean all
 
 .PHONY: all clean fclean re

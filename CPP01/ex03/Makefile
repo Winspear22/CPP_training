@@ -6,7 +6,7 @@
 #    By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/29 20:08:50 by adaloui           #+#    #+#              #
-#    Updated: 2022/04/29 20:26:05 by adaloui          ###   ########.fr        #
+#    Updated: 2022/05/06 20:34:05 by adaloui          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,10 +22,10 @@ all: $(NAME)
 $(NAME): $(SRCSDIR)/$(SRCS)
 	@echo "Compilation du programme $(NAME)"
 	@$(CC) $(FLAGS) -o $@ $^
-clean: 
+clean:
+	rm -Rf $(NAME)
 
 fclean: clean
-	@rm -Rf $(NAME)
 re: fclean all
 
 .PHONY: all clean fclean re
