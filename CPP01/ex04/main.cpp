@@ -6,12 +6,38 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/30 20:02:39 by adaloui           #+#    #+#             */
-/*   Updated: 2022/05/06 20:08:28 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/05/06 20:17:31 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sed.hpp"
 #include <wait.h>
+
+	//	if (s1.length() == 1 && s2.length() >= 2)/* permet de pas tomber dans l'erreur p po --> infinite loop*/
+	//	{
+	//		one = s1.begin();
+	//		two = s2.begin(); /*les iterateur nous donnent la premiere lettre de chq string que l'on compare apres avoir mesurer leur longueur*/
+	//		if (*one == *two) /*on met * car il faut un pointeur*/
+	//		{
+	//			std::cout << "\033[1;31mError. Risks of infinite loop." << std::endl;
+	//			return (1);
+	//		}
+	//	}
+
+int ft_check_errors(char *argv1)
+{
+	if (argc != 4)
+	{
+		std::cout << "\033[1;31mError. Too much or not enough arguments. You have \033[1;33m" << argc << " \033[1;31myou need \033[1;33m4\033[1;31m.\033[0m" << std::endl;
+		return (1);
+	}
+	std::ifstream reading_file(argv1);
+	if (!reading_file)
+	{
+		std::cout << "\033[1;31mError. Cannot open the file \033[1;33m" << argv[1] << "\033[1;31m. Please create it with the command \033[1;33mtouch " << argv[1] << "\033[1;31m or give it the \033[1;33mappropriate rights\033[1;31m before using \033[1;33msed_is_for_losers\033[1;31m.\033[0m" << std::endl;
+		return (1);
+	}
+}
 
 int main(int argc, char **argv)
 {
@@ -32,18 +58,10 @@ int main(int argc, char **argv)
 	s2 = argv[3];
 	error = std::string::npos;
 	
-	if (argc == 4)
+	if (ft_check_errors(argv[1]) == 1)
+		return (1);
+	else
 	{
-	//	if (s1.length() == 1 && s2.length() >= 2)/* permet de pas tomber dans l'erreur p po --> infinite loop*/
-	//	{
-	//		one = s1.begin();
-	//		two = s2.begin(); /*les iterateur nous donnent la premiere lettre de chq string que l'on compare apres avoir mesurer leur longueur*/
-	//		if (*one == *two) /*on met * car il faut un pointeur*/
-	//		{
-	//			std::cout << "\033[1;31mError. Risks of infinite loop." << std::endl;
-	//			return (1);
-	//		}
-	//	}
 		std::ifstream reading_file(argv[1]);
 		if (!reading_file)
 		{
@@ -62,7 +80,6 @@ int main(int argc, char **argv)
 		}
 		while (getline(reading_file, tmp))
 		{
-			std::cout << "je suis la\n";
 			while (1) // boucle pour remplacer TOUTES les occurences, pa juste la premiere.
 			{
 				index = tmp.find(s1); // lorsqu'on atteint la find de la string, find renvoit npos, donc on break
@@ -81,11 +98,6 @@ int main(int argc, char **argv)
 		std::cout << "The character(s) \033[1;33m" << s1 << "\e[39m has successfully been replaced by \033[1;33m" << s2 << "\e[39m" << std::endl;
 		reading_file.close();
 		writing_file.close();
-	}
-	else
-	{
-		std::cout << "\033[1;31mError. Too much or not enough arguments. You have \033[1;33m" << argc << " \033[1;31myou need \033[1;33m4\033[1;31m.\033[0m" << std::endl;
-		return (1);
 	}
     return (0);
 }
