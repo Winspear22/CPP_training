@@ -3,40 +3,58 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/30 20:02:39 by adaloui           #+#    #+#             */
-/*   Updated: 2022/05/06 20:17:31 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/05/07 11:51:13 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sed.hpp"
-#include <wait.h>
+#include <iomanip>
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <cstring>
 
-	//	if (s1.length() == 1 && s2.length() >= 2)/* permet de pas tomber dans l'erreur p po --> infinite loop*/
-	//	{
-	//		one = s1.begin();
-	//		two = s2.begin(); /*les iterateur nous donnent la premiere lettre de chq string que l'on compare apres avoir mesurer leur longueur*/
-	//		if (*one == *two) /*on met * car il faut un pointeur*/
-	//		{
-	//			std::cout << "\033[1;31mError. Risks of infinite loop." << std::endl;
-	//			return (1);
-	//		}
-	//	}
-
-int ft_check_errors(char *argv1)
+int ft_check_argv_errors(char **argv, int argc)
 {
+	std::string is_empty;
+	std::string argv2;
+	std::string argv3;
+
 	if (argc != 4)
 	{
 		std::cout << "\033[1;31mError. Too much or not enough arguments. You have \033[1;33m" << argc << " \033[1;31myou need \033[1;33m4\033[1;31m.\033[0m" << std::endl;
 		return (1);
 	}
-	std::ifstream reading_file(argv1);
-	if (!reading_file)
+	std::ifstream file_test(argv[1]);
+	if (!file_test)
 	{
+		file_test.close();
 		std::cout << "\033[1;31mError. Cannot open the file \033[1;33m" << argv[1] << "\033[1;31m. Please create it with the command \033[1;33mtouch " << argv[1] << "\033[1;31m or give it the \033[1;33mappropriate rights\033[1;31m before using \033[1;33msed_is_for_losers\033[1;31m.\033[0m" << std::endl;
 		return (1);
 	}
+	getline(file_test, is_empty);
+	if (is_empty.length() == 0)
+	{
+		file_test.close();
+		std::cout << "\033[1;31mError. The file \033[1;33m" << argv[1] << " \033[1;31mcannot be empty. Please, \033[1;33mfill it with something.\033[0m" << std::endl;
+		return (1);
+	}
+	file_test.close();
+	argv2 = argv[2];
+	argv3 = argv[3];
+	if (argv2.length() == 0)
+	{
+		std::cout << "\033[1;31mError, you cannot have \033[1;33m" << "argv[2]" << " \033[1;31mempty." << std::endl;
+		return (1);
+	}
+	if (argv3.length() == 0)
+	{
+		std::cout << "\033[1;31mError, you cannot have \033[1;33m" << "argv[3]" << " \033[1;31mempty." << std::endl;
+		return (1);
+	}
+	return (0);
 }
 
 int main(int argc, char **argv)
@@ -46,11 +64,10 @@ int main(int argc, char **argv)
 	std::string s2;
 	std::string tmp;
 	std::string tmp_2;
-	std::string tmp_3;	
+	std::string tmp_3;
+	std::string is_empty;
 	std::size_t index;
 	std::size_t error;
-	std::string::iterator one;
-	std::string::iterator two;
 	
 	file_name = argv[1];
 	file_name = file_name + ".replace";
@@ -58,17 +75,13 @@ int main(int argc, char **argv)
 	s2 = argv[3];
 	error = std::string::npos;
 	
-	if (ft_check_errors(argv[1]) == 1)
+	if (ft_check_argv_errors(argv, argc) == 1)
 		return (1);
 	else
 	{
 		std::ifstream reading_file(argv[1]);
-		if (!reading_file)
-		{
-			std::cout << "\033[1;31mError. Cannot open the file \033[1;33m" << argv[1] << "\033[1;31m. Please create it with the command \033[1;33mtouch " << argv[1] << "\033[1;31m or give it the \033[1;33mappropriate rights\033[1;31m before using \033[1;33msed_is_for_losers\033[1;31m.\033[0m" << std::endl;
-			return (1);
-		}
 		std::ofstream	writing_file(file_name.c_str()); // on utilise c_str pour convertir le string en char *.
+
 		if (s1 == s2)
 		{
 			while(getline(reading_file, tmp)) // on ne peut pas faire tmp = reading file, car ifstream != string. Donc on utilise un getline.
