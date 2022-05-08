@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/30 20:02:39 by adaloui           #+#    #+#             */
-/*   Updated: 2022/05/08 19:11:42 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/05/08 20:55:07 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,6 @@ int main(int argc, char **argv)
 		s2 = argv[3];
 		std::ifstream reading_file(argv[1]);
 		std::ofstream	writing_file(file_name.c_str()); // on utilise c_str pour convertir le string en char *.
-
 		if (s1 == s2)
 		{
 			while(getline(reading_file, tmp)) // on ne peut pas faire tmp = reading file, car ifstream != string. Donc on utilise un getline.
@@ -95,16 +94,23 @@ int main(int argc, char **argv)
 			while (1) // boucle pour remplacer TOUTES les occurences, pa juste la premiere.
 			{
 				index = tmp.find(s1); // lorsqu'on atteint la find de la string, find renvoit npos, donc on break
+				std::cout << index << std::endl;
 				if (index == error)
 					break ;
 				else 
 				{
-					std::cout << "ICI\n";
 					tmp_2 = tmp.substr(0, index);
+				//	std::cout << "tmp.substr = " << tmp.substr(0, index) << std::endl;
+				//	std::cout << "tmp_2 = " << tmp_2 << std::endl;
 					tmp_2 = tmp_2 + s2;
+				//	std::cout << "tmp_2 = " << tmp_2 << std::endl;
 					tmp_3 = tmp.substr(index + s1.length(), tmp.length());
+					//std::cout << "index + s1 lengt " << index + s1.length() << std::endl;
+					//std::cout << "index = " << index << " s1 " << s1.length() << std::endl;
+					//std::cout << "tmp length " << tmp.length() << std::endl;
+					//std::cout << "tmp_3 = " << tmp_3 << std::endl;
 					tmp = tmp_2 + tmp_3;
-					//break ;
+					//std::cout << "final tmp = " << tmp;
 				}
 			}
 			writing_file << tmp;
