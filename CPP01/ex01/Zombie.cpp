@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 18:48:17 by adaloui           #+#    #+#             */
-/*   Updated: 2022/04/29 19:40:58 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/05/08 16:39:12 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Zombie::Zombie( void )
 Zombie::~Zombie( void )
 {
 	std::cout  << this->_name << ": ";
-	std::cout << "*Dies*" << std::endl;
+	std::cout << "*\033[1;31mDies\033[1;37m*" << std::endl;
 	return ;
 }
 
@@ -32,6 +32,6 @@ void Zombie::set_name( std::string name )
 void Zombie::announce( void )
 {
 	std::cout  << this->_name << ": ";
-	std::cout << "BraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout << "\033[1;32mBraiiiiiiinnnzzzZ...\033[1;37m" << std::endl;
 	return ;
 }

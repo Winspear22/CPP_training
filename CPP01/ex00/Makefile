@@ -6,12 +6,12 @@
 #    By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/29 16:33:10 by adaloui           #+#    #+#              #
-#    Updated: 2022/05/06 20:34:42 by adaloui          ###   ########.fr        #
+#    Updated: 2022/05/08 16:32:09 by adaloui          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME= Zombie
-SRCS= main.cpp Zombie.cpp randomChump.cpp newZombie.cpp 
+SRCS= main.cpp Zombie.cpp randomChump.cpp newZombie.cpp
 SRCSDIR = .
 
 CC= clang++
