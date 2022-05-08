@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/30 20:02:39 by adaloui           #+#    #+#             */
-/*   Updated: 2022/05/07 11:51:13 by user42           ###   ########.fr       */
+/*   Updated: 2022/05/08 19:11:42 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,16 +69,15 @@ int main(int argc, char **argv)
 	std::size_t index;
 	std::size_t error;
 	
-	file_name = argv[1];
-	file_name = file_name + ".replace";
-	s1 = argv[2];
-	s2 = argv[3];
 	error = std::string::npos;
-	
 	if (ft_check_argv_errors(argv, argc) == 1)
 		return (1);
 	else
 	{
+		file_name = argv[1];
+		file_name = file_name + ".replace";
+		s1 = argv[2];
+		s2 = argv[3];
 		std::ifstream reading_file(argv[1]);
 		std::ofstream	writing_file(file_name.c_str()); // on utilise c_str pour convertir le string en char *.
 
@@ -100,10 +99,12 @@ int main(int argc, char **argv)
 					break ;
 				else 
 				{
+					std::cout << "ICI\n";
 					tmp_2 = tmp.substr(0, index);
 					tmp_2 = tmp_2 + s2;
 					tmp_3 = tmp.substr(index + s1.length(), tmp.length());
 					tmp = tmp_2 + tmp_3;
+					//break ;
 				}
 			}
 			writing_file << tmp;

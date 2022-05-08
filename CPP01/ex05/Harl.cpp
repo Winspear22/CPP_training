@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 20:18:46 by adaloui           #+#    #+#             */
-/*   Updated: 2022/05/07 13:55:29 by user42           ###   ########.fr       */
+/*   Updated: 2022/05/08 19:50:13 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,16 +49,14 @@ void Harl::error( void )
 void Harl::complain( std::string level )
 {
 	int i;
+	std::string tab_level[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
 	i = 0;
-	void (Harl::*select[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-	std::string user_level[4] = {"debug", "info", "warning", "error"};
-
+	void (Harl::*level_selection[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 	while (i < 4)
 	{
-		if (level == user_level[i])
-			(this->*select[i])();
-		
+		if (level == tab_level[i])
+			(this->*level_selection[i])();
 		i++;
 	}
 	return ;

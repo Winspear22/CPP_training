@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 11:28:00 by adaloui           #+#    #+#             */
-/*   Updated: 2022/05/08 15:15:41 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/05/08 20:07:16 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void Harl::_normal_message( void )
 	std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 }
 
-Harl::choose_level Harl::_get_level_from_string( std::string level )
+Harl::_choose_level Harl::_get_level_from_string( std::string level )
 {
 	int i;
 	std::string all_level[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
@@ -64,7 +64,7 @@ Harl::choose_level Harl::_get_level_from_string( std::string level )
 	while (i < 4)
 	{
 		if (level == all_level[i])
-			return (choose_level(i));
+			return (_choose_level(i));
 		i++;
 	}
 	return (normal_message);
@@ -76,7 +76,7 @@ void Harl::complain( std::string level )
 	return ;
 }
 
-void Harl::_enum_pick_level( choose_level level)
+void Harl::_enum_pick_level( _choose_level level)
 {
 	if (level <= this->_all_level)
 	{
