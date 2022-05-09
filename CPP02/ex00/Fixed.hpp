@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 22:19:37 by adaloui           #+#    #+#             */
-/*   Updated: 2022/05/09 22:27:05 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/05/09 22:46:46 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ public:
 	void setRawBits( int const raw );
 private:
 	int _i;
-	static const int _bit;
+	static int _bit;
 };
 
 #endif
