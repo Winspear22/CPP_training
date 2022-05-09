@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 16:42:12 by adaloui           #+#    #+#             */
-/*   Updated: 2022/05/09 18:28:51 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/05/09 20:07:19 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,64 +65,32 @@ int Sed::ft_check_error(char **argv, int argc)
 }
 
 int Sed::ft_replace_file(char **argv)
-{
-    std::string tmp_2;
-    std::string tmp_3;
-	int i;
-    
+{    
     this->_file_name = argv[1];
 	this->_file_name = this->_file_name + ".replace";
 	this->_s1 = argv[2];
 	this->_s2 = argv[3];
-	this->_error = std::string::npos;
+	this->_index = 0;
+	this->_chg_msg = 0;
 	std::ifstream reading_file(argv[1]);
 	std::ofstream writing_file(this->_file_name.c_str());
-	i = 0;
-	
-	if (this->_s1 == this->_s2)
+
+	getline(reading_file, this->_result);
+	while (this->_index < this->_result.length())
 	{
-		while(getline(reading_file, this->_result))
-			writing_file << this->_result;
-		reading_file.close();
-		writing_file.close();
-		std::cout << "The character(s) \033[1;33m" << this->_s1 << "\e[39m has successfully been replaced by \033[1;33m" << this->_s2 << "\e[39m" << std::endl;	
-		return (0);
-	}
-	while (getline(reading_file, this->_result))
-	{
-		while (1)
+		if (this->_result.compare(this->_index, this->_s1.length(), this->_s1) == 0)
 		{
-			this->_index = this->_result.find(this->_s1);
-			//std::cout << this->_result << std::endl;
-			//std::cout << this->_index << std::endl;
-			if (i != 0 && this->_index == this->_error)
-				break ;
-			else if (i == 0 && this->_index == this->_error)
-			{
-				std::cout << "\033[1;37mCould not find \033[1;33m" << this->_s1 << ". \033[1;37mCopying \033[1;33m" << argv[1] << "\033[1;37m's content into \033[1;33m" << this->_file_name << std::endl; 
-				writing_file << this->_result;
-				reading_file.close();
-				writing_file.close();
-				return (0);
-			}
-			else 
-			{
-				tmp_2 = this->_result.substr(0, this->_index);
-				std::cout << "1 tmp_2 = " <<  tmp_2 << std::endl;
-			//	if (tmp_2 == this->_s2)
-					tmp_2 += this->_s2;
-				std::cout << "2 tmp_2 = " <<  tmp_2 << std::endl;
-				tmp_3 = this->_result.substr(this->_index + this->_s1.length(), this->_result.length());
-				std::cout << "tmp_3 = " << tmp_3 << std::endl;
-				std::cout << this->_s1.length() << std::endl;
-				std::cout << this->_index << std::endl;
-				this->_result = tmp_2 + tmp_3;
-			}
-			i++;
+			this->_chg_msg = 1;
+			this->_result.erase(this->_index, this->_s1.length());
+			this->_result.insert(this->_index, this->_s2);
 		}
-		writing_file << this->_result;
+		this->_index++;
 	}
-	std::cout << "The character(s) \033[1;33m" << this->_s1 << "\e[39m has successfully been replaced by \033[1;33m" << this->_s2 << "\e[39m" << std::endl;
+	writing_file << this->_result;
+	if (this->_chg_msg == 1)
+		std::cout << "The character(s) \033[1;33m" << this->_s1 << "\e[39m has successfully been replaced by \033[1;33m" << this->_s2 << "\e[39m" << std::endl;
+	else
+		std::cout << "\033[1;37mCould not find \033[1;33m" << this->_s1 << ". \033[1;37mCopying \033[1;33m" << argv[1] << "\033[1;37m's content into \033[1;33m" << this->_file_name << std::endl;
 	reading_file.close();
 	writing_file.close();
     return (0);

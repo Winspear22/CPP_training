@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 16:42:26 by adaloui           #+#    #+#             */
-/*   Updated: 2022/05/09 17:35:43 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/05/09 20:05:29 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ private:
 	std::string _s2;
 	std::string _result;
 	std::size_t _index;
-	std::size_t _error;
+	std::size_t _chg_msg;
 };
 
 #endif
