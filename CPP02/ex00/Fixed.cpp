@@ -6,13 +6,13 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 22:21:20 by adaloui           #+#    #+#             */
-/*   Updated: 2022/05/09 22:38:47 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/05/09 22:41:45 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed(void)
+Fixed::Fixed( void )
 {
 	std::cout << "Default constructor called" << std::endl;
     return ;
@@ -25,7 +25,7 @@ Fixed::Fixed( const Fixed & n )
 	return ;
 }
 
-Fixed::~Fixed(void)
+Fixed::~Fixed( void )
 {
 	std::cout << "Destructor called" << std::endl;
     return ;
