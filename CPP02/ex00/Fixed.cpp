@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 22:21:20 by adaloui           #+#    #+#             */
-/*   Updated: 2022/05/09 22:47:51 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/05/13 01:40:21 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 Fixed::Fixed( void )
 {
 	this->_i = 0;
-	//this->_bit = 8;
 	std::cout << "Default constructor called" << std::endl;
     return ;
 }

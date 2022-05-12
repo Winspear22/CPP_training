@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 22:19:37 by adaloui           #+#    #+#             */
-/*   Updated: 2022/05/09 22:46:46 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/05/13 01:31:26 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ public:
 	void setRawBits( int const raw );
 private:
 	int _i;
-	static int _bit;
+	static const int _bit = 8;
 };
 
 #endif
