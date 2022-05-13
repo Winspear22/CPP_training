@@ -6,12 +6,16 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 16:15:31 by adaloui           #+#    #+#             */
-/*   Updated: 2022/05/13 16:17:07 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/05/13 16:41:33 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FIXED_HPP
 # define FIXED_HPP
+
+# define SUCCESS true
+# define FAILURE false
+
 
 # include <iomanip>
 # include <iostream>
