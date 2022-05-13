@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/13 16:00:41 by adaloui           #+#    #+#             */
+/*   Updated: 2022/05/13 16:00:43 by adaloui          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FIXED_HPP
 # define FIXED_HPP
 
@@ -37,6 +49,12 @@ public:
 	void setRawBits( int const raw );
 	float toFloat( void ) const;
 	int toInt( void ) const;
+
+	static Fixed & min( Fixed & lhs, Fixed & rhs );
+	static const Fixed & min( const Fixed & lhs, const Fixed & rhs );
+	static Fixed & max( Fixed & lhs, Fixed & rhs );
+	static const Fixed & max( const Fixed & lhs, const Fixed & rhs );
+
 private:
 	int _i;
 	static const int _bit = 8;

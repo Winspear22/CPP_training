@@ -1,46 +1,50 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/13 15:59:43 by adaloui           #+#    #+#             */
+/*   Updated: 2022/05/13 16:11:56 by adaloui          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Fixed.hpp"
 
 Fixed::Fixed( void )
 {
 	this->_i = 0;
-	std::cout << "Default constructor called" << std::endl;
     return ;
 }
 
 Fixed::Fixed( const int i )
 {
-			
-	std::cout << "Int constructor called" << std::endl;
-		this->_i = i << this->_bit;
+	this->_i = i << this->_bit;
 	return;
 }
 
 Fixed::Fixed( const float j )
 {
 	int power = ft_pow(2, this->_bit);
-
 			
-	std::cout << "Float constructor called" << std::endl;
 	this->_i = roundf(j * power);
 	return ;
 }
 
 Fixed::Fixed( const Fixed & n )
 {
-	std::cout << "Copy constructor called" << std::endl;
 	*this = n;
 	return ;
 }
 
 Fixed::~Fixed( void )
 {
-	std::cout << "Destructor called" << std::endl;
     return ;
 }
 
 Fixed & Fixed::operator=( Fixed const & rhs )
 {
-	std::cout << "Copy assignement operator called" << std::endl;
 	if ( this != &rhs )
 		this->_i = rhs._i;
 	return (*this);
@@ -48,7 +52,6 @@ Fixed & Fixed::operator=( Fixed const & rhs )
 
 int Fixed::getRawBits( void ) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
 	return (this->_i);
 }
 
@@ -65,8 +68,10 @@ int Fixed::toInt( void ) const
 
 int		ft_pow(int val, int pow)
 {
-	int		i = 0;
+	int		i;
 	int		result;
+
+	i = 0;
 	result = 1;
 	while (i < pow)
 	{
@@ -78,10 +83,125 @@ int		ft_pow(int val, int pow)
 
 float Fixed::toFloat( void ) const
 {
-	int power = ft_pow(2, this->_bit);
-	float	result = (float)this->_i / power;
-	return (result);}
+	int power;
+	float result;
 
+	power = ft_pow(2, this->_bit);
+	result = (float)this->_i / power;
+	return (result);
+}
+
+bool Fixed::operator>( Fixed const & rhs ) const
+{
+	return ( this->getRawBits() > rhs.getRawBits() );
+}
+
+bool Fixed::operator<( Fixed const & rhs ) const
+{
+	return ( this->getRawBits() < rhs.getRawBits() );
+}
+
+bool Fixed::operator>=( Fixed const & rhs ) const
+{
+	return ( this->getRawBits() >= rhs.getRawBits() );
+}
+
+bool Fixed::operator<=( Fixed const & rhs ) const
+{
+	return ( this->getRawBits() <= rhs.getRawBits() );
+}
+
+bool Fixed::operator!=( Fixed const & rhs ) const
+{
+	return ( this->getRawBits() == rhs.getRawBits() );
+}
+
+bool Fixed::operator==( Fixed const & rhs ) const
+{
+	return (rhs != *this);
+}
+	
+Fixed Fixed::operator+( Fixed const & rhs ) const
+{
+	return Fixed( this->getRawBits() + rhs.getRawBits());
+}
+
+Fixed Fixed::operator-( Fixed const & rhs ) const
+{
+	return Fixed( this->getRawBits() - rhs.getRawBits());
+}
+
+Fixed Fixed::operator*( Fixed const & rhs ) const
+{
+	return Fixed( this->toFloat() * rhs.toFloat());
+}
+
+Fixed Fixed::operator/( Fixed const & rhs ) const
+{
+	return Fixed( this->getRawBits() / rhs.getRawBits());
+}
+
+Fixed & Fixed::operator++( void )
+{
+	this->_i++;
+	return (*this);
+}
+
+Fixed & Fixed::operator--( void )
+{
+	this->_i--;
+	return (*this);
+}
+
+Fixed Fixed::operator++( int )
+{
+	Fixed tmp;
+
+	tmp = *this;
+	++*this;
+	return (tmp);
+}
+
+Fixed Fixed::operator--( int )
+{
+	Fixed tmp;
+
+	tmp = *this;
+	--*this;
+	return (tmp);
+}
+
+Fixed & Fixed::min( Fixed & lsh, Fixed & rhs )
+{
+	if (lsh < rhs)
+		return (lsh);
+	else
+		return (rhs);
+}
+
+const Fixed & Fixed::min( const Fixed & lsh, const Fixed & rhs )
+{
+	if (lsh < rhs)
+		return (lsh);
+	else
+		return (rhs);
+}
+
+Fixed & Fixed::max( Fixed & lsh, Fixed & rhs )
+{
+	if (lsh > rhs)
+		return (lsh);
+	else
+		return (rhs);
+}
+
+const Fixed & Fixed::max( const Fixed & lsh, const Fixed & rhs )
+{
+	if (lsh > rhs)
+		return (lsh);
+	else
+		return (rhs);
+}
 
 std::ostream & operator<<( std::ostream & o, Fixed const & rhs )
 {
