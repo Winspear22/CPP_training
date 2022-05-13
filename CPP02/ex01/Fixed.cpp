@@ -9,11 +9,19 @@ Fixed::Fixed( void )
 
 Fixed::Fixed( const int i )
 {
-	return ;
+			
+	std::cout << "Int constructor called" << std::endl;
+		this->_i = i << this->_bit;
+	return;
 }
 
 Fixed::Fixed( const float j )
 {
+	int power = ft_pow(2, this->_bit);
+
+			
+	std::cout << "Float constructor called" << std::endl;
+	this->_i = roundf(j * power);
 	return ;
 }
 
@@ -48,4 +56,35 @@ void Fixed::setRawBits( int const raw )
 {
 	this->_i = raw;
 	return ;
+}
+
+int Fixed::toInt( void ) const
+{
+	return (this->_i >> this->_bit);
+}
+
+int		ft_pow(int val, int pow)
+{
+	int		i = 0;
+	int		result;
+	result = 1;
+	while (i < pow)
+	{
+		result *= val;
+		i++;
+	}
+	return (result);
+}
+
+float Fixed::toFloat( void ) const
+{
+	int power = ft_pow(2, this->_bit);
+	float	result = (float)this->_i / power;
+	return (result);}
+
+
+std::ostream & operator<<( std::ostream & o, Fixed const & rhs )
+{
+	o << rhs.toFloat();
+	return (o);
 }
