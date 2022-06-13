@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 22:19:37 by adaloui           #+#    #+#             */
-/*   Updated: 2022/06/11 12:58:29 by user42           ###   ########.fr       */
+/*   Updated: 2022/06/13 16:29:35 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class Fixed
 {
 public:
-    Fixed( void );
+    Fixed( void ); 
 	Fixed( const Fixed & n );
     ~Fixed( void );
 

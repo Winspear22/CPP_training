@@ -6,26 +6,34 @@
 #    By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/13 16:00:05 by adaloui           #+#    #+#              #
-#    Updated: 2022/05/13 16:00:07 by adaloui          ###   ########.fr        #
+#    Updated: 2022/06/13 16:33:29 by adaloui          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME= on_peut_parler
 SRCS= main.cpp Fixed.cpp
-SRCSDIR = .
+INCLUDE = Fixed.hpp
+
+OBJS		=		$(SRCS:.cpp=.o)
+DEPS		=		$(SRCS:.cpp=.d)
 
 CC= c++
 FLAGS= -Wall -Wextra -Werror -std=c++98
 
+%.o:				%.cpp
+	@$(CC) $(CFLAGS) -MMD -MP -c $< -o $@ -I $(INCLUDE)
+
 all: $(NAME)
 
-$(NAME): $(SRCSDIR)/$(SRCS)
+$(NAME): $(OBJS)
 	@echo "Compilation du programme $(NAME)"
-	$(CC) $(FLAGS) -o $@ $^
+	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 clean:
-	rm -Rf $(NAME)
+	rm -Rf $(OBJS) $(DEPS)
 
 fclean: clean
+	rm -Rf $(NAME)
 re: fclean all
 
+-include $(DEPS)
 .PHONY: all clean fclean re
