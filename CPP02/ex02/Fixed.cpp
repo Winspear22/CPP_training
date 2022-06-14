@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 15:59:43 by adaloui           #+#    #+#             */
-/*   Updated: 2022/06/14 23:01:55 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/06/15 00:23:35 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,14 +174,6 @@ Fixed & Fixed::min( Fixed & lsh, Fixed & rhs )
 		return (rhs);
 }
 
-const Fixed & Fixed::min( const Fixed & lsh, const Fixed & rhs )
-{
-	if (lsh < rhs)
-		return (lsh);
-	else
-		return (rhs);
-}
-
 Fixed & Fixed::max( Fixed & lsh, Fixed & rhs )
 {
 	if (lsh > rhs)
@@ -193,6 +185,14 @@ Fixed & Fixed::max( Fixed & lsh, Fixed & rhs )
 const Fixed & Fixed::max( const Fixed & lsh, const Fixed & rhs )
 {
 	if (lsh > rhs)
+		return (lsh);
+	else
+		return (rhs);
+}
+
+const Fixed & Fixed::min( const Fixed & lsh, const Fixed & rhs )
+{
+	if (lsh < rhs)
 		return (lsh);
 	else
 		return (rhs);
