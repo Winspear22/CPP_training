@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 22:19:37 by adaloui           #+#    #+#             */
-/*   Updated: 2022/06/13 16:29:35 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/06/13 16:52:28 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ public:
     Fixed( void ); 
 	Fixed( const Fixed & n );
     ~Fixed( void );
-
 	Fixed & operator=( Fixed const & rhs );
 
 	int getRawBits( void ) const;
