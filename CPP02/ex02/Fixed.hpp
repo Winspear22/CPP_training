@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 16:00:41 by adaloui           #+#    #+#             */
-/*   Updated: 2022/06/13 16:35:19 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/06/14 22:52:33 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ class Fixed
 public:
 
     Fixed( void );
-	Fixed( const int i );
-	Fixed( const float j );
 	Fixed( const Fixed & n );
     ~Fixed( void );
 	Fixed & operator=( Fixed const & rhs );
-	
+	Fixed( const int i );
+	Fixed( const float j );
+
 	bool operator>( Fixed const & rhs ) const;
 	bool operator<( Fixed const & rhs ) const;
 	bool operator>=( Fixed const & rhs ) const;
@@ -61,6 +61,6 @@ private:
 };
 
 std::ostream & operator<<( std::ostream & o, Fixed const & rhs );
-int				ft_pow(int val, int pow);
+int				ft_power(int nb, int power);
 
 #endif

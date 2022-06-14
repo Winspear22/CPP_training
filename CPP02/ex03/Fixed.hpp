@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 16:15:31 by adaloui           #+#    #+#             */
-/*   Updated: 2022/06/13 16:34:17 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/06/14 22:46:55 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FIXED_HPP
 
 # define SUCCESS true
-# define FAILURE false        
+# define FAILURE false
 
 
 # include <iomanip>
@@ -66,6 +66,6 @@ private:
 };
 
 std::ostream & operator<<( std::ostream & o, Fixed const & rhs );
-int				ft_pow(int val, int pow);
+int				ft_power(int nb, int power);
 
 #endif

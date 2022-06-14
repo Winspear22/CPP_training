@@ -6,30 +6,15 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 15:59:43 by adaloui           #+#    #+#             */
-/*   Updated: 2022/05/13 16:11:56 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/06/14 23:01:55 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed( void )
+Fixed::Fixed( void ): _i(0)
 {
-	this->_i = 0;
     return ;
-}
-
-Fixed::Fixed( const int i )
-{
-	this->_i = i << this->_bit;
-	return;
-}
-
-Fixed::Fixed( const float j )
-{
-	int power = ft_pow(2, this->_bit);
-			
-	this->_i = roundf(j * power);
-	return ;
 }
 
 Fixed::Fixed( const Fixed & n )
@@ -50,6 +35,21 @@ Fixed & Fixed::operator=( Fixed const & rhs )
 	return (*this);
 }
 
+Fixed::Fixed( const int i )
+{
+	this->_i = i << this->_bit;
+	return;
+}
+
+Fixed::Fixed( const float j )
+{
+	int power;
+	
+	power = ft_power(2, this->_bit);
+	this->_i = roundf(j * power);
+	return ;
+}
+
 int Fixed::getRawBits( void ) const
 {
 	return (this->_i);
@@ -66,29 +66,24 @@ int Fixed::toInt( void ) const
 	return (this->_i >> this->_bit);
 }
 
-int		ft_pow(int val, int pow)
+int		ft_power(int nb, int power)
 {
-	int		i;
-	int		result;
+	int		new_nb;
 
-	i = 0;
-	result = 1;
-	while (i < pow)
-	{
-		result *= val;
-		i++;
-	}
-	return (result);
+	new_nb = 1;
+	while (power--)
+		new_nb *= nb;
+	return (new_nb);
 }
 
 float Fixed::toFloat( void ) const
 {
-	int power;
-	float result;
-
-	power = ft_pow(2, this->_bit);
-	result = (float)this->_i / power;
-	return (result);
+	int		power;
+	float	float_result;
+	 
+	power = ft_power(2, this->_bit);
+	float_result = (float)this->_i / power;
+	return (float_result);
 }
 
 bool Fixed::operator>( Fixed const & rhs ) const
