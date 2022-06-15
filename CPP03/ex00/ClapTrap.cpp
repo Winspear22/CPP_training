@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/15 00:57:59 by adaloui           #+#    #+#             */
+/*   Updated: 2022/06/15 02:06:04 by adaloui          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap( std::string name ): _hit_points(10), _energy_points(10), _attack_damage(0)
@@ -10,11 +22,10 @@ ClapTrap::ClapTrap( std::string name ): _hit_points(10), _energy_points(10), _at
 ClapTrap::ClapTrap( ClapTrap & copy )
 {
 	std::cout << "\033[1;33mCopy constructor called\033[0m" << std::endl;
-    (void)copy;
-/*	this->_name = copy.getName();
-	this->_hit_points = copy.getHp();
+	this->_name = copy.getName();
+	this->_attack_damage = copy.getDmg();
 	this->_energy_points = copy.getEnergy();
-	this->_attack_damage = copy.getDmg();*/
+	this->_hit_points = copy.getHp();
 	return ;
 }
 
@@ -73,7 +84,7 @@ void ClapTrap::attack( const std::string & target )
 	<< target << "\033[0m, causing \033[1;32m"
 	<< this->_attack_damage << "\033[0m points of damage! " << std::endl;
 	std::cout << "You have lost 1 point of energy." << std::endl;
-	setEnergy(_energy_points - 1);
+	setEnergy(this->_energy_points - 1);
 	return ;
 }
 
@@ -87,7 +98,7 @@ void ClapTrap::tank( unsigned int amount )
 	}
 	std::cout << "ClapTrap \033[1;32m" << this->_name << "\033[0m tanks \033[1;32m" << amount
 	<< "\033[0m of damages on his HP." << std::endl;
-	this->_hit_points = this->_hit_points - amount;
+	setHp(this->_hit_points - amount);
 	return ;
 }
 
@@ -100,6 +111,6 @@ void ClapTrap::heal( unsigned int amount )
 	}
 	std::cout << "ClapTrap \033[1;32m" << this->_name << "\033[0m heals \033[1;32m" << amount << "\033[0m of HP" << std::endl;
 	std::cout << "You have lost 1 point of energy." << std::endl;
-	setEnergy(_energy_points - 1);
+	setEnergy(this->_energy_points - amount);
 	return ;
 }

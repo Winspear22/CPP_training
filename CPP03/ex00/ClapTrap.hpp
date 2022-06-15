@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/15 00:57:46 by adaloui           #+#    #+#             */
+/*   Updated: 2022/06/15 02:23:30 by adaloui          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CLAPTRAP_HPP
 # define CLAPTRAP_HPP
 
@@ -29,5 +41,8 @@ private:
 	int			_energy_points;
 	int			_attack_damage;
 };
+
+std::string ft_append_string(std::string str);
+void	ft_print_tab(ClapTrap & genin, ClapTrap & genin_2, ClapTrap & jonin, ClapTrap & enemy);
 
 #endif
