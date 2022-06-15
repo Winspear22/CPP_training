@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 00:57:59 by adaloui           #+#    #+#             */
-/*   Updated: 2022/06/15 02:06:04 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/06/15 02:45:58 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,27 +75,16 @@ void ClapTrap::setEnergy( int amount )
 
 void ClapTrap::attack( const std::string & target )
 {
-	if (this->_energy_points <= 0)
-	{
-		std::cout << "Error, you don't have enough energy to attack." << std::endl;
-		return ;
-	}
 	std::cout << "ClapTrap \033[1;32m" << this->_name << "\033[0m attacks \033[1;37m"
 	<< target << "\033[0m, causing \033[1;32m"
 	<< this->_attack_damage << "\033[0m points of damage! " << std::endl;
-	std::cout << "You have lost 1 point of energy." << std::endl;
+	std::cout << this->getName() << " \033[1;32m1 point of energy.\033[0m" << std::endl;
 	setEnergy(this->_energy_points - 1);
 	return ;
 }
 
 void ClapTrap::tank( unsigned int amount )
 {
-	if (this->_hit_points <= 0)
-	{
-		std::cout << "Your HP are " << this->_hit_points << std::endl;
-		std::cout << "Your ClapTrat \033[1;32m" << this->_name << "\033[0m died." << std::endl;
-		return ;
-	}
 	std::cout << "ClapTrap \033[1;32m" << this->_name << "\033[0m tanks \033[1;32m" << amount
 	<< "\033[0m of damages on his HP." << std::endl;
 	setHp(this->_hit_points - amount);
@@ -104,13 +93,8 @@ void ClapTrap::tank( unsigned int amount )
 
 void ClapTrap::heal( unsigned int amount )
 {
-	if (this->_energy_points <= 0)
-	{
-		std::cout << "Error, you don't have enough energy to heal." << std::endl;
-		return ;
-	}
 	std::cout << "ClapTrap \033[1;32m" << this->_name << "\033[0m heals \033[1;32m" << amount << "\033[0m of HP" << std::endl;
-	std::cout << "You have lost 1 point of energy." << std::endl;
+	std::cout << this->getName() << " has lost \033[1;32m1 point of energy.\033[0m" << std::endl;
 	setEnergy(this->_energy_points - amount);
 	return ;
 }
