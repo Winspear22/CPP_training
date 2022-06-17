@@ -6,18 +6,23 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 16:46:35 by adaloui           #+#    #+#             */
-/*   Updated: 2022/06/17 18:04:39 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/06/17 19:32:59 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+
 
 int main( void )
 {
     ClapTrap Naruto("Naruto");
     ClapTrap Sasuke( Naruto );
+	ScavTrap Sakura("Sakura");
+	ScavTrap Kakashi( Sakura );
 	
 	Sasuke.setname("Sasuke");
+	Kakashi.setname("Kakashi");
 	std::cout << "\033[1;31mEnergy level of Naruto : \033[m" << Naruto.getmana() << std::endl;
 	std::cout << "\033[1;31mEnergy level of Sasuke : \033[m" << Sasuke.getmana() << std::endl;
 	Naruto.attack("Orochimaru");

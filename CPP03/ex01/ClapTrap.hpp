@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 16:17:34 by adaloui           #+#    #+#             */
-/*   Updated: 2022/06/17 18:11:36 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/06/17 19:32:54 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 class ClapTrap
 {
 public:
+    ClapTrap( void );
     ClapTrap( std::string name );
     ClapTrap( const ClapTrap & copy);
     ~ClapTrap( void );
@@ -28,16 +29,16 @@ public:
     void takeDamage( unsigned int amount );
     void beRepaired( unsigned int amount );
 
-    std::string getname( void );
-    int gethp( void );
-    int getmana( void );
-    int getdmg( void );
+    std::string getname( void ) const;
+    int gethp( void ) const;
+    int getmana( void ) const;
+    int getdmg( void ) const;
 	void sethp( int i );
     void setmana( int i );
     void setdmg( int i );
     void setname( std::string new_name );
     
-private:
+protected:
     std::string _name;
     int _Hit_points;
     int _Energy_points;

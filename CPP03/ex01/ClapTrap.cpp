@@ -6,60 +6,66 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 16:17:36 by adaloui           #+#    #+#             */
-/*   Updated: 2022/06/17 18:08:13 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/06/17 19:30:19 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap( std::string name ): _name(name), _Hit_points(10), _Energy_points(10), _Attack_damage(0)
+
+ClapTrap::ClapTrap( void )
 {
-    std::cout << "Constructor called" << std::endl;
+    std::cout << "ClapTrap Constructor called lolo" << std::endl;
+}
+
+ClapTrap::ClapTrap( std::string name ): _name(name), _Hit_points(100), _Energy_points(50), _Attack_damage(20)
+{
+    std::cout << "ClapTrap Constructor called popo" << std::endl;
     return ;
 }
 
 ClapTrap::ClapTrap( const ClapTrap & copy )
 {
-    std::cout << "Copy Constructor called" << std::endl;
+    std::cout << "ClapTrap Copy Constructor called" << std::endl;
     *this = copy;
     return ;
 }
 
 ClapTrap::~ClapTrap( void )
 {
-    std::cout << "Destructor called" << std::endl;
+    std::cout << "ClapTrap Destructor called" << std::endl;
     return ;
 }
 
 ClapTrap & ClapTrap::operator=( ClapTrap const & rhs )
 {
-    std::cout << "Copy assignment operator called" << std::endl;
+    std::cout << "ClapTrap Copy assignment operator called" << std::endl;
     if ( this != &rhs )
     {
-		this->_name = rhs._name;
-        this->_Hit_points = rhs._Hit_points;
-        this->_Energy_points = rhs._Energy_points;
-        this->_Attack_damage = rhs._Attack_damage;
+		this->_name = rhs.getname();
+        this->_Hit_points = rhs.gethp();
+        this->_Energy_points = rhs.getmana();
+        this->_Attack_damage = rhs.getdmg();
     }
 	return (*this);
 }
 
-std::string ClapTrap::getname( void )
+std::string ClapTrap::getname( void ) const
 {
     return (this->_name);
 }
 
-int ClapTrap::gethp( void )
+int ClapTrap::gethp( void ) const
 {
     return (this->_Hit_points);
 }
 
-int ClapTrap::getmana( void )
+int ClapTrap::getmana( void ) const
 {
     return (this->_Energy_points);
 }
 
-int ClapTrap::getdmg( void )
+int ClapTrap::getdmg( void ) const
 {
     return (this->_Attack_damage);
 }
