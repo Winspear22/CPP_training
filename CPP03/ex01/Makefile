@@ -5,13 +5,13 @@
 #                                                     +:+ +:+         +:+      #
 #    By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/06/13 16:23:45 by adaloui           #+#    #+#              #
-#    Updated: 2022/06/15 03:16:58 by adaloui          ###   ########.fr        #
+#    Created: 2022/06/17 17:29:45 by adaloui           #+#    #+#              #
+#    Updated: 2022/06/17 18:11:05 by adaloui          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME= ScavTrap
-SRCS= main.cpp ClapTrap.cpp ScavTrap.cpp
+NAME= ClapTrap
+SRCS= main.cpp ClapTrap.cpp
 INCLUDE = ClapTrap.hpp
 
 OBJS		=		$(SRCS:.cpp=.o)

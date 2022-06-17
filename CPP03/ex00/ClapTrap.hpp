@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 00:57:46 by adaloui           #+#    #+#             */
-/*   Updated: 2022/06/15 02:23:30 by adaloui          ###   ########.fr       */
+/*   Created: 2022/06/17 16:17:34 by adaloui           #+#    #+#             */
+/*   Updated: 2022/06/17 18:11:36 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,29 +20,28 @@ class ClapTrap
 {
 public:
     ClapTrap( std::string name );
-    ClapTrap( ClapTrap & copy );
+    ClapTrap( const ClapTrap & copy);
     ~ClapTrap( void );
     ClapTrap & operator=( ClapTrap const & rhs );
 
-	void 	attack( const std::string & target );
-	void 	tank( unsigned int amount );
-	void 	heal( unsigned int amount );
-	int		getHp( void );
-	int		getDmg( void );
-	int 	getEnergy( void );
-	std::string getName( void );
-	void	setHp( int amount );
-	void	setDmg( int amount );
-	void	setEnergy( int amount );
+    void attack( const std::string & target );
+    void takeDamage( unsigned int amount );
+    void beRepaired( unsigned int amount );
 
+    std::string getname( void );
+    int gethp( void );
+    int getmana( void );
+    int getdmg( void );
+	void sethp( int i );
+    void setmana( int i );
+    void setdmg( int i );
+    void setname( std::string new_name );
+    
 private:
     std::string _name;
-    int			_hit_points;
-	int			_energy_points;
-	int			_attack_damage;
+    int _Hit_points;
+    int _Energy_points;
+    int _Attack_damage;
 };
-
-std::string ft_append_string(std::string str);
-void	ft_print_tab(ClapTrap & genin, ClapTrap & genin_2, ClapTrap & jonin, ClapTrap & enemy);
 
 #endif
