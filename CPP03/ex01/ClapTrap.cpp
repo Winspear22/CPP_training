@@ -6,21 +6,20 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 16:17:36 by adaloui           #+#    #+#             */
-/*   Updated: 2022/06/17 19:30:19 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/06/17 20:16:58 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-
 ClapTrap::ClapTrap( void )
 {
-    std::cout << "ClapTrap Constructor called lolo" << std::endl;
+    std::cout << "ClapTrap/ScavTrap Constructor called" << std::endl;
 }
 
-ClapTrap::ClapTrap( std::string name ): _name(name), _Hit_points(100), _Energy_points(50), _Attack_damage(20)
+ClapTrap::ClapTrap( std::string name ): _name(name), _Hit_points(10), _Energy_points(10), _Attack_damage(0)
 {
-    std::cout << "ClapTrap Constructor called popo" << std::endl;
+    std::cout << "ClapTrap only Constructor called" << std::endl;
     return ;
 }
 
@@ -98,7 +97,7 @@ void ClapTrap::attack( const std::string & target )
         return ;
     }
 	std::cout << "\033[0;36mClapTrap \e[92m" << getname() << "\033[0;36m attacks " << target << " causing \e[91m" << this->_Attack_damage << " \033[0;36mpoints of damage!\033[m" <<std::endl;
-	setmana(this->_Energy_points - 1);
+	this->setmana(this->_Energy_points - 1);
 }
 
 void ClapTrap::takeDamage( unsigned int amount )

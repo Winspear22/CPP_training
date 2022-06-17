@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 16:17:34 by adaloui           #+#    #+#             */
-/*   Updated: 2022/06/17 19:32:54 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/06/17 19:57:11 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class ClapTrap
 {
 public:
-    ClapTrap( void );
+	ClapTrap( void );
     ClapTrap( std::string name );
     ClapTrap( const ClapTrap & copy);
     ~ClapTrap( void );
