@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 16:17:36 by adaloui           #+#    #+#             */
-/*   Updated: 2022/06/17 18:08:13 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/08/31 15:46:58 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ void ClapTrap::attack( const std::string & target )
         std::cout << "The ClapTrap \e[92m" << getname() << " has no energy." << std::endl;
         return ;
     }
+    
 	std::cout << "\033[0;36mClapTrap \e[92m" << getname() << "\033[0;36m attacks " << target << " causing \e[91m" << this->_Attack_damage << " \033[0;36mpoints of damage!\033[m" <<std::endl;
 	setmana(this->_Energy_points - 1);
 }
