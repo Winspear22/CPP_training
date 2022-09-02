@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 13:13:49 by adaloui           #+#    #+#             */
-/*   Updated: 2022/09/02 01:32:52 by user42           ###   ########.fr       */
+/*   Updated: 2022/09/02 15:17:02 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ public:
 	void sethp( int i );
     void setmana( int i );
     void setdmg( int i );
-	
 
 protected:
 	std::string _name;

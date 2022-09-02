@@ -6,11 +6,11 @@
 #    By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/31 13:11:13 by adaloui           #+#    #+#              #
-#    Updated: 2022/08/31 16:09:37 by adaloui          ###   ########.fr        #
+#    Updated: 2022/09/02 14:39:50 by adaloui          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME= ClapTrap
+NAME= ScavTrap
 SRCS= main.cpp ClapTrap.cpp ScavTrap.cpp
 INCLUDE= ClapTrap.hpp
 
