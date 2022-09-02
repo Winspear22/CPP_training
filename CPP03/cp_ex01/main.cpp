@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 13:13:52 by adaloui           #+#    #+#             */
-/*   Updated: 2022/08/31 15:36:12 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/09/02 02:46:32 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 void characters_data( ClapTrap & claptrap )
 {
@@ -33,51 +34,7 @@ void characters_data( ClapTrap & claptrap )
 int main( void )
 {
 	ClapTrap original_claptrap("Naruto");
-	ClapTrap copy_claptrap(original_claptrap);
-	ClapTrap copy_two_ct("Sasuke");
+	ScavTrap Sakura("Sakura");
 	
-	copy_two_ct = original_claptrap;
-	copy_two_ct.setname("Sasuke");
-	copy_claptrap.setname("Naruto's clone");
-	std::cout << std::endl;
-	characters_data( original_claptrap );
-	characters_data( copy_claptrap );
-	characters_data( copy_two_ct );
-	std::cout << std::endl;
-	original_claptrap.attack("Orochimaru");
-	copy_claptrap.attack("Orochimaru");
-	copy_two_ct.attack("Orochimaru");
-	
-	std::cout << std::endl;
-	characters_data( original_claptrap );
-	characters_data( copy_claptrap );
-	characters_data( copy_two_ct );
-	std::cout << std::endl;
-
-	original_claptrap.takeDamage(1);
-	copy_claptrap.takeDamage(10);
-	copy_two_ct.takeDamage(1);
-	
-	std::cout << std::endl;
-	characters_data( original_claptrap );
-	characters_data( copy_claptrap );
-	characters_data( copy_two_ct );
-	std::cout << std::endl;
-
-	original_claptrap.beRepaired(1);
-	copy_claptrap.beRepaired(1);
-	copy_two_ct.beRepaired(1);
-
-	std::cout << "\033[1;33mSetting Naruto's energy points to 0\033[0m." << std::endl;
-	original_claptrap.setmana(0);
-	std::cout << std::endl;
-	characters_data( original_claptrap );
-	characters_data( copy_claptrap );
-	characters_data( copy_two_ct );
-	std::cout << std::endl;
-
-	original_claptrap.attack("Orochimaru");
-	copy_claptrap.attack("Orochimaru");
-	copy_two_ct.attack("Orochimaru");
 	return (0);
 }

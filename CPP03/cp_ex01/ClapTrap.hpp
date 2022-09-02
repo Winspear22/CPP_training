@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 13:13:49 by adaloui           #+#    #+#             */
-/*   Updated: 2022/08/31 14:35:40 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/09/02 01:32:52 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 class ClapTrap
 {
 public:
+	ClapTrap( void );
 	ClapTrap( std::string name );
 	ClapTrap( const ClapTrap & copy );
 	~ClapTrap( void );
@@ -38,7 +39,7 @@ public:
     void setdmg( int i );
 	
 
-private:
+protected:
 	std::string _name;
 	int _Hit_points;
 	int _Energy_points;

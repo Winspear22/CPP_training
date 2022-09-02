@@ -3,37 +3,44 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 13:13:40 by adaloui           #+#    #+#             */
-/*   Updated: 2022/08/31 15:41:06 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/09/02 01:36:24 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
+
+ClapTrap::ClapTrap( void )
+{
+	std::cout << "\033[0;32mClapTrap Constructor called.\033[0m" << std::endl;
+	return ;
+}
+
 ClapTrap::ClapTrap( std::string name ): _name(name), _Hit_points(10), _Energy_points(10), _Attack_damage(0)
 {
-	std::cout << "\033[0;32mConstructor called.\033[0m" << std::endl;
+	std::cout << "\033[0;32mClapTrap Constructor called.\033[0m" << std::endl;
 	return ;
 }
 
 ClapTrap::ClapTrap( const ClapTrap & copy )
 {
-	std::cout << "\033[0;33mCopy Constructor called.\033[0m" << std::endl;
+	std::cout << "\033[0;33mClapTrap Copy Constructor called.\033[0m" << std::endl;
     *this = copy;
 	return ;
 }
 
 ClapTrap::~ClapTrap( void )
 {
-	std::cout << "\033[0;32mDestructor called.\033[0m" << std::endl;
+	std::cout << "\033[0;32mClapTrap Destructor called.\033[0m" << std::endl;
 	return ;
 }
 
 ClapTrap & ClapTrap::operator=( ClapTrap const & rhs )
 {
-	std::cout << "\033[0;34mCopy assignment operator called.\033[0m" << std::endl;
+	std::cout << "\033[0;34mClapTrap Copy assignment operator called.\033[0m" << std::endl;
 	if ( this != &rhs )
     {
 		this->_name = rhs._name;
