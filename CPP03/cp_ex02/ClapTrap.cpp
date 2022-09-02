@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 13:13:40 by adaloui           #+#    #+#             */
-/*   Updated: 2022/09/02 01:36:24 by user42           ###   ########.fr       */
+/*   Updated: 2022/09/02 15:28:31 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
-
 
 ClapTrap::ClapTrap( void )
 {
@@ -55,15 +54,15 @@ void ClapTrap::attack( const std::string & target )
 {
 	if (this->_Hit_points <= 0)
 	{
-		std::cout << "\033[0;36mClapTrap \033[1;32m" << getname() << "\033[0;36m is dead. It cannot attack\033[m." << std::endl;
+		std::cout << "\033[0;36m[ClapTrap's function] \033[1;32m" << getname() << "\033[0;36m is dead. It cannot attack\033[m." << std::endl;
 		return ;
 	}
 	if (this->_Energy_points <= 0)
     {
-        std::cout << "\033[0;36mClapTrap \033[1;32m" << getname() << " \033[0;36mhas no energy to attack\033[m." << std::endl;
+        std::cout << "\033[0;36m[ClapTrap's function] \033[1;32m" << getname() << " \033[0;36mhas no energy to attack\033[m." << std::endl;
         return ;
     }
-	std::cout << "\033[0;36mClapTrap \033[1;32m" << getname() << "\033[0;36m attacks " << target << " causing \033[1;35m" << this->_Attack_damage << " \033[0;36mpoints of damage!\033[m" <<std::endl;
+	std::cout << "\033[0;36m[ClapTrap's function] \033[1;32m" << getname() << "\033[0;36m attacks " << target << " causing \033[1;35m" << this->_Attack_damage << " \033[0;36mpoints of damage!\033[m" <<std::endl;
 	setmana(this->_Energy_points - 1);
 	return ;
 }
@@ -72,14 +71,14 @@ void ClapTrap::takeDamage( unsigned int amount )
 {
 	if (this->_Hit_points <= 0)
     {
-        std::cout << "\033[1;31mClapTrap \033[1;32m" << getname() << " \033[1;31mis already dead.\033[m" << std::endl;
+        std::cout << "\033[1;31m[Inherited function] \033[1;32m" << getname() << " \033[1;31mis already dead.\033[m" << std::endl;
         return ;
     }
-	std::cout << "\033[0;36mClapTrap \033[1;32m" << getname() << "\033[0;36m takes \033[1;31m" << amount << " HP \033[0;36mof damages\033[0m. " << std::endl;
+	std::cout << "\033[0;36m[Inherited function] \033[1;32m" << getname() << "\033[0;36m takes \033[1;31m" << amount << " HP \033[0;36mof damages\033[0m. " << std::endl;
     this->_Hit_points = this->_Hit_points - amount;
 	if (this->_Hit_points <= 0)
     {
-        std::cout << "\033[1;31mClapTrap \033[1;32m" << getname() << "\033[1;31m is dead. Setting all stats to 0\033[m." << std::endl;
+        std::cout << "\033[1;31m[Inherited function] \033[1;32m" << getname() << "\033[1;31m is dead. Setting all stats to 0\033[m." << std::endl;
 		this->setdmg(0);
 		this->setmana(0);
 		return ;
@@ -91,20 +90,20 @@ void ClapTrap::beRepaired( unsigned int amount )
 {
 	if (this->_Hit_points <= 0)
 	{
-		std::cout << "\033[0;36mClapTrap \033[1;32m" << getname() << "\033[0;36m is dead. It cannot heal\033[m." << std::endl;
+		std::cout << "\033[0;36m[Inherited function] \033[1;32m" << getname() << "\033[0;36m is dead. It cannot heal\033[m." << std::endl;
 		return ;
 	}
 	if (this->_Energy_points <= 0)
     {
-        std::cout << "ClapTrap \033[1;32m" << getname() << "\033[m has no energy to heal." << std::endl;
+        std::cout << "[Inherited function] \033[1;32m" << getname() << "\033[m has no energy to heal." << std::endl;
         return ;
     }
-	std::cout << "\033[0;36mClapTrap \033[1;32m" << getname() << "\033[0;36m healed \033[1;31m" << amount << " HP\033[0;36m of damages\033[m." << std::endl;
+	std::cout << "\033[0;36m[Inherited function] \033[1;32m" << getname() << "\033[0;36m healed \033[1;31m" << amount << " HP\033[0;36m of damages\033[m." << std::endl;
     this->_Hit_points = this->_Hit_points + amount;
 	setmana(this->_Energy_points - 1);
 	if (this->_Energy_points <= 0)
     {
-        std::cout << "ClapTrap \033[1;32m" << getname() << "\033[m has no energy." << std::endl;
+        std::cout << "[Inherited function]\033[1;32m" << getname() << "\033[m has no energy." << std::endl;
         return ;
     }
 	return ;

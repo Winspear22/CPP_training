@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 13:13:52 by adaloui           #+#    #+#             */
-/*   Updated: 2022/09/02 04:37:49 by user42           ###   ########.fr       */
+/*   Updated: 2022/09/02 15:48:13 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,86 @@
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 
-void characters_data( ClapTrap & claptrap )
+void characters_data( ClapTrap & FragTrap )
 {
-	if (claptrap.gethp() <= 0)
+	if (FragTrap.gethp() <= 0)
 	{
-		std::cout << "\033[1;31m[DEAD]\033[0m ClapTrap \033[1;32m" << claptrap.getname() << "\033[0m has \033[1;31m"
-		<< claptrap.gethp() << " HP\033[0m, \033[1;34m" << claptrap.getmana() << 
-		" energy points\033[0m and \033[1;35m" << claptrap.getdmg()
+		std::cout << "\033[1;31m[DEAD]\033[0m FragTrap \033[1;32m" << FragTrap.getname() << "\033[0m has \033[1;31m"
+		<< FragTrap.gethp() << " HP\033[0m, \033[1;34m" << FragTrap.getmana() << 
+		" energy points\033[0m and \033[1;35m" << FragTrap.getdmg()
 		<< " attack damage\033[0m." << std::endl;
 	}
 	else
 	{
-		std::cout << "ClapTrap \033[1;32m" << claptrap.getname() << "\033[0m has \033[1;31m"
-		<< claptrap.gethp() << " HP\033[0m, \033[1;34m" << claptrap.getmana() << 
-		" energy points\033[0m and \033[1;35m" << claptrap.getdmg()
+		std::cout << "FragTrap \033[1;32m" << FragTrap.getname() << "\033[0m has \033[1;31m"
+		<< FragTrap.gethp() << " HP\033[0m, \033[1;34m" << FragTrap.getmana() << 
+		" energy points\033[0m and \033[1;35m" << FragTrap.getdmg()
 		<< " attack damage\033[0m." << std::endl;
 	}
 }
 
 int main( void )
 {
-	ClapTrap original_claptrap("Naruto");
-	ScavTrap Sakura("Sakura");
-	FragTrap Kakashi("Kakashi");
+	ClapTrap Kakashi("Kakashi");
+	ScavTrap Jiraya("Jiraya");
+	std::cout << "=========== ORIGINAL CONSTRUCTOR ===========" << std::endl;
+	FragTrap original_fragtrap("Naruto");
+	std::cout << "=========== COPY CONSTRUCTOR ===========" << std::endl;
+	FragTrap copy_fragtrap(original_fragtrap);
+	std::cout << "=========== EQUAL CONSTRUCTOR ===========" << std::endl;
+	FragTrap copy_two_ct("Sasuke");
 	
+	copy_two_ct = original_fragtrap;
+	copy_two_ct.setname("Sasuke");
+	copy_fragtrap.setname("Naruto's clone");
+	std::cout << std::endl;
+	characters_data( original_fragtrap );
+	characters_data( copy_fragtrap );
+	characters_data( copy_two_ct );
+	std::cout << std::endl;
+	original_fragtrap.attack("Orochimaru");
+	copy_fragtrap.attack("Orochimaru");
+	copy_two_ct.attack("Orochimaru");
+	Kakashi.attack("Orchimaru");
+	Jiraya.attack("Orochimaru");
+	
+	std::cout << std::endl;
+	characters_data( original_fragtrap );
+	characters_data( copy_fragtrap );
+	characters_data( copy_two_ct );
+	std::cout << std::endl;
+
+	original_fragtrap.takeDamage(1);
+	copy_fragtrap.takeDamage(101);
+	copy_two_ct.takeDamage(1);
+	
+	std::cout << std::endl;
+	characters_data( original_fragtrap );
+	characters_data( copy_fragtrap );
+	characters_data( copy_two_ct );
+	std::cout << std::endl;
+
+	original_fragtrap.beRepaired(1);
+	copy_fragtrap.beRepaired(1);
+	copy_two_ct.beRepaired(1);
+	
+	std::cout << std::endl;
+	Jiraya.guardGate();
+	original_fragtrap.highFivesGuys();
+	std::cout << std::endl;
+
+	std::cout << "\033[1;33mSetting Naruto's energy points to 0\033[0m." << std::endl;
+	original_fragtrap.setmana(0);
+	std::cout << std::endl;
+	characters_data( original_fragtrap );
+	characters_data( copy_fragtrap );
+	characters_data( copy_two_ct );
+	std::cout << std::endl;
+
+	original_fragtrap.attack("Orochimaru");
+	copy_fragtrap.attack("Orochimaru");
+	copy_two_ct.attack("Orochimaru");
+	Kakashi.attack("Oorchimaru");
+	Jiraya.attack("Orochimaru");
 	return (0);
 }
