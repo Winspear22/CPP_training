@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 15:25:20 by adaloui           #+#    #+#             */
-/*   Updated: 2022/09/02 16:08:17 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/09/02 21:06:13 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class FragTrap : public virtual ClapTrap
 {
 public:
-    FragTrap( void );
+    //FragTrap( void );
     FragTrap( std::string name );
     FragTrap( const FragTrap & copy );
     ~FragTrap( void );
@@ -27,7 +27,8 @@ public:
     void highFivesGuys( void );
 	void attack( const std::string & target );
 
-private:
+protected:
+    FragTrap( void );
 };
 
 #endif

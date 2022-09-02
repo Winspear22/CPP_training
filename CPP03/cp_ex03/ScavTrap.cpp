@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:55:45 by adaloui           #+#    #+#             */
-/*   Updated: 2022/09/02 15:27:59 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/09/02 21:34:03 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 ScavTrap::ScavTrap( void ): ClapTrap()
 {
 	std::cout << "\033[0;35mScavTrap Constructor called.\033[0m" << std::endl;
+	this->_Hit_points = 100;
+	this->_Energy_points = 50;
+	this->_Attack_damage = 20;
 	return ;
 }
 
@@ -32,9 +35,9 @@ ScavTrap::ScavTrap( const ScavTrap & copy )
 {
 	std::cout << "\033[0;36mScavTrap Copy Constructor called.\033[0m" << std::endl;
   	this->_name = copy._name;
-    this->_Hit_points = copy._Hit_points;
-    this->_Energy_points = copy._Energy_points;
-	this->_Attack_damage = copy._Attack_damage;
+	this->_Hit_points = copy.gethp();
+	this->_Energy_points = copy.getmana();
+	this->_Attack_damage = copy.getdmg();
 	return ;
 }
 
@@ -50,9 +53,9 @@ ScavTrap & ScavTrap::operator=( ScavTrap const & rhs )
 	if ( this != &rhs )
     {
 		this->_name = rhs._name;
-        this->_Hit_points = rhs._Hit_points;
-        this->_Energy_points = rhs._Energy_points;
-        this->_Attack_damage = rhs._Attack_damage;
+		this->_Hit_points = rhs.gethp();
+		this->_Energy_points = rhs.getmana();
+		this->_Attack_damage = rhs.getdmg();
     }
 	return (*this);
 }

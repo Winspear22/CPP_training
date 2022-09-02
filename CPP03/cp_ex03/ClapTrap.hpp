@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 13:13:49 by adaloui           #+#    #+#             */
-/*   Updated: 2022/09/02 01:32:52 by user42           ###   ########.fr       */
+/*   Updated: 2022/09/02 21:14:03 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class ClapTrap
 {
 public:
-	ClapTrap( void );
+	//ClapTrap( void );
 	ClapTrap( std::string name );
 	ClapTrap( const ClapTrap & copy );
 	~ClapTrap( void );
@@ -29,10 +29,10 @@ public:
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
 
-	std::string getname( void );
-	int gethp( void );
-	int getmana( void );
-	int getdmg( void );
+	std::string getname( void ) const;
+	int gethp( void ) const;
+	int getmana( void ) const;
+	int getdmg( void ) const;
 	void setname( std::string new_name );
 	void sethp( int i );
     void setmana( int i );
@@ -40,6 +40,7 @@ public:
 	
 
 protected:
+	ClapTrap( void );
 	std::string _name;
 	int _Hit_points;
 	int _Energy_points;

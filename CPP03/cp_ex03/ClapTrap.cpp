@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 13:13:40 by adaloui           #+#    #+#             */
-/*   Updated: 2022/09/02 15:28:31 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/09/02 21:14:23 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,22 +109,22 @@ void ClapTrap::beRepaired( unsigned int amount )
 	return ;
 }
 
-std::string ClapTrap::getname( void )
+std::string ClapTrap::getname( void ) const
 {
 	return (this->_name);
 }
 
-int ClapTrap::gethp( void )
+int ClapTrap::gethp( void ) const
 {
 	return (this->_Hit_points);
 }
 
-int ClapTrap::getmana( void )
+int ClapTrap::getmana( void ) const
 {
 	return (this->_Energy_points);
 }
 
-int ClapTrap::getdmg( void )
+int ClapTrap::getdmg( void ) const
 {
 	return (this->_Attack_damage);
 }
