@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 15:53:50 by adaloui           #+#    #+#             */
-/*   Updated: 2022/09/02 21:40:52 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/09/04 15:05:50 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ void	DiamondTrap::attack( const std::string & target )
 
 void DiamondTrap::whoAmI( void )
 {
-	std::cout << "\033[1;37m[DiamondTrap's function] \033[1;32m" << getname() << "\033[1;37m has entered Gate keeper mode\033[m." << std::endl;
+	std::cout << "\033[1;37m[DiamondTrap's function] Name of the DiamondTrap : \033[1;32m" << _name << "\033[m." << std::endl;
+	std::cout << "\033[1;37m[DiamondTrap's function] Name of the ClapTrap (sous-objet) : \033[1;32m" << ClapTrap::_name << "\033[m." << std::endl;
+
 	return ;
 }

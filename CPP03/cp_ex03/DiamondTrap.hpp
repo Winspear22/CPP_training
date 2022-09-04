@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 15:54:01 by adaloui           #+#    #+#             */
-/*   Updated: 2022/09/02 21:37:03 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/09/04 15:00:39 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ public:
 	void attack( const std::string & target );
 
 private:
+    std::string _name;
 };
 
 #endif

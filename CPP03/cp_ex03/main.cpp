@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 13:13:52 by adaloui           #+#    #+#             */
-/*   Updated: 2022/09/04 14:01:46 by user42           ###   ########.fr       */
+/*   Updated: 2022/09/04 15:05:05 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,8 @@ int main( void )
 	
 	std::cout << std::endl;
 	original_diamondtrap.highFivesGuys();
-	copy_diamondtrap.whoAmI();
+	original_diamondtrap.whoAmI();
+	original_diamondtrap.guardGate();
 	copy_two_ct.guardGate();
 	std::cout << std::endl;
 
