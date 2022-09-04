@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 15:25:15 by adaloui           #+#    #+#             */
-/*   Updated: 2022/09/02 21:38:53 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/09/04 14:11:57 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ FragTrap::FragTrap( void ): ClapTrap()
 {
 	std::cout << "\033[0;33mFragTrap constructor called.\033[0m" << std::endl;
 	this->_Hit_points = 100;
-	this->_Energy_points = 100;
+	if (!_Energy_points)
+		this->_Energy_points = 100;
 	this->_Attack_damage = 30;
 	return ;
 }
@@ -25,7 +26,8 @@ FragTrap::FragTrap( std::string name )
 {
 	this->_name = name;
 	this->_Hit_points = 100;
-	this->_Energy_points = 100;
+	if (!_Energy_points)
+		this->_Energy_points = 100;
 	this->_Attack_damage = 30;
 	std::cout << "\033[0;33mFragTrap constructor called.\033[0m" << std::endl;
 	return ;
@@ -33,9 +35,10 @@ FragTrap::FragTrap( std::string name )
 
 FragTrap::FragTrap( const FragTrap & copy )
 {
-	this->_Hit_points = copy.gethp();
-	this->_Energy_points = copy.getmana();
-	this->_Attack_damage = copy.getdmg();
+	this->_Hit_points = 100;
+	if (!_Energy_points)
+		this->_Energy_points = 100;
+	this->_Attack_damage = 30;
 	std::cout << "\033[0;36mFragTrap copy constructor called.\033[0m" << std::endl;
 	return ;
 }

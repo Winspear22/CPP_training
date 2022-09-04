@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 13:13:52 by adaloui           #+#    #+#             */
-/*   Updated: 2022/09/02 21:40:29 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/09/04 14:01:46 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,21 +37,21 @@ int main( void )
 {
 	std::cout << "=========== ORIGINAL CONSTRUCTOR ===========" << std::endl;
 	DiamondTrap original_diamondtrap("Naruto");
-/*	std::cout << "=========== COPY CONSTRUCTOR ===========" << std::endl;
+	std::cout << "=========== COPY CONSTRUCTOR ===========" << std::endl;
 	DiamondTrap copy_diamondtrap(original_diamondtrap);
 	std::cout << "=========== EQUAL CONSTRUCTOR ===========" << std::endl;
-	DiamondTrap copy_two_ct("Sasuke");*/
+	DiamondTrap copy_two_ct("Sasuke");
 	
-/*	copy_two_ct = original_diamondtrap;
+	copy_two_ct = original_diamondtrap;
 	copy_two_ct.setname("Sasuke");
 	copy_diamondtrap.setname("Naruto's clone");
-	std::cout << std::endl;*/
+	std::cout << std::endl;
 	characters_data( original_diamondtrap );
-/*	characters_data( copy_diamondtrap );
+	characters_data( copy_diamondtrap );
 	characters_data( copy_two_ct );
-	std::cout << std::endl;*/
+	std::cout << std::endl;
 	original_diamondtrap.attack("Orochimaru");
-/*	copy_diamondtrap.attack("Orochimaru");
+	copy_diamondtrap.attack("Orochimaru");
 	copy_two_ct.attack("Orochimaru");
 	
 	std::cout << std::endl;
@@ -90,6 +90,6 @@ int main( void )
 
 	original_diamondtrap.attack("Orochimaru");
 	copy_diamondtrap.attack("Orochimaru");
-	copy_two_ct.attack("Orochimaru");*/
+	copy_two_ct.attack("Orochimaru");
 	return (0);
 }
