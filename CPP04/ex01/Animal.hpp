@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 12:39:02 by adaloui           #+#    #+#             */
-/*   Updated: 2022/09/06 18:38:02 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/09/06 19:33:05 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iomanip>
 # include <iostream>
+# include "Brain.hpp"
 
 class Animal
 {
@@ -26,6 +27,7 @@ public:
 
 	virtual void makeSound( void ) const;
 	std::string getType( void ) const;
+	virtual Brain *getBrain(void) const = 0;
 	
 protected:
 	std::string type;

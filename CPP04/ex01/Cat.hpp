@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 12:38:51 by adaloui           #+#    #+#             */
-/*   Updated: 2022/09/06 18:50:52 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/09/06 19:28:59 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ public:
 	Cat & operator=( Cat const & rhs );
 
 	void makeSound(void) const;
+	Brain *getBrain(void) const;
+
 private:
 	Brain *_Brain;
 

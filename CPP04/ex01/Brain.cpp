@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 18:46:17 by adaloui           #+#    #+#             */
-/*   Updated: 2022/09/06 19:00:58 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/09/06 19:35:34 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,3 +36,16 @@ Brain::~Brain( void )
 	std::cout << "\e[33mBrain destructor called.\e[0m" << std::endl;
 	return ;
 }
+
+std::string Brain::getIdeas(int idea_nb)
+{
+    return (this->_ideas[idea_nb]);
+}
+
+void Brain::setIdeas(std::string str, int idea_nb)
+{
+    this->_ideas[idea_nb] = str;
+    return ;
+}
+
+

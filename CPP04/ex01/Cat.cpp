@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 12:38:56 by adaloui           #+#    #+#             */
-/*   Updated: 2022/09/06 18:58:27 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/09/06 19:28:51 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,9 @@ void Cat::makeSound( void ) const
 {
 	std::cout << "\e[32mMiou !\e[0m" << std::endl; 
 	return ;
+}
+
+Brain *Cat::getBrain(void) const
+{
+    return (this->_Brain);
 }

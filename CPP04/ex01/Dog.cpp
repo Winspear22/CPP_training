@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 12:38:44 by adaloui           #+#    #+#             */
-/*   Updated: 2022/09/06 19:00:13 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/09/06 19:26:11 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,9 @@ void Dog::makeSound( void ) const
 {
 	std::cout << "\e[32mWaf !\e[0m" << std::endl; 
 	return ;
+}
+
+Brain *Dog::getBrain(void) const
+{
+    return (this->_Brain);
 }
