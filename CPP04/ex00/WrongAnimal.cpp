@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 13:43:56 by adaloui           #+#    #+#             */
-/*   Updated: 2022/09/06 14:04:08 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/09/06 17:34:11 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 WrongAnimal::WrongAnimal( void )
 {
 	std::cout << "\e[1;34mWrongAnimal\e[0m original constructor called." << std::endl;
+	this->type = "\e[1;34mWrongAnimal\e[0m";
 	return ;
 }
 
@@ -28,12 +29,13 @@ WrongAnimal::WrongAnimal( const WrongAnimal & copy )
 WrongAnimal & WrongAnimal::operator=( WrongAnimal const & rhs )
 {
 	std::cout << "Copy assignement operator called." << std::endl;
+	this->type = rhs.getType();
 	return (*this);
 } 
 
 WrongAnimal::~WrongAnimal( void )
 {
-	std::cout << "\e[1;31mWrongAnimal destructor called.\e[0m" << std::endl;
+	std::cout << "\e[1;34mWrongAnimal destructor called.\e[0m" << std::endl;
 	return ;
 }
 
@@ -44,6 +46,6 @@ std::string WrongAnimal::getType( void ) const
 
 void WrongAnimal::makeSound( void ) const
 {
-	std::cout << "*FakeAnimal sound*" << std::endl; 
+	std::cout << "\e[1;34m*FakeAnimal sound*\e[0m" << std::endl; 
 	return ;
 }

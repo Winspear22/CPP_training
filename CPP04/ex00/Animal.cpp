@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 12:39:07 by adaloui           #+#    #+#             */
-/*   Updated: 2022/09/06 14:05:59 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/09/06 17:41:42 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 Animal::Animal( void )
 {
 	std::cout << "\e[1;32mAnimal\e[0m original constructor called." << std::endl;
+	this->type = "\e[1;32mAnimal\e[0m";
 	return ;
 }
 
@@ -28,12 +29,13 @@ Animal::Animal( const Animal & copy )
 Animal & Animal::operator=( Animal const & rhs )
 {
 	std::cout << "Cat Copy assignement operator called." << std::endl;
+	this->type = rhs.getType();
 	return (*this);
 } 
 
 Animal::~Animal( void )
 {
-	std::cout << "Animal destructor called." << std::endl;
+	std::cout << "\e[1;32mAnimal destructor called.\e[0m" << std::endl;
 	return ;
 }
 
@@ -44,6 +46,6 @@ std::string Animal::getType( void ) const
 
 void Animal::makeSound( void ) const
 {
-	std::cout << "*Animal sound*" << std::endl; 
+	std::cout << "\e[1;32m*Animal sound*\e[0m" << std::endl; 
 	return ;
 }

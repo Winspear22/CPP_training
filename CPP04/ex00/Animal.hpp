@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 12:39:02 by adaloui           #+#    #+#             */
-/*   Updated: 2022/09/06 13:19:25 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/09/06 18:38:02 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,8 @@ class Animal
 {
 public:
 	Animal( void );
-	Animal( std::string name );
 	Animal( const Animal & copy );
-	~Animal( void );
+	virtual ~Animal( void );
 	Animal & operator=( Animal const & rhs );
 
 	virtual void makeSound( void ) const;

@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 13:44:49 by adaloui           #+#    #+#             */
-/*   Updated: 2022/09/06 13:53:55 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/09/06 18:38:10 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,8 @@ class WrongAnimal
 {
 public:
 	WrongAnimal( void );
-	WrongAnimal( std::string name );
 	WrongAnimal( const WrongAnimal & copy );
-	~WrongAnimal( void );
+	virtual ~WrongAnimal( void );
 	WrongAnimal & operator=( WrongAnimal const & rhs );
 
 	void makeSound(void) const;
