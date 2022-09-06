@@ -6,11 +6,11 @@
 #    By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/06 12:38:25 by adaloui           #+#    #+#              #
-#    Updated: 2022/09/06 18:51:00 by adaloui          ###   ########.fr        #
+#    Updated: 2022/09/06 19:38:12 by adaloui          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME= Polymorphisme
+NAME= Je_ne_veux_pas_brûler_le_monde
 SRCS= main.cpp Animal.cpp Cat.cpp Dog.cpp WrongCat.cpp WrongAnimal.cpp Brain.cpp
 INCLUDE= Animal.hpp
 
