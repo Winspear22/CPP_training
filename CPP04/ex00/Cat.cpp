@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/06 12:38:56 by adaloui           #+#    #+#             */
+/*   Updated: 2022/09/06 14:05:23 by adaloui          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Animal.hpp"
 #include "Cat.hpp"
 
 Cat::Cat( void )
 {
-	std::cout << "Cat original constructor called." << std::endl;
+	std::cout << "\e[92mCat\e[0m original constructor called." << std::endl;
 	return ;
 }
 
@@ -23,5 +35,11 @@ Cat & Cat::operator=( Cat const & rhs )
 Cat::~Cat( void )
 {
 	std::cout << "Cat destructor called." << std::endl;
+	return ;
+}
+
+void Cat::makeSound( void ) const
+{
+	std::cout << "Miou !" << std::endl; 
 	return ;
 }

@@ -1,45 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/06 12:38:44 by adaloui           #+#    #+#             */
-/*   Updated: 2022/09/06 14:05:26 by adaloui          ###   ########.fr       */
+/*   Created: 2022/09/06 13:25:20 by adaloui           #+#    #+#             */
+/*   Updated: 2022/09/06 14:04:40 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
-#include "Dog.hpp"
+#include "WrongCat.hpp"
 
-Dog::Dog( void )
+WrongCat::WrongCat( void )
 {
-	std::cout << "\e[92mDog\e[0m original constructor called." << std::endl;
+	std::cout << "\e[34mWrongCat\e[0m original constructor called." << std::endl;
 	return ;
 }
 
-Dog::Dog( const Dog & copy )
+WrongCat::WrongCat( const WrongCat & copy )
 {
-	std::cout << "Dog copy constructor called." << std::endl;
+	std::cout << "WrongCat copy constructor called." << std::endl;
 	*this = copy;
 	return ;
 }
 
-Dog & Dog::operator=( Dog const & rhs )
+WrongCat & WrongCat::operator=( WrongCat const & rhs )
 {
 	std::cout << "Copy assignement operator called." << std::endl;
 	return (*this);
 } 
 
-Dog::~Dog( void )
+WrongCat::~WrongCat( void )
 {
-	std::cout << "Dog destructor called." << std::endl;
+	std::cout << "WrongCat destructor called." << std::endl;
 	return ;
 }
 
-void Dog::makeSound( void ) const
+void WrongCat::makeSound( void ) const
 {
-	std::cout << "Waf !" << std::endl; 
+	std::cout << "Fake Meow !" << std::endl; 
 	return ;
 }

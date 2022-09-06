@@ -1,5 +1,17 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/09/06 12:38:25 by adaloui           #+#    #+#              #
+#    Updated: 2022/09/06 13:43:35 by adaloui          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME= Polymorphisme
-SRCS= main.cpp Animal.cpp Cat.cpp Dog.cpp
+SRCS= main.cpp Animal.cpp Cat.cpp Dog.cpp WrongCat.cpp WrongAnimal.cpp
 INCLUDE= Animal.hpp
 
 OBJS		=		$(SRCS:.cpp=.o)

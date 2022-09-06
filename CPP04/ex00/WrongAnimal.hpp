@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/06 12:39:02 by adaloui           #+#    #+#             */
-/*   Updated: 2022/09/06 13:19:25 by adaloui          ###   ########.fr       */
+/*   Created: 2022/09/06 13:44:49 by adaloui           #+#    #+#             */
+/*   Updated: 2022/09/06 13:53:55 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_CPP
-# define ANIMAL_CPP
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
 # include <iomanip>
 # include <iostream>
 
-class Animal
+class WrongAnimal
 {
 public:
-	Animal( void );
-	Animal( std::string name );
-	Animal( const Animal & copy );
-	~Animal( void );
-	Animal & operator=( Animal const & rhs );
+	WrongAnimal( void );
+	WrongAnimal( std::string name );
+	WrongAnimal( const WrongAnimal & copy );
+	~WrongAnimal( void );
+	WrongAnimal & operator=( WrongAnimal const & rhs );
 
-	virtual void makeSound( void ) const;
-	std::string getType( void ) const;
-	
+	void makeSound(void) const;
+    std::string getType( void ) const;
+
 protected:
-	std::string type;
+    std::string type;
+
 };
 
 #endif
