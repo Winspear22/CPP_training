@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 12:38:32 by adaloui           #+#    #+#             */
-/*   Updated: 2022/09/07 17:03:37 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/09/07 17:06:54 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,18 +55,20 @@ int main()
 	i = -1;
 	j = 1;
 	/*		DIFFERENCE ENTRE DEEP ET SHALLOW COPY */
-	/*Animal* minou = animals[0];
-	Animal* medor  = animals[3];*/
+	//Animal* minou = animals[0];
+	//Animal* medor  = animals[3];
 	while (++i < 6)
 	{
 		std::cout << animals[i]->getType() << "\033[1;38m n° " << j << "\033[0m thinks : " << animals[i]->getBrain()->getIdeas(0) << std::endl;
 		std::cout << animals[i]->getType() << "\033[1;38m n° " << j << "\033[0m thinks : " << animals[i]->getBrain()->getIdeas(1) << std::endl;
 		std::cout << animals[i]->getType() << "\033[1;38m n° " << j << "\033[0m thinks : " << animals[i]->getBrain()->getIdeas(2) << std::endl;
+		/*		DIFFERENCE ENTRE DEEP ET SHALLOW COPY */
+		delete animals[i];
 		j++;
     }
 	/*		DIFFERENCE ENTRE DEEP ET SHALLOW COPY */
-	/*std::cout << minou->getType() << "\033[1;38m n° " << j << "\033[0m thinks : " << animals[i]->getBrain()->getIdeas(0) << std::endl;
-	std::cout << medor->getType() << "\033[1;38m n° " << j << "\033[0m thinks : " << animals[i]->getBrain()->getIdeas(0) << std::endl;*/
+	//std::cout << minou->getType() << "\033[1;38m n° " << j << "\033[0m thinks : " << minou->getBrain()->getIdeas(0) << std::endl;
+	//std::cout << medor->getType() << "\033[1;38m n° " << j << "\033[0m thinks : " << medor->getBrain()->getIdeas(0) << std::endl;
 	i = -1;
 	std::cout << "\033[1;31m======================================================\033[0m" << std::endl;
 	std::cout << "\033[1;36mDESTROYING CAT AND DOGS, THEIR BRAINS, THEN THE ANIMAL \033[0m" << std::endl;
