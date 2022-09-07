@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 12:38:32 by adaloui           #+#    #+#             */
-/*   Updated: 2022/09/07 16:02:22 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/09/07 17:03:37 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 int main()
 {
 	Animal*	animals[6];
-    Brain    *brain;
     int i;
 	int j;
 
@@ -55,6 +54,9 @@ int main()
     }
 	i = -1;
 	j = 1;
+	/*		DIFFERENCE ENTRE DEEP ET SHALLOW COPY */
+	/*Animal* minou = animals[0];
+	Animal* medor  = animals[3];*/
 	while (++i < 6)
 	{
 		std::cout << animals[i]->getType() << "\033[1;38m n° " << j << "\033[0m thinks : " << animals[i]->getBrain()->getIdeas(0) << std::endl;
@@ -62,6 +64,9 @@ int main()
 		std::cout << animals[i]->getType() << "\033[1;38m n° " << j << "\033[0m thinks : " << animals[i]->getBrain()->getIdeas(2) << std::endl;
 		j++;
     }
+	/*		DIFFERENCE ENTRE DEEP ET SHALLOW COPY */
+	/*std::cout << minou->getType() << "\033[1;38m n° " << j << "\033[0m thinks : " << animals[i]->getBrain()->getIdeas(0) << std::endl;
+	std::cout << medor->getType() << "\033[1;38m n° " << j << "\033[0m thinks : " << animals[i]->getBrain()->getIdeas(0) << std::endl;*/
 	i = -1;
 	std::cout << "\033[1;31m======================================================\033[0m" << std::endl;
 	std::cout << "\033[1;36mDESTROYING CAT AND DOGS, THEIR BRAINS, THEN THE ANIMAL \033[0m" << std::endl;

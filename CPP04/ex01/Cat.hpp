@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 12:38:51 by adaloui           #+#    #+#             */
-/*   Updated: 2022/09/06 19:28:59 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/09/07 16:18:54 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Cat : public Animal
 public:
 	Cat( void );
 	Cat( const Cat & copy );
-	~Cat( void );
+	virtual ~Cat( void );
 	Cat & operator=( Cat const & rhs );
 
 	void makeSound(void) const;
