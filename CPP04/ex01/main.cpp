@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 12:38:32 by adaloui           #+#    #+#             */
-/*   Updated: 2022/09/07 17:06:54 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/09/07 17:07:27 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int main()
 		std::cout << animals[i]->getType() << "\033[1;38m n° " << j << "\033[0m thinks : " << animals[i]->getBrain()->getIdeas(1) << std::endl;
 		std::cout << animals[i]->getType() << "\033[1;38m n° " << j << "\033[0m thinks : " << animals[i]->getBrain()->getIdeas(2) << std::endl;
 		/*		DIFFERENCE ENTRE DEEP ET SHALLOW COPY */
-		delete animals[i];
+		//delete animals[i];
 		j++;
     }
 	/*		DIFFERENCE ENTRE DEEP ET SHALLOW COPY */
