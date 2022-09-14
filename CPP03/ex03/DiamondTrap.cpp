@@ -1,20 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/02 15:53:50 by adaloui           #+#    #+#             */
+/*   Updated: 2022/09/13 16:53:27 by adaloui          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "DiamondTrap.hpp"
 
 DiamondTrap::DiamondTrap( void )
 {
-	std::cout << "DiamondTrap constructor called." << std::endl;
-	this->_Hit_points = FragTrap::_Hit_points;
-	this->_Energy_points = ScavTrap::_Energy_points;
-	this->_Attack_damage = FragTrap::_Attack_damage;
+	std::cout << "\033[0;31mDiamondTrap constructor called.\033[0m" << std::endl;
 	return ;
 }
 
-DiamondTrap::DiamondTrap( std::string const & name ): ClapTrap(name + "_clap_name"), ScavTrap(), FragTrap()
+DiamondTrap::DiamondTrap( std::string name ): ClapTrap(name + "_clap_name"), ScavTrap(), FragTrap()
 {
 	this->_name = name;
 	this->_Hit_points = FragTrap::_Hit_points;
 	this->_Energy_points = ScavTrap::_Energy_points;
 	this->_Attack_damage = FragTrap::_Attack_damage;
+	std::cout << "\033[0;31mDiamondTrap constructor called.\033[0m" << std::endl;
 	return ;
 }
 
@@ -23,18 +33,20 @@ DiamondTrap::DiamondTrap( const DiamondTrap & copy )
 	this->_Hit_points = FragTrap::_Hit_points;
 	this->_Energy_points = ScavTrap::_Energy_points;
 	this->_Attack_damage = FragTrap::_Attack_damage;
-	std::cout << "DiamondTrap copy constructor called." << std::endl;
+	std::cout << "\033[0;31mDiamondTrap copy constructor called.\033[0m" << std::endl;
+	return ;
 }
 
 DiamondTrap::~DiamondTrap( void )
 {
-	std::cout << "DiamondTrap destructor called." << std::endl;
+	std::cout << "\033[0;31mDiamondTrap destructor called.\033[0m" << std::endl;
+	return ;
 }
 
 DiamondTrap & DiamondTrap::operator=( DiamondTrap const & rhs )
 {
-    std::cout << "Copy assignment operator called" << std::endl;
-    if ( this != &rhs )
+    std::cout << "\033[0;34mCopy assignment operator called.\033[0m" << std::endl;
+	if ( this != &rhs )
     {
 		this->_name = rhs._name;
         this->_Hit_points = rhs._Hit_points;
@@ -44,19 +56,16 @@ DiamondTrap & DiamondTrap::operator=( DiamondTrap const & rhs )
 	return (*this);
 }
 
-void DiamondTrap::whoAmI( void )
+void	DiamondTrap::attack( const std::string & target )
 {
-	std::cout << "DiamondTrap's name : " << this->_name << std::endl;
-	std::cout << "ClapTrap's name : " << ClapTrap::_name << std::endl;
+	ScavTrap::attack( target );
+	return ;
 }
 
-void DiamondTrap::attack( const std::string & target )
+void DiamondTrap::whoAmI( void )
 {
-	if (this->_Energy_points <= 0)
-    {
-        std::cout << "The DiamondClap \e[92m" << this->getname() << " has no energy." << std::endl;
-        return ;
-    }
-	std::cout << "\033[0;36mDiamondClap \e[92m" << this->getname() << "\033[0;36m attacks " << target << " causing \e[91m" << this->_Attack_damage << " \033[0;36mpoints of damage!\033[m" <<std::endl;
-	this->setmana(this->_Energy_points - 1);
+	std::cout << "\033[1;37m[DiamondTrap's function] Name of the DiamondTrap : \033[1;32m" << this->_name << "\033[m." << std::endl;
+	std::cout << "\033[1;37m[DiamondTrap's function] Name of the ClapTrap (sous-objet) : \033[1;32m" << ClapTrap::_name << "\033[m." << std::endl;
+
+	return ;
 }

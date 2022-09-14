@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/17 16:17:34 by adaloui           #+#    #+#             */
-/*   Updated: 2022/06/18 13:41:34 by user42           ###   ########.fr       */
+/*   Created: 2022/08/31 13:13:49 by adaloui           #+#    #+#             */
+/*   Updated: 2022/09/13 13:28:44 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,31 +19,30 @@
 class ClapTrap
 {
 public:
-    ClapTrap( std::string name );
-    ClapTrap( const ClapTrap & copy);
-    ~ClapTrap( void );
-    ClapTrap & operator=( ClapTrap const & rhs );
+	ClapTrap( void );
+	ClapTrap( std::string name );
+	ClapTrap( const ClapTrap & copy );
+	~ClapTrap( void );
+	ClapTrap & operator=( ClapTrap const & rhs );
+	
+	void attack(const std::string & target);
+	void takeDamage(unsigned int amount);
+	void beRepaired(unsigned int amount);
 
-    void attack( const std::string & target );
-    void takeDamage( unsigned int amount );
-    void beRepaired( unsigned int amount );
-
-    std::string getname( void ) const;
-    int gethp( void ) const;
-    int getmana( void ) const;
-    int getdmg( void ) const;
+	std::string getname( void ) const;
+	int gethp( void ) const;
+	int getmana( void ) const;
+	int getdmg( void ) const;
+	void setname( std::string new_name );
 	void sethp( int i );
     void setmana( int i );
     void setdmg( int i );
-    void setname( std::string new_name );
-    
-protected:
-    std::string _name;
-    int _Hit_points;
-    int _Energy_points;
-    int _Attack_damage;
-    ClapTrap( void );
 
+protected:
+	std::string _name;
+	int _Hit_points;
+	int _Energy_points;
+	int _Attack_damage;
 };
 
 #endif

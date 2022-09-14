@@ -5,14 +5,14 @@
 #                                                     +:+ +:+         +:+      #
 #    By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/06/17 17:29:45 by adaloui           #+#    #+#              #
-#    Updated: 2022/06/17 20:36:39 by adaloui          ###   ########.fr        #
+#    Created: 2022/08/31 13:11:13 by adaloui           #+#    #+#              #
+#    Updated: 2022/09/13 16:04:10 by adaloui          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME= FragTrap
 SRCS= main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
-INCLUDE = ClapTrap.hpp
+INCLUDE= ClapTrap.hpp
 
 OBJS		=		$(SRCS:.cpp=.o)
 DEPS		=		$(SRCS:.cpp=.d)
@@ -21,18 +21,20 @@ CC= c++
 FLAGS= -Wall -Wextra -Werror -std=c++98
 
 %.o:				%.cpp
-	@$(CC) $(CFLAGS) -MMD -MP -c $< -o $@ -I $(INCLUDE)
+	@$(CC) $(CFLAGS) -MMD -c $< -o $@ -I $(INCLUDE)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	@echo "Compilation du programme $(NAME)"
 	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+
 clean:
 	rm -Rf $(OBJS) $(DEPS)
 
 fclean: clean
 	rm -Rf $(NAME)
+
 re: fclean all
 
 -include $(DEPS)

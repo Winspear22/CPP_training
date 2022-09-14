@@ -5,102 +5,95 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/17 16:46:35 by adaloui           #+#    #+#             */
-/*   Updated: 2022/06/17 20:20:50 by adaloui          ###   ########.fr       */
+/*   Created: 2022/08/31 13:13:52 by adaloui           #+#    #+#             */
+/*   Updated: 2022/09/13 17:14:24 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 
+void characters_data( ScavTrap & scavtrap )
+{
+	if (scavtrap.gethp() <= 0)
+	{
+		std::cout << "\033[1;31m[DEAD]\033[0m ScavTrap \033[1;32m" << scavtrap.getname() << "\033[0m has \033[1;31m"
+		<< scavtrap.gethp() << " HP\033[0m, \033[1;34m" << scavtrap.getmana() << 
+		" energy points\033[0m and \033[1;35m" << scavtrap.getdmg()
+		<< " attack damage\033[0m." << std::endl;
+	}
+	else
+	{
+		std::cout << "ScavTrap \033[1;32m" << scavtrap.getname() << "\033[0m has \033[1;31m"
+		<< scavtrap.gethp() << " HP\033[0m, \033[1;34m" << scavtrap.getmana() << 
+		" energy points\033[0m and \033[1;35m" << scavtrap.getdmg()
+		<< " attack damage\033[0m." << std::endl;
+	}
+}
 
 int main( void )
 {
-	ClapTrap Naruto("Naruto");
-	ClapTrap Sasuke( Naruto );
-	ScavTrap Sakura("Sakura");
-	ScavTrap Kakashi( Sakura );
+	std::cout << "\033[1;33m=======================================================\033[0m" << std::endl;
+	std::cout << "\033[1;31mCREATION OF SCAVTRAPS NARUTO, NARUTO'S CLONE AND SASUKE\033[0m" << std::endl;
+	std::cout << "\033[1;33m=======================================================\033[0m" << std::endl;
+	std::cout << "=========== ORIGINAL CONSTRUCTOR ===========" << std::endl;
+	ScavTrap original_scavtrap("Naruto");
+	std::cout << "=========== COPY CONSTRUCTOR ===========" << std::endl;
+	ScavTrap copy_scavtrap(original_scavtrap);
+	std::cout << "=========== EQUAL CONSTRUCTOR ===========" << std::endl;
+	ScavTrap copy_two_ct("Sasuke");
 	
-	Sasuke.setname("Sasuke");
-	Kakashi.setname("Kakashi");
-	std::cout << "\033[1;31mEnergy level of Naruto : \033[m" << Naruto.getmana() << std::endl;
-	std::cout << "\033[1;31mEnergy level of Sasuke : \033[m" << Sasuke.getmana() << std::endl;
-	std::cout << "\033[1;31mEnergy level of Sakura : \033[m" << Sakura.getmana() << std::endl;
-	std::cout << "\033[1;31mEnergy level of Kakashi : \033[m" << Kakashi.getmana() << std::endl;
-	Naruto.attack("Orochimaru");
-	Sasuke.attack("Orochimaru");
-	Sakura.attack("Kimimaro");
-	Kakashi.attack("Kimimaro");
-	std::cout << "\033[1;31mEnergy level of Naruto : \033[m" << Naruto.getmana() << std::endl;
-	std::cout << "\033[1;31mEnergy level of Sasuke : \033[m" << Sasuke.getmana() << std::endl;
-	std::cout << "\033[1;31mEnergy level of Sakura : \033[m" << Sakura.getmana() << std::endl;
-	std::cout << "\033[1;31mEnergy level of Kakashi : \033[m" << Kakashi.getmana() << std::endl;
-	std::cout << "\033[0;34mHP of Naruto : " << Naruto.gethp() << "\033[m" << std::endl;
-	std::cout << "\033[0;34mHP of Sasuke : " << Sasuke.gethp() << "\033[m" << std::endl;
-	std::cout << "\033[0;34mHP of Sakura : " << Sakura.gethp() << "\033[m" << std::endl;
-	std::cout << "\033[0;34mHP of Kakashi : " << Kakashi.gethp() << "\033[m" << std::endl;
-	Naruto.takeDamage(9);
-	Sasuke.takeDamage(9);
-	Sakura.takeDamage(9);
-	Kakashi.takeDamage(9);
-	std::cout << "\033[0;34mHP of Naruto : " << Naruto.gethp() << "\033[m" << std::endl;
-	std::cout << "\033[0;34mHP of Sasuke : " << Sasuke.gethp() << "\033[m" << std::endl;
-	std::cout << "\033[0;34mHP of Sakura : " << Sakura.gethp() << "\033[m" << std::endl;
-	std::cout << "\033[0;34mHP of Kakashi : " << Kakashi.gethp() << "\033[m" << std::endl;
-	Naruto.beRepaired(1);
-	Sasuke.beRepaired(1);
-	Sakura.beRepaired(1);
-	Kakashi.beRepaired(1);
-	Sakura.guardGate();
-	Kakashi.guardGate();
-	std::cout << "\033[1;31mEnergy level of Naruto : \033[m" << Naruto.getmana() << std::endl;
-	std::cout << "\033[1;31mEnergy level of Sasuke : \033[m" << Sasuke.getmana() << std::endl;
-	std::cout << "\033[1;31mEnergy level of Sakura : \033[m" << Sakura.getmana() << std::endl;
-	std::cout << "\033[1;31mEnergy level of Kakashi : \033[m" << Kakashi.getmana() << std::endl;
-	std::cout << "\033[0;34mHP of Naruto : " << Naruto.gethp() << "\033[m" << std::endl;
-	std::cout << "\033[0;34mHP of Sasuke : " << Sasuke.gethp() << "\033[m" << std::endl;
-	std::cout << "\033[0;34mHP of Sakura : " << Sakura.gethp() << "\033[m" << std::endl;
-	std::cout << "\033[0;34mHP of Kakashi : " << Kakashi.gethp() << "\033[m" << std::endl;
-	Naruto.takeDamage(11);
-	Sasuke.takeDamage(11);
-	Sakura.takeDamage(11);
-	Kakashi.takeDamage(11);
+	copy_two_ct = original_scavtrap;
+	copy_two_ct.setname("Sasuke");
+	copy_scavtrap.setname("Naruto's clone");
+	std::cout << std::endl;
+	characters_data( original_scavtrap );
+	characters_data( copy_scavtrap );
+	characters_data( copy_two_ct );
+	std::cout << std::endl;
+	original_scavtrap.attack("Orochimaru");
+	copy_scavtrap.attack("Orochimaru");
+	copy_two_ct.attack("Orochimaru");
+	
+	std::cout << std::endl;
+	characters_data( original_scavtrap );
+	characters_data( copy_scavtrap );
+	characters_data( copy_two_ct );
+	std::cout << std::endl;
+
+	original_scavtrap.takeDamage(1);
+	copy_scavtrap.takeDamage(101);
+	copy_two_ct.takeDamage(1);
+	
+	std::cout << std::endl;
+	characters_data( original_scavtrap );
+	characters_data( copy_scavtrap );
+	characters_data( copy_two_ct );
+	std::cout << std::endl;
+
+	original_scavtrap.beRepaired(1);
+	copy_scavtrap.beRepaired(1);
+	copy_two_ct.beRepaired(1);
+	
+	std::cout << std::endl;
+	original_scavtrap.guardGate();
+	copy_scavtrap.guardGate();
+	copy_two_ct.guardGate();
+	std::cout << std::endl;
+
+	std::cout << "\033[1;33mSetting Naruto's energy points to 0\033[0m." << std::endl;
+	original_scavtrap.setmana(0);
+	std::cout << std::endl;
+	characters_data( original_scavtrap );
+	characters_data( copy_scavtrap );
+	characters_data( copy_two_ct );
+	std::cout << std::endl;
+
+	original_scavtrap.attack("Orochimaru");
+	copy_scavtrap.attack("Orochimaru");
+	copy_two_ct.attack("Orochimaru");
+	std::cout << "\033[1;33m==========================================================\033[0m" << std::endl;
+	std::cout << "\033[1;31mDESTRUCTION OF SCAVTRAPS NARUTO, NARUTO'S CLONE AND SASUKE\033[0m" << std::endl;
+	std::cout << "\033[1;33m==========================================================\033[0m" << std::endl;
 	return (0);
 }
-
-/*		TRY LACK OF ENERGY				*/
-
-/*int main( void )
-{
-	int i;
-    ClapTrap Naruto("Naruto");
-    ClapTrap Sasuke( Naruto );
-	
-	i = 0;
-	Sasuke.setname("Sasuke");
-	std::cout << "\033[1;31mEnergy level of Naruto : \033[m" << Naruto.getmana() << std::endl;
-	std::cout << "\033[1;31mEnergy level of Sasuke : \033[m" << Sasuke.getmana() << std::endl;
-	Naruto.attack("Orochimaru");
-	Sasuke.attack("Orochimaru");
-	std::cout << "\033[1;31mEnergy level of Naruto : \033[m" << Naruto.getmana() << std::endl;
-	std::cout << "\033[1;31mEnergy level of Sasuke : \033[m" << Sasuke.getmana() << std::endl;
-	std::cout << "\033[0;34mHP of Naruto : " << Naruto.gethp() << "\033[m" << std::endl;
-	std::cout << "\033[0;34mHP of Sasuke : " << Sasuke.gethp() << "\033[m" << std::endl;
-	Naruto.takeDamage(9);
-	Sasuke.takeDamage(9);
-	std::cout << "\033[0;34mHP of Naruto : " << Naruto.gethp() << "\033[m" << std::endl;
-	std::cout << "\033[0;34mHP of Sasuke : " << Sasuke.gethp() << "\033[m" << std::endl;
-	while (i < 10)
-	{
-		Naruto.beRepaired(1);
-		Sasuke.beRepaired(1);
-		i++;
-	}
-	std::cout << "\033[1;31mEnergy level of Naruto : \033[m" << Naruto.getmana() << std::endl;
-	std::cout << "\033[1;31mEnergy level Sasuke : \033[m" << Sasuke.getmana() << std::endl;
-	std::cout << "\033[0;34mHP of Naruto : " << Naruto.gethp() << "\033[m" << std::endl;
-	std::cout << "\033[0;34mHP of Sasuke : " << Sasuke.gethp() << "\033[m" << std::endl;
-	Naruto.takeDamage(9);
-	Sasuke.takeDamage(9);
-	return (0);
-}*/

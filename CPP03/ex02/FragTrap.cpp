@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/17 20:26:19 by adaloui           #+#    #+#             */
-/*   Updated: 2022/06/17 20:31:15 by adaloui          ###   ########.fr       */
+/*   Created: 2022/09/02 15:25:15 by adaloui           #+#    #+#             */
+/*   Updated: 2022/09/13 17:15:25 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,39 @@
 
 FragTrap::FragTrap( void ): ClapTrap()
 {
-	std::cout << "FragTrap constructor called." << std::endl;
+	std::cout << "\033[0;33mFragTrap constructor called.\033[0m" << std::endl;
 	return ;
 }
 
-FragTrap::FragTrap( std::string const & name )
+FragTrap::FragTrap( std::string name )
 {
 	this->_name = name;
 	this->_Hit_points = 100;
 	this->_Energy_points = 100;
 	this->_Attack_damage = 30;
+	std::cout << "\033[0;33mFragTrap constructor called.\033[0m" << std::endl;
 	return ;
 }
 
 FragTrap::FragTrap( const FragTrap & copy )
 {
-	this->_Hit_points = 100;
-	this->_Energy_points = 100;
-	this->_Attack_damage = 30;
-	std::cout << "FragTrap copy constructor called." << std::endl;
+	std::cout << "\033[0;36mFragTrap copy constructor called.\033[0m" << std::endl;
+	this->_name = copy._name;
+    this->_Hit_points = copy._Hit_points;
+    this->_Energy_points = copy._Energy_points;
+    this->_Attack_damage = copy._Attack_damage;
+	return ;
 }
 
 FragTrap::~FragTrap( void )
 {
-	std::cout << "FragTrap destructor called." << std::endl;
+	std::cout << "\033[0;33mFragTrap destructor called.\033[0m" << std::endl;
+	return ;
 }
 
 FragTrap & FragTrap::operator=( FragTrap const & rhs )
 {
-    std::cout << "Copy assignment operator called" << std::endl;
+    std::cout << "\033[0;34mCopy assignment operator called.\033[0m" << std::endl;
     if ( this != &rhs )
     {
 		this->_name = rhs._name;
@@ -55,17 +59,23 @@ FragTrap & FragTrap::operator=( FragTrap const & rhs )
 
 void FragTrap::highFivesGuys( void )
 {
-	std::cout << "FragTrap " << this->_name << " is asking for a high five." << std::endl;
+	std::cout << "\033[1;37m[FragTrap's function] \033[1;32m" << getname() << "\033[1;37m is asking for a high five.\033[m" << std::endl;
 	return ;
 }
 
 void FragTrap::attack( const std::string & target )
 {
+	if (this->_Hit_points <= 0)
+	{
+		std::cout << "\033[0;36mFragTrap \033[1;32m" << getname() << "\033[0;36m is dead. It cannot attack\033[m." << std::endl;
+		return ;
+	}
 	if (this->_Energy_points <= 0)
     {
-        std::cout << "The FragTrap \e[92m" << this->getname() << " has no energy." << std::endl;
+        std::cout << "\033[0;36mFragTrap \033[1;32m" << getname() << " \033[0;36mhas no energy to attack\033[m." << std::endl;
         return ;
     }
-	std::cout << "\033[0;36mFragTrap \e[92m" << this->getname() << "\033[0;36m attacks " << target << " causing \e[91m" << this->_Attack_damage << " \033[0;36mpoints of damage!\033[m" <<std::endl;
-	this->setmana(this->_Energy_points - 1);
+	std::cout << "\033[0;36mFragTrap \033[1;32m" << getname() << "\033[0;36m attacks " << target << " causing \033[1;35m" << this->_Attack_damage << " \033[0;36mpoints of damage!\033[m" <<std::endl;
+	setmana(this->_Energy_points - 1);
+	return ;
 }

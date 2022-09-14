@@ -3,31 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/17 20:26:17 by adaloui           #+#    #+#             */
-/*   Updated: 2022/06/18 14:02:37 by user42           ###   ########.fr       */
+/*   Created: 2022/09/02 15:25:20 by adaloui           #+#    #+#             */
+/*   Updated: 2022/09/13 15:51:38 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
+#ifndef FRAGTRAP_CPP
+# define FRAGTRAP_CPP
 
 # include "ClapTrap.hpp"
 
-class FragTrap : public virtual ClapTrap
+class FragTrap : virtual public ClapTrap
 {
 public:
-	FragTrap( std::string const & name );
-	FragTrap( const FragTrap & copy );
-	~FragTrap( void );
-	FragTrap & operator=( FragTrap const & rhs );
+    FragTrap( void );
+    FragTrap( std::string name );
+    FragTrap( const FragTrap & copy );
+    ~FragTrap( void );
+    FragTrap & operator=( FragTrap const & rhs );
 
-	void highFivesGuys( void );
+    void highFivesGuys( void );
 	void attack( const std::string & target );
-
-protected:
-	FragTrap( void );
 };
 
 #endif
