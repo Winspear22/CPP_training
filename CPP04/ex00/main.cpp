@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 12:38:32 by adaloui           #+#    #+#             */
-/*   Updated: 2022/09/06 18:34:49 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/09/15 02:48:51 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int main()
 	std::cout << "\e[1;31mCreation of the fake animals : \e[0m" << std::endl;
 	std::cout << std::endl;
 	const WrongAnimal* Fake_Animal = new WrongAnimal();
-	const WrongAnimal* Fake_Kitty = new WrongCat();
+	const WrongAnimal* Fake_Kitty = new WrongCat(); // N'est pas en virtual, donc il ne fait pas le bruit du cat.
 	const WrongCat* Fake_Cat = new WrongCat();
 
 	std::cout << "\e[1;31mAnimal's type : \e[0m" << std::endl;
