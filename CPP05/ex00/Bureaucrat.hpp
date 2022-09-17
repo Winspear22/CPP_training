@@ -15,6 +15,7 @@ public:
 
 	std::string			getname( void ) const;
 	int					getgrade( void ) const;
+	void				setgrade( int new_grade );
 	void				increasegrade( void );
 	void				decreasegrade( void );
 

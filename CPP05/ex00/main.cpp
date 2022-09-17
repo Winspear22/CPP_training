@@ -9,7 +9,6 @@ int main( void )
 	std::cout << Pierre << std::endl;
 	Pierre.decreasegrade();
 	Paul.increasegrade();
-
-
+	std::cout << Pierre << std::endl;
     return (0);
 }
