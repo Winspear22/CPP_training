@@ -54,16 +54,25 @@ void				Bureaucrat::setgrade( int new_grade )
 
 void				Bureaucrat::increasegrade( void )
 {
-	setgrade(this->_grade - 1);
-	//this->_grade--;
-	std::cout << "\033[1;33mPromoting Bureaucrat's grade \033[1;35m" << this->getname() << "\033[1;33m from \033[1;35m" << this->getgrade() + 1 << "\033[1;33m to \033[1;35m" << this->getgrade() << ".\033[0m" << std::endl;
+	if (this->getgrade() >= 150)
+		throw Bureaucrat::RankTooLow();
+	else
+	{
+		setgrade(this->_grade - 1);
+		std::cout << "\033[1;33mPromoting Bureaucrat's grade \033[1;35m" << this->getname() << "\033[1;33m from \033[1;35m" << this->getgrade() + 1 << "\033[1;33m to \033[1;35m" << this->getgrade() << ".\033[0m" << std::endl;
+	}
+	return ;
 }
 
 void				Bureaucrat::decreasegrade( void )
 {
-	setgrade(this->_grade + 1);
-//	this->_grade++;
-	std::cout << "\033[1;31mDemoting Bureaucrat's grade \033[1;35m" << this->getname() << "\033[1;31m from \033[1;35m" << this->getgrade() - 1 << "\033[1;31m to \033[1;35m" << this->getgrade() << ".\033[0m" << std::endl;
+	if (this->getgrade() <= 1)
+		throw Bureaucrat::RankTooHigh();
+	else 
+	{
+		setgrade(this->_grade + 1);
+		std::cout << "\033[1;31mDemoting Bureaucrat's grade \033[1;35m" << this->getname() << "\033[1;31m from \033[1;35m" << this->getgrade() - 1 << "\033[1;31m to \033[1;35m" << this->getgrade() << ".\033[0m" << std::endl;
+	}
 	return ;
 }
 

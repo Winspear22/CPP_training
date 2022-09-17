@@ -7,8 +7,22 @@ int main( void )
 	Bureaucrat Jacques("Jacques", 149);
 
 	std::cout << Pierre << std::endl;
-	Pierre.decreasegrade();
-	Paul.increasegrade();
+	std::cout << Paul << std::endl;
+	std::cout << Jacques << std::endl;
+
+	try
+	{	
+		Pierre.decreasegrade();
+		Paul.increasegrade();
+		Paul.increasegrade();
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << "rror" << std::endl;
+		std::cerr << e.what() << '\n';
+	}
+
+	std::cout << Paul << std::endl;
 	std::cout << Pierre << std::endl;
     return (0);
 }

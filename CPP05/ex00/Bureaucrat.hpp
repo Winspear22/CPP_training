@@ -22,6 +22,22 @@ public:
 private:
 	std::string			_name;
     int					_grade;
+	class RankTooHigh : public std::exception
+	{
+		public:
+			virtual const char *what() const throw()
+			{
+				return ("\033[1;31mError. The Bureaucrat cannot be promoted : grade too high.\033[0m");
+			}
+	};
+	class RankTooLow : public std::exception
+	{
+		public:
+			virtual const char *what() const throw()
+			{
+				return ("\033[1;31mError. The Bureaucrat cannot be promoted : grade too low.\033[0m");
+			}
+	};
 };
 
 std::ostream & operator<<( std::ostream & o, Bureaucrat const & rhs );
