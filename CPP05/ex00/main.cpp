@@ -36,7 +36,22 @@ int main( void )
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	
+	try
+	{
+		Bureaucrat("I am above 150", 151);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	try
+	{
+		Bureaucrat("I am under 1", 0);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 
 	std::cout << Paul << std::endl;
 	std::cout << Pierre << std::endl;

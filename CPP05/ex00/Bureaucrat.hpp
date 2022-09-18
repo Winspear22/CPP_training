@@ -22,6 +22,23 @@ public:
 private:
 	const std::string 		_name;
     int					_grade;
+	
+	class RankTooHighInCreation : public std::exception
+	{
+		public:
+			virtual const char *what() const throw()
+			{
+				return ( "\033[1;38mError. You cannot create a Bureaucrat under the rank of 1.\033[0m");
+			}
+	};
+	class RankTooLowInCreation : public std::exception
+	{
+		public:
+			virtual const char *what() const throw()
+			{
+				return ( "\033[1;38mError. You cannot create a Bureaucrat above the rank of 150.\033[0m");
+			}
+	};
 	class RankTooHigh : public std::exception
 	{
 		public:

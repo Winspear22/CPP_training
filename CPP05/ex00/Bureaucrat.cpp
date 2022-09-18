@@ -3,6 +3,10 @@
 
 Bureaucrat::Bureaucrat( const std::string & name, int grade ): _name(name), _grade(grade)
 {
+	if (this->_grade < 1)
+		throw Bureaucrat::RankTooHighInCreation();
+	else if (this->_grade > 150)
+		throw Bureaucrat::RankTooLowInCreation();
 	std::cout << "\033[0;32mBureaucrat Constructor called.\033[0m" << std::endl;
 	std::cout << "\033[1;37mName of the Bureaucrat : \033[1;35m" << this->_name << std::endl;
 	std::cout << "\033[1;37mGrade of the Bureaucrat : \033[1;35m" << this->_grade << std::endl;
@@ -52,10 +56,7 @@ void				Bureaucrat::setgrade( int new_grade )
 void				Bureaucrat::increasegrade( void )
 {
 	if (this->_grade <= 1)
-	{
-		//setgrade(this->_grade -1);
 		throw Bureaucrat::RankTooLow();
-	}
 	else
 	{
 		setgrade(this->_grade - 1);
@@ -67,10 +68,7 @@ void				Bureaucrat::increasegrade( void )
 void				Bureaucrat::decreasegrade( void )
 {
 	if (this->_grade >= 150)
-	{
-		//setgrade(this->_grade + 1);
 		throw Bureaucrat::RankTooHigh();
-	}
 	else 
 	{
 		setgrade(this->_grade + 1);
