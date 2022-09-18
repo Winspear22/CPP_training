@@ -35,7 +35,7 @@ Bureaucrat & Bureaucrat::operator=( Bureaucrat const & rhs )
 	return (*this);
 }
 
-std::string			Bureaucrat::getname( void ) const
+const std::string			Bureaucrat::getname( void ) const
 {
 	return (this->_name);
 }
@@ -54,8 +54,11 @@ void				Bureaucrat::setgrade( int new_grade )
 
 void				Bureaucrat::increasegrade( void )
 {
-	if (this->getgrade() >= 150)
+	if (this->_grade <= 1)
+	{
+		//setgrade(this->_grade -1);
 		throw Bureaucrat::RankTooLow();
+	}
 	else
 	{
 		setgrade(this->_grade - 1);
@@ -66,8 +69,11 @@ void				Bureaucrat::increasegrade( void )
 
 void				Bureaucrat::decreasegrade( void )
 {
-	if (this->getgrade() <= 1)
+	if (this->_grade >= 150)
+	{
+		//setgrade(this->_grade + 1);
 		throw Bureaucrat::RankTooHigh();
+	}
 	else 
 	{
 		setgrade(this->_grade + 1);
