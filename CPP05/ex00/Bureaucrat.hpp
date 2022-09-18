@@ -8,19 +8,19 @@
 class Bureaucrat
 {
 public:
-	Bureaucrat( std::string name, int grade );
+	Bureaucrat( const std::string & name, int grade );
 	Bureaucrat( const Bureaucrat & copy );
 	~Bureaucrat( void );
 	Bureaucrat & operator=( const Bureaucrat & rhs );
 
-	const std::string			getname( void ) const;
+	std::string			getname( void ) const;
 	int					getgrade( void ) const;
 	void				setgrade( int new_grade );
 	void				increasegrade( void );
 	void				decreasegrade( void );
 
 private:
-	std::string			_name;
+	const std::string 		_name;
     int					_grade;
 	class RankTooHigh : public std::exception
 	{

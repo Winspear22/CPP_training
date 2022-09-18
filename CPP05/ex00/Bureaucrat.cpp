@@ -1,11 +1,9 @@
 #include "Bureaucrat.hpp"
 
 
-Bureaucrat::Bureaucrat( std::string name, int grade )
+Bureaucrat::Bureaucrat( const std::string & name, int grade ): _name(name), _grade(grade)
 {
 	std::cout << "\033[0;32mBureaucrat Constructor called.\033[0m" << std::endl;
-	this->_name = name;
-	this->_grade = grade;
 	std::cout << "\033[1;37mName of the Bureaucrat : \033[1;35m" << this->_name << std::endl;
 	std::cout << "\033[1;37mGrade of the Bureaucrat : \033[1;35m" << this->_grade << std::endl;
 	return ;
@@ -29,13 +27,12 @@ Bureaucrat & Bureaucrat::operator=( Bureaucrat const & rhs )
 	std::cout << "\033[0;34mBureaucrat Copy assignment operator called.\033[0m" << std::endl;
 	if ( this != &rhs )
     {
-		this->_name = rhs._name;
         this->_grade = rhs._grade;
     }
 	return (*this);
 }
 
-const std::string			Bureaucrat::getname( void ) const
+std::string			Bureaucrat::getname( void ) const
 {
 	return (this->_name);
 }
