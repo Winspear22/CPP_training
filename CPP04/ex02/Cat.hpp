@@ -6,14 +6,14 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 12:38:51 by adaloui           #+#    #+#             */
-/*   Updated: 2022/09/07 16:18:54 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/09/20 11:51:52 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CAT_HPP
 # define CAT_HPP
 
-# include "Animal.hpp"
+# include "AAnimal.hpp"
 # include "Brain.hpp"
 
 class Cat : public Animal

@@ -6,14 +6,14 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 12:38:37 by adaloui           #+#    #+#             */
-/*   Updated: 2022/09/07 16:19:04 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/09/20 11:51:59 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DOG_HPP
 # define DOG_HPP
 
-# include "Animal.hpp"
+# include "AAnimal.hpp"
 # include "Brain.hpp"
 
 class Dog : public Animal
