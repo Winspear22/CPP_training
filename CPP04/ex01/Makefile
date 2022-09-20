@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: user42 <user42@student.42.fr>              +#+  +:+       +#+         #
+#    By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/06 12:38:25 by adaloui           #+#    #+#              #
-#    Updated: 2022/09/15 05:13:10 by user42           ###   ########.fr        #
+#    Updated: 2022/09/20 10:21:11 by adaloui          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ INCLUDE= Animal.hpp
 OBJS		=		$(SRCS:.cpp=.o)
 
 CC= c++
-FLAGS= -Wall -Wextra -std=c++98 -g3 -fsanitize=address
+FLAGS= -Wall -Wextra -Werror -std=c++98 #-g3 -fsanitize=address
 
 %.o:				%.cpp
 	@$(CC) $(FLAGS) -c $< -o $@ -I $(INCLUDE)

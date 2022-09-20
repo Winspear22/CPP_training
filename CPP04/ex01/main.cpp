@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 12:38:32 by adaloui           #+#    #+#             */
-/*   Updated: 2022/09/15 05:30:37 by user42           ###   ########.fr       */
+/*   Updated: 2022/09/20 10:28:13 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,34 @@ int main()
     }
 	i = -1;
 	j = 1;
+	Dog Dog1;
+	Cat Cat1;
+	Dog Dog2;
+	Cat Cat2;
+
+	Dog1.getBrain()->setIdeas("\033[1;37mThis is a deep copy.\033[0m", 0);
+	Dog1.getBrain()->setIdeas("\033[1;37mThis is another proof of deep copy.\033[0m", 1);
+	Cat1.getBrain()->setIdeas("\033[1;37mThis is a deep copy.\033[0m", 0);
+	Cat1.getBrain()->setIdeas("\033[1;37mThis is anoher proof of deep copy.\033[0m", 1);
+	
+	Dog2 = Dog1;
+	Cat2 = Cat1;
+    std::cout << "adress of dog1 is : " << Dog1.getBrain() << std::endl;
+    std::cout << "adress of dog2 is : " << Dog2.getBrain() << std::endl;
+    std::cout << "adress of cat1 is : " << Cat1.getBrain() << std::endl;
+    std::cout << "adress of cat2 is : " << Cat2.getBrain() << std::endl;
+	
+	std::cout << "Dog1 idea 0 = " << Dog1.getBrain()->getIdeas(0) << std::endl;
+	std::cout << "Dog2 idea 0 = " << Dog2.getBrain()->getIdeas(0) << std::endl;
+	std::cout << "Dog1 idea 1 = " << Dog1.getBrain()->getIdeas(1) << std::endl;
+	std::cout << "Dog2 idea 1 = " << Dog2.getBrain()->getIdeas(1) << std::endl;
+	std::cout << "Cat1 idea 0 = " << Cat1.getBrain()->getIdeas(0) << std::endl;
+	std::cout << "Cat2 idea 0 = " << Cat2.getBrain()->getIdeas(0) << std::endl;
+	std::cout << "Cat1 idea 1 = " << Cat1.getBrain()->getIdeas(1) << std::endl;
+	std::cout << "Cat2 idea 1 = " << Cat2.getBrain()->getIdeas(1) << std::endl;
 	/*		DIFFERENCE ENTRE DEEP ET SHALLOW COPY */
-//	Animal* minou;
-//	minou = animals[0];
+	//	Animal* minou;
+	//	minou = animals[0];
 	//Animal* medor  = animals[3];
 	while (++i < 6)
 	{

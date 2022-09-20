@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 12:38:56 by adaloui           #+#    #+#             */
-/*   Updated: 2022/09/15 05:29:06 by user42           ###   ########.fr       */
+/*   Updated: 2022/09/20 10:29:11 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,10 @@ Cat::Cat( const Cat & copy ): Animal()
 Cat & Cat::operator=( Cat const & rhs )
 {
 	std::cout << "Cat Copy assignement operator called." << std::endl;
+	if (&rhs == this)
+        return *this;
 	Animal::type = rhs.getType();
-	_Brain = new Brain();
+    *(this->_Brain) = *(rhs._Brain);
 	return (*this);
 } 
 
