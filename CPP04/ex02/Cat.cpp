@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 12:38:56 by adaloui           #+#    #+#             */
-/*   Updated: 2022/09/15 05:29:06 by user42           ###   ########.fr       */
+/*   Updated: 2022/09/20 11:43:09 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include "Cat.hpp"
 
-Cat::Cat( void )
+/*Cat::Cat( void )
 {
 	std::cout << "\e[92mCat\e[0m original constructor called." << std::endl;
 	Animal::type = "\e[32mCat\e[0m";
@@ -34,6 +34,39 @@ Cat & Cat::operator=( Cat const & rhs )
 	std::cout << "Cat Copy assignement operator called." << std::endl;
 	Animal::type = rhs.getType();
 	_Brain = new Brain();
+	return (*this);
+} 
+
+Cat::~Cat( void )
+{
+	std::cout << "\e[32mCat destructor called.\e[0m" << std::endl;
+	delete _Brain;
+	return ;
+}*/
+
+Cat::Cat( void )
+{
+	std::cout << "\e[92mCat\e[0m original constructor called." << std::endl;
+	Animal::type = "\e[32mCat\e[0m";
+	_Brain = new Brain();
+	return ;
+}
+
+Cat::Cat( const Cat & copy ): Animal()
+{
+	std::cout << "Cat copy constructor called." << std::endl;
+	*this = copy;
+	_Brain = new Brain();
+	return ;
+}
+
+Cat & Cat::operator=( Cat const & rhs )
+{
+	std::cout << "\e[96mCat Copy\e[0m assignement operator called." << std::endl;
+	if (&rhs == this)
+        return (*this);
+	Animal::type = rhs.getType();
+    *(this->_Brain) = *(rhs._Brain);
 	return (*this);
 } 
 

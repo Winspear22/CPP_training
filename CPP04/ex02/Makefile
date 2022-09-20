@@ -6,7 +6,7 @@
 #    By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/06 12:38:25 by adaloui           #+#    #+#              #
-#    Updated: 2022/09/20 11:28:17 by adaloui          ###   ########.fr        #
+#    Updated: 2022/09/20 11:38:28 by adaloui          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ OBJS		=		$(SRCS:.cpp=.o)
 DEPS		=		$(SRCS:.cpp=.d)
 
 CC= c++
-FLAGS= -Wall -Wextra -Werror -std=c++98
+FLAGS= -Wall -Wextra -Werror -std=c++98 -g3
 
 %.o:				%.cpp
 	@$(CC) $(FLAGS) -MMD -c $< -o $@ -I $(INCLUDE)

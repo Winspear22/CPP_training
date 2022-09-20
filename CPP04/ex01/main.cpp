@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 12:38:32 by adaloui           #+#    #+#             */
-/*   Updated: 2022/09/20 11:34:01 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/09/20 11:35:19 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,36 +53,6 @@ int main()
 	}
 	i = -1;
 	j = 1;
-
-	/*	std::cout << "\033[1;31m==========================\033[0m" << std::endl;
-		std::cout << "\033[1;36mDEMONSTRATING THE DEEP COPY \033[0m" << std::endl;
-		std::cout << "\033[1;31m==========================\033[0m" << std::endl;
-		Dog Dog1;
-		Cat Cat1;
-		Dog Dog2;
-		Cat Cat2;
-
-		Dog1.getBrain()->setIdeas("\033[1;37mThis is a deep copy.\033[0m", 0);
-		Dog1.getBrain()->setIdeas("\033[1;37mThis is another proof of deep copy.\033[0m", 1);
-		Cat1.getBrain()->setIdeas("\033[1;37mThis is a deep copy.\033[0m", 0);
-		Cat1.getBrain()->setIdeas("\033[1;37mThis is anoher proof of deep copy.\033[0m", 1);
-
-		Dog2 = Dog1;
-		Cat2 = Cat1;
-		std::cout << "adress of dog1 is : " << Dog1.getBrain() << std::endl;
-		std::cout << "adress of dog2 is : " << Dog2.getBrain() << std::endl;
-		std::cout << "adress of cat1 is : " << Cat1.getBrain() << std::endl;
-		std::cout << "adress of cat2 is : " << Cat2.getBrain() << std::endl;
-
-		std::cout << "Dog1 idea 0 = " << Dog1.getBrain()->getIdeas(0) << std::endl;
-		std::cout << "Dog2 idea 0 = " << Dog2.getBrain()->getIdeas(0) << std::endl;
-		std::cout << "Dog1 idea 1 = " << Dog1.getBrain()->getIdeas(1) << std::endl;
-		std::cout << "Dog2 idea 1 = " << Dog2.getBrain()->getIdeas(1) << std::endl;
-		std::cout << "Cat1 idea 0 = " << Cat1.getBrain()->getIdeas(0) << std::endl;
-		std::cout << "Cat2 idea 0 = " << Cat2.getBrain()->getIdeas(0) << std::endl;
-		std::cout << "Cat1 idea 1 = " << Cat1.getBrain()->getIdeas(1) << std::endl;
-		std::cout << "Cat2 idea 1 = " << Cat2.getBrain()->getIdeas(1) << std::endl;
-	*/
 	while (++i < 6)
 	{
 		std::cout << animals[i]->getType() << "\033[1;38m n° " << j << "\033[0m thinks : " << animals[i]->getBrain()->getIdeas(0) << std::endl;
