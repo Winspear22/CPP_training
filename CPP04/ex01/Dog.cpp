@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 12:38:44 by adaloui           #+#    #+#             */
-/*   Updated: 2022/09/20 10:29:20 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/09/20 11:20:27 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ Dog::Dog( const Dog & copy ): Animal()
 
 Dog & Dog::operator=( Dog const & rhs )
 {
-	std::cout << "Copy assignement operator called." << std::endl;
+	std::cout << "\e[96mDog Copy\e[0m assignement operator called." << std::endl;
 	if (&rhs == this)
         return *this;
 	Animal::type = rhs.getType();

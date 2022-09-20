@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 18:46:17 by adaloui           #+#    #+#             */
-/*   Updated: 2022/09/20 09:59:30 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/09/20 11:31:05 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,17 @@ Brain::Brain( const Brain & copy )
 
 Brain & Brain::operator=( Brain const & rhs )
 {
-	std::cout << "Brain Copy assignement operator called." << std::endl;
+	int i;
+
+	i = 0;
+	std::cout << "\e[93mBrain\e[0m Copy assignement operator called." << std::endl;
 	if (&rhs == this)
 		*this = rhs; 
-	for (int i = 0; i < 100; i++)
+	while (i < 100)
+	{
     	this->_ideas[i] = rhs._ideas[i];
+		i++;
+	}
 	return (*this);
 } 
 

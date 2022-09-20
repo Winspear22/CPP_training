@@ -6,7 +6,7 @@
 #    By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/06 12:38:25 by adaloui           #+#    #+#              #
-#    Updated: 2022/09/20 10:21:11 by adaloui          ###   ########.fr        #
+#    Updated: 2022/09/20 11:27:32 by adaloui          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,12 +15,13 @@ SRCS= main.cpp Animal.cpp Cat.cpp Dog.cpp WrongCat.cpp WrongAnimal.cpp Brain.cpp
 INCLUDE= Animal.hpp
 
 OBJS		=		$(SRCS:.cpp=.o)
+DEPS		=		$(SRCS:.cpp=.d)
 
 CC= c++
-FLAGS= -Wall -Wextra -Werror -std=c++98 #-g3 -fsanitize=address
+FLAGS= -Wall -Wextra -Werror -std=c++98
 
 %.o:				%.cpp
-	@$(CC) $(FLAGS) -c $< -o $@ -I $(INCLUDE)
+	@$(CC) $(FLAGS) -MMD -c $< -o $@ -I $(INCLUDE)
 
 all: $(NAME)
 
@@ -29,11 +30,12 @@ $(NAME): $(OBJS)
 	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 
 clean:
-	rm -Rf $(OBJS)
+	rm -Rf $(OBJS) $(DEPS)
 
 fclean: clean
 	rm -Rf $(NAME)
 
 re: fclean all
 
+-include $(DEPS)
 .PHONY: all clean fclean re

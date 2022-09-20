@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 18:46:17 by adaloui           #+#    #+#             */
-/*   Updated: 2022/09/15 05:19:21 by user42           ###   ########.fr       */
+/*   Updated: 2022/09/20 11:31:20 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,17 @@ Brain::Brain( const Brain & copy )
 
 Brain & Brain::operator=( Brain const & rhs )
 {
-	std::cout << "Brain Copy assignement operator called." << std::endl;
-	*this = rhs; 
+	int i;
+
+	i = 0;
+	std::cout << "\e[93mBrain\e[0m Copy assignement operator called." << std::endl;
+	if (&rhs == this)
+		*this = rhs; 
+	while (i < 100)
+	{
+    	this->_ideas[i] = rhs._ideas[i];
+		i++;
+	}
 	return (*this);
 } 
 
