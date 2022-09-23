@@ -52,7 +52,6 @@ int main( void )
 	{
 		std::cerr << e.what() << std::endl;
 	}
-
 	std::cout << Paul << std::endl;
 	std::cout << Pierre << std::endl;
 	std::cout << Jacques << std::endl;

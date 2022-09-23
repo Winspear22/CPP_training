@@ -1,24 +1,20 @@
 #include "Bureaucrat.hpp"
-
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat( const std::string & name, int grade ): _name(name), _grade(grade)
 {
-	if (this->_grade < 1)
-		throw Bureaucrat::RankTooHighInCreation();
-	else if (this->_grade > 150)
-		throw Bureaucrat::RankTooLowInCreation();
-	std::cout << "\033[0;32mBureaucrat Constructor called.\033[0m" << std::endl;
-	std::cout << "\033[1;37mName of the Bureaucrat : \033[1;35m" << this->_name << std::endl;
-	std::cout << "\033[1;37mGrade of the Bureaucrat : \033[1;35m" << this->_grade << std::endl;
+
+	std::cout << "\033[0;33mBureaucrat Constructor called.\033[0m" << std::endl;
+
 	return ;
 }
 
 Bureaucrat::Bureaucrat( const Bureaucrat & copy )
 {
-	if (this->_grade < 1)
+	/*if (this->_grade < 1)
 		throw Bureaucrat::RankTooHighInCreation();
 	else if (this->_grade > 150)
-		throw Bureaucrat::RankTooLowInCreation();
+		throw Bureaucrat::RankTooLowInCreation();*/
 	std::cout << "\033[0;33mBureaucrat Copy Constructor called.\033[0m" << std::endl;
     *this = copy;
 	return ;
@@ -26,16 +22,16 @@ Bureaucrat::Bureaucrat( const Bureaucrat & copy )
 
 Bureaucrat::~Bureaucrat( void )
 {
-	std::cout << "\033[0;31mBureaucrat Destructor for \033[1;35m" << this->_name << "\033[0;31m called.\033[0m" << std::endl;
+	std::cout << "\033[0;31mBureaucrat Destructor called.\033[0m" << std::endl;
 	return ;
 }
 
 Bureaucrat & Bureaucrat::operator=( Bureaucrat const & rhs )
 {
-	if (this->_grade < 1)
+	/*if (this->_grade < 1)
 		throw Bureaucrat::RankTooHighInCreation();
 	else if (this->_grade > 150)
-		throw Bureaucrat::RankTooLowInCreation();
+		throw Bureaucrat::RankTooLowInCreation();*/
 	std::cout << "\033[0;34mBureaucrat Copy assignment operator called.\033[0m" << std::endl;
 	if ( this != &rhs )
     {
@@ -84,6 +80,33 @@ void				Bureaucrat::decreasegrade( void )
 	}
 	return ;
 }
+
+/*void				Bureaucrat::signForm( Form papier, Bureaucrat salarie )
+{
+	papier.beSigned(salarie);
+	return ;
+}*/
+
+void Bureaucrat::signForm(Form & papier)
+{
+	if (papier.getgrade_to_execute() < 1 || papier.getgrade_to_execute() > 150)
+		throw SignException();
+	else if (papier.getgrade_to_sign() < 1 || papier.getgrade_to_sign() > 150)
+		throw SignException();
+	else if (papier.getsign_status() == SIGNED)
+		std::cout << this->_name << " signed " << papier.getname() << std::endl;
+	else if (papier.getgrade_to_sign() > this->_grade)
+	{
+		papier.setsign_status(SIGNED);
+		std::cout << this->_name << " signed " << papier.getname() << std::endl;
+	}
+	else
+	{
+		std::cout << "Grade : " << papier.getgrade_to_sign() << std::endl;
+		throw SignException();
+	}
+}
+
 
 std::ostream & operator<<( std::ostream & o, Bureaucrat const & rhs )
 {
