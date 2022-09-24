@@ -1,29 +1,126 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
-/*int main( void )
+int main( void )
 {
-	Bureaucrat Pierre("Pierre", 35);
-	Form papier("Formulaire 1", 45, 90);
+	std::cout << "\033[1;31m========================\033[0m" << std::endl;
+	std::cout << "\033[1;36mCREATING THE BUREAUCRATS\033[0m" << std::endl;
+	std::cout << "\033[1;31m========================\033[0m" << std::endl;
+	Bureaucrat Pierre("Pierre");
+	Bureaucrat Paul("Paul");
+	Bureaucrat Jacques("Jacques");
+	Bureaucrat Franck(Pierre);
 
-	std::cout << papier << std::endl;
-	std::cout << Pierre << std::endl;
-	try
+	Pierre.setgrade(35);
+	Paul.setgrade(1);
+	Franck.setgrade(89);
+	Jacques = Pierre;
+/*	try
 	{
-		Pierre.signForm(papier);
+		Bureaucrat Jean("popo");
+		Jean.setgrade(151);
+
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	
+	try
+	{
+		Bureaucrat Jean("popo");
+		Jean.setgrade(0);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}*/
+	std::cout << "\033[1;31m==================\033[0m" << std::endl;
+	std::cout << "\033[1;36mCREATING THE FORMS\033[0m" << std::endl;
+	std::cout << "\033[1;31m==================\033[0m" << std::endl;
 
-	
-	std::cout << papier << std::endl;
+	Form papier("Formulaire 1", 45, 90);
+	Form papier2("Formulaire 2", 150, 150);
+	Form papier4("Formulaire 4", 1, 1);
+	Form papier5("Formulaire 5", 1, 1);
+	Form papier6(papier);
+
+	std::cout << "\033[1;31m===========================\033[0m" << std::endl;
+	std::cout << "\033[1;36mLISTING ALL THE BUREAUCRATS\033[0m" << std::endl;
+	std::cout << "\033[1;31m===========================\033[0m" << std::endl;
 	std::cout << Pierre << std::endl;
-    return (0);
-}*/
+	std::cout << Paul << std::endl;
+	std::cout << Jacques << std::endl;
+	std::cout << Franck << std::endl;
+	std::cout << "\033[1;31m=====================\033[0m" << std::endl;
+	std::cout << "\033[1;36mLISTING ALL THE FORMS\033[0m" << std::endl;
+	std::cout << "\033[1;31m=====================\033[0m" << std::endl;
+	std::cout << papier << std::endl;
+	std::cout << papier2 << std::endl;
+	std::cout << papier4 << std::endl;
+	std::cout << papier5 << std::endl;
+	std::cout << papier6 << std::endl;
+	std::cout << "\033[1;31m==============================\033[0m" << std::endl;
+	std::cout << "\033[1;36mSETTING JACQUES'S GRADE TO 150\033[0m" << std::endl;
+	std::cout << "\033[1;31m==============================\033[0m" << std::endl;
+	try
+	{ 
+		Jacques.setgrade(150);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	std::cout << Jacques << std::endl;
+	std::cout << "\033[1;31m===================================\033[0m" << std::endl;
+	std::cout << "\033[1;36mTRYING TO SIGN WITH THE RIGHT LEVEL\033[0m" << std::endl;
+	std::cout << "\033[1;31m===================================\033[0m" << std::endl;
+	
+	try
+	{
+		Pierre.signForm(papier);
+		Jacques.signForm(papier2);
 
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	std::cout << "\033[1;31m============================\033[0m" << std::endl;
+	std::cout << "\033[1;36mTRYING TO SIGN SEVERAL TIMES\033[0m" << std::endl;
+	std::cout << "\033[1;31m============================\033[0m" << std::endl;
+	try
+	{
+		Pierre.signForm(papier);
+		Jacques.signForm(papier2);
+
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	std::cout << "\033[1;31m===================================\033[0m" << std::endl;
+	std::cout << "\033[1;36mTRYING TO SIGN WITH THE WRONG LEVEL\033[0m" << std::endl;
+	std::cout << "\033[1;31m===================================\033[0m" << std::endl;
+	try
+	{
+		Pierre.signForm(papier5);
+
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	
+	std::cout << "\033[1;31m=====================\033[0m" << std::endl;
+	std::cout << "\033[1;36mLISTING ALL THE FORMS\033[0m" << std::endl;
+	std::cout << "\033[1;31m=====================\033[0m" << std::endl;
+	std::cout << papier << std::endl;
+	std::cout << papier2 << std::endl;
+	std::cout << papier4 << std::endl;
+	std::cout << papier5 << std::endl;
+    return (0);
+}
+/*
 int main(void)
 {
 	std::cout << "=================================" << std::endl;
@@ -82,4 +179,4 @@ int main(void)
 		std::cout << "\033[1;31m EXCEPTION CATCHED\033[m" << std::endl;
 		std::cout << "=================================" << std::endl;
 	}
-}
+}*/

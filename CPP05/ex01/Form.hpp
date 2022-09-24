@@ -12,7 +12,8 @@ class Bureaucrat;
 class Form
 {
 public:
-	Form( const std::string & name, int grade_to_sign, int gradeto_execute );
+//	Form( const std::string & name );
+	Form( const std::string name, const int grade_to_sign, const int grade_to_execute);
 	Form( const Form & copy );
 	~Form( void );
 	Form & operator=( const Form & rhs );
@@ -24,12 +25,10 @@ public:
 	bool getsign_status( void ) const;
 		void	setsign_status(bool _is_signed);
 
-
-
 private:
 	const std::string 	_name;
-    int					_grade_to_sign;
-    int                 _grade_to_execute;
+    const int			_grade_to_sign;
+    const int           _grade_to_execute;
     bool                _is_signed;
 
     class GradeTooHighException : public std::exception

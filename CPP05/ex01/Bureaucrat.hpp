@@ -10,7 +10,7 @@ class Form;
 class Bureaucrat
 {
 public:
-	Bureaucrat( const std::string & name, int grade );
+	Bureaucrat( const std::string & name );
 	Bureaucrat( const Bureaucrat & copy );
 	~Bureaucrat( void );
 	Bureaucrat & operator=( const Bureaucrat & rhs );
@@ -64,7 +64,7 @@ private:
 		 
 			virtual const char *what() const throw()
 			{
-				return ("bureaucrat couldn't sign because grade is insuffisent");
+				return ("\033[1;31mThis Bureaucrat cannot grade this paper.\033[1;35m");
 			}
 		};
 };

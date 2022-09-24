@@ -1,26 +1,18 @@
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
-Form::Form( const std::string & name, int grade_to_sign, int grade_to_execute ): _name(name), _grade_to_sign(grade_to_sign), _grade_to_execute(grade_to_execute), _is_signed(NOT_SIGNED)
+Form::Form( const std::string name, const int grade_to_sign, const int grade_to_execute): _name(name), _grade_to_sign(grade_to_sign), _grade_to_execute(grade_to_execute)
 {
-	/*if (this->_grade < 1)
-		throw Form::RankTooHighInCreation();
-	else if (this->_grade > 150)
-		throw Form::RankTooLowInCreation();*/
+	this->_is_signed = NOT_SIGNED;
 	std::cout << "\033[0;32mForm Constructor called.\033[0m" << std::endl;
-    //std::cout << "\033[1;37mName of the Form : \033[1;35m" << this->_name << std::endl;
-	//std::cout << "\033[1;37mGrade of the Form : \033[1;35m" << this->_grade << std::endl;
-	return ;
 }
 
-Form::Form( const Form & copy )
+Form::Form( const Form & copy ): _name(copy._name), _grade_to_sign(copy._grade_to_sign), _grade_to_execute(copy._grade_to_execute)
 {
-	/*if (this->_grade < 1)
-		throw Form::RankTooHighInCreation();
-	else if (this->_grade > 150)
-		throw Form::RankTooLowInCreation();*/
 	std::cout << "\033[0;33mForm Copy Constructor called.\033[0m" << std::endl;
-    *this = copy;
+	
+	this->_is_signed = NOT_SIGNED;
+	*this = copy;
 	return ;
 }
 
@@ -32,17 +24,9 @@ Form::~Form( void )
 
 Form & Form::operator=( Form const & rhs )
 {
-/*	if (this->_grade < 1)
-		throw Form::RankTooHighInCreation();
-	else if (this->_grade > 150)
-		throw Form::RankTooLowInCreation();*/
 	std::cout << "\033[0;34mForm Copy assignment operator called.\033[0m" << std::endl;
 	if ( this != &rhs )
-    {
-        this->_grade_to_sign = rhs._grade_to_sign;
-        this->_grade_to_execute = rhs._grade_to_execute;
         this->_is_signed = rhs._is_signed;
-    }
 	return (*this);
 }
 

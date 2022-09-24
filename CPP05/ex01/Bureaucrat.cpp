@@ -1,22 +1,17 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
-Bureaucrat::Bureaucrat( const std::string & name, int grade ): _name(name), _grade(grade)
+Bureaucrat::Bureaucrat( const std::string & name ): _name(name)
 {
-
 	std::cout << "\033[0;33mBureaucrat Constructor called.\033[0m" << std::endl;
-
+	this->_grade = 150;
 	return ;
 }
 
 Bureaucrat::Bureaucrat( const Bureaucrat & copy )
 {
-	/*if (this->_grade < 1)
-		throw Bureaucrat::RankTooHighInCreation();
-	else if (this->_grade > 150)
-		throw Bureaucrat::RankTooLowInCreation();*/
+	*this = copy;
 	std::cout << "\033[0;33mBureaucrat Copy Constructor called.\033[0m" << std::endl;
-    *this = copy;
 	return ;
 }
 
@@ -28,15 +23,9 @@ Bureaucrat::~Bureaucrat( void )
 
 Bureaucrat & Bureaucrat::operator=( Bureaucrat const & rhs )
 {
-	/*if (this->_grade < 1)
-		throw Bureaucrat::RankTooHighInCreation();
-	else if (this->_grade > 150)
-		throw Bureaucrat::RankTooLowInCreation();*/
-	std::cout << "\033[0;34mBureaucrat Copy assignment operator called.\033[0m" << std::endl;
 	if ( this != &rhs )
-    {
-        this->_grade = rhs._grade;
-    }
+		this->_grade = rhs.getgrade();
+	std::cout << "\033[0;34mBureaucrat Copy assignment operator called.\033[0m" << std::endl;
 	return (*this);
 }
 
@@ -52,7 +41,12 @@ int					Bureaucrat::getgrade( void ) const
 
 void				Bureaucrat::setgrade( int new_grade )
 {
-	this->_grade = new_grade;
+	if (new_grade > 150)
+		throw Bureaucrat::RankTooLow();
+	else if (new_grade < 1)
+		throw Bureaucrat::RankTooHigh();
+	else 
+		this->_grade = new_grade;
 	return ;
 }
 
@@ -94,17 +88,14 @@ void Bureaucrat::signForm(Form & papier)
 	else if (papier.getgrade_to_sign() < 1 || papier.getgrade_to_sign() > 150)
 		throw SignException();
 	else if (papier.getsign_status() == SIGNED)
-		std::cout << this->_name << " signed " << papier.getname() << std::endl;
-	else if (papier.getgrade_to_sign() > this->_grade)
+		std::cout << "\033[1;35m" << papier.getname() << " \033[0mis already signed." << std::endl;
+	else if (papier.getgrade_to_sign() >= this->_grade)
 	{
 		papier.setsign_status(SIGNED);
-		std::cout << this->_name << " signed " << papier.getname() << std::endl;
+		std::cout << "\033[1;35m" << this->_name << "\033[0m signed \033[1;35m" << papier.getname() << "\033[0m" << std::endl;
 	}
 	else
-	{
-		std::cout << "Grade : " << papier.getgrade_to_sign() << std::endl;
 		throw SignException();
-	}
 }
 
 
