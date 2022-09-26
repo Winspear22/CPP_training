@@ -1,8 +1,9 @@
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
-Form::Form( const std::string name, const int grade_to_sign, const int grade_to_execute): _name(name), _grade_to_sign(grade_to_sign), _grade_to_execute(grade_to_execute)
+Form::Form( const std::string name, int grade_to_sign, int grade_to_execute): _name(name), _grade_to_sign(grade_to_sign), _grade_to_execute(grade_to_execute)
 {
+	this->checkGrades(); 
 	this->_is_signed = NOT_SIGNED;
 	std::cout << "\033[0;32mForm Constructor called.\033[0m" << std::endl;
 }
@@ -59,34 +60,27 @@ void Form::setsign_status(bool signature)
 	this->_is_signed = signature;
 }
 
-
-/*void Form::beSigned( Bureaucrat le_salarie )
+void	Form::checkGrades( void )
 {
-	if (this->_is_signed == NOT_SIGNED)
-	{
-		if (le_salarie.getgrade() <= this->getgrade_to_sign())
-			this->_is_signed = SIGNED;
-		else
-			throw Form::GradeTooLowException();
-	}
-    this->_is_signed = SIGNED;
+	if (this->_grade_to_sign < 1
+			|| this->_grade_to_execute < 1)
+			throw Form::GradeTooHighException();
+	if (this->_grade_to_sign > 150
+			|| this->_grade_to_execute > 150)
+		throw Form::GradeTooLowException();
 }
-*/
 
-void Form::beSigned(Bureaucrat Bur)
+void Form::beSigned(Bureaucrat salarie)
 {
-	if  (Bur.getgrade() < this->_grade_to_sign && this->_grade_to_sign > 1 && this->_grade_to_sign < 150)
+	if  (salarie.getgrade() < this->_grade_to_sign && this->_grade_to_sign > 1 && this->_grade_to_sign < 150)
 	{
 		this->_is_signed = SIGNED;
-		std::cout << Bur.getname() << " signed " << this->_name << std::endl;
+		std::cout << salarie.getname() << " signed " << this->_name << std::endl;
 	}
 	else
-	{
 		throw Form::GradeTooLowException();
-	}
 		
 }
-
 
 std::ostream & operator<<( std::ostream & o, Form const & rhs )
 {

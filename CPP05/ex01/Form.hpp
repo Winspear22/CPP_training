@@ -13,7 +13,7 @@ class Form
 {
 public:
 //	Form( const std::string & name );
-	Form( const std::string name, const int grade_to_sign, const int grade_to_execute);
+	Form( const std::string name, int grade_to_sign, int grade_to_execute);
 	Form( const Form & copy );
 	~Form( void );
 	Form & operator=( const Form & rhs );
@@ -24,6 +24,8 @@ public:
     int	getgrade_to_execute( void ) const;
 	bool getsign_status( void ) const;
 		void	setsign_status(bool _is_signed);
+
+	void	checkGrades( void );
 
 private:
 	const std::string 	_name;
@@ -36,7 +38,7 @@ private:
 		public:
 			virtual const char *what() const throw()
 			{
-				return ( "\033[1;31mError. The Bureaucrat cannot sign this form : form's grade is too high, you need to be at least over grade X \033[0m"); // ton grade est trop bas (15 --> t'es trop élevé dans la hierrarchie)
+				return ( "\033[1;31mError. You cannot create a Form with a grade under 1.\033[0m"); // ton grade est trop bas (15 --> t'es trop élevé dans la hierrarchie)
 			}
 	};
 	class GradeTooLowException : public std::exception
@@ -44,7 +46,7 @@ private:
 		public:
 			virtual const char *what() const throw()
 			{
-				return ("\033[1;31mError. The Bureaucrat cannot sign this form : form's grade is too low, you need to be at least under grade X \033[0m"); // ton grade est trop haut (110 --> t'es pas assez gradé)
+				return ("\033[1;31mError. You cannot create a Form with a grade above 150.\033[0m"); // ton grade est trop haut (110 --> t'es pas assez gradé)
 			}
 	};
 };

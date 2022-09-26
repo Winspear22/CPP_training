@@ -8,7 +8,7 @@ Bureaucrat::Bureaucrat( const std::string & name ): _name(name)
 	return ;
 }
 
-Bureaucrat::Bureaucrat( const Bureaucrat & copy )
+Bureaucrat::Bureaucrat( const Bureaucrat & copy ): _name(copy._name)
 {
 	*this = copy;
 	std::cout << "\033[0;33mBureaucrat Copy Constructor called.\033[0m" << std::endl;
@@ -42,9 +42,9 @@ int					Bureaucrat::getgrade( void ) const
 void				Bureaucrat::setgrade( int new_grade )
 {
 	if (new_grade > 150)
-		throw Bureaucrat::RankTooLow();
+		throw Bureaucrat::GradeTooLowException();
 	else if (new_grade < 1)
-		throw Bureaucrat::RankTooHigh();
+		throw Bureaucrat::GradeTooHighException();
 	else 
 		this->_grade = new_grade;
 	return ;
@@ -54,7 +54,7 @@ void				Bureaucrat::setgrade( int new_grade )
 void				Bureaucrat::increasegrade( void )
 {
 	if (this->_grade <= 1)
-		throw Bureaucrat::RankTooLow();
+		throw Bureaucrat::GradeTooLowException();
 	else
 	{
 		setgrade(this->_grade - 1);
@@ -66,7 +66,7 @@ void				Bureaucrat::increasegrade( void )
 void				Bureaucrat::decreasegrade( void )
 {
 	if (this->_grade >= 150)
-		throw Bureaucrat::RankTooHigh();
+		throw Bureaucrat::GradeTooHighException();
 	else 
 	{
 		setgrade(this->_grade + 1);
@@ -75,27 +75,30 @@ void				Bureaucrat::decreasegrade( void )
 	return ;
 }
 
-/*void				Bureaucrat::signForm( Form papier, Bureaucrat salarie )
-{
-	papier.beSigned(salarie);
-	return ;
-}*/
-
 void Bureaucrat::signForm(Form & papier)
 {
 	if (papier.getgrade_to_execute() < 1 || papier.getgrade_to_execute() > 150)
+	{
+		std::cout << "\033[1;31m" << this->getname() << " could not sign " << papier.getname() << " because grade to execute is above 150 or under 1.\033[0m" << std::endl;
 		throw SignException();
+	}
 	else if (papier.getgrade_to_sign() < 1 || papier.getgrade_to_sign() > 150)
+	{
+		std::cout << "\033[1;31m" << this->getname() << " could not sign " << papier.getname() << " because grade to sign is above 150 or under 1.\033[0m" << std::endl;
 		throw SignException();
+	}
 	else if (papier.getsign_status() == SIGNED)
-		std::cout << "\033[1;35m" << papier.getname() << " \033[0mis already signed." << std::endl;
+		std::cout << "\033[1;31m" << this->getname() << " could not sign " << papier.getname() << " because it is already signed.\033[0m" << std::endl;
 	else if (papier.getgrade_to_sign() >= this->_grade)
 	{
 		papier.setsign_status(SIGNED);
 		std::cout << "\033[1;35m" << this->_name << "\033[0m signed \033[1;35m" << papier.getname() << "\033[0m" << std::endl;
 	}
 	else
+	{
+		std::cout << "\033[1;31m" << this->getname() << " could not sign " << papier.getname() << " because he does not have the right level.\033[0m" << std::endl;
 		throw SignException();
+	}
 }
 
 
