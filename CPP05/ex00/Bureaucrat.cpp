@@ -1,48 +1,34 @@
 #include "Bureaucrat.hpp"
 
 
-Bureaucrat::Bureaucrat( const std::string & name, int grade ): _name(name), _grade(grade)
+Bureaucrat::Bureaucrat( const std::string & name ): _name(name)
 {
-	if (this->_grade < 1)
-		throw Bureaucrat::RankTooHighInCreation();
-	else if (this->_grade > 150)
-		throw Bureaucrat::RankTooLowInCreation();
-	std::cout << "\033[0;32mBureaucrat Constructor called.\033[0m" << std::endl;
-	std::cout << "\033[1;37mName of the Bureaucrat : \033[1;35m" << this->_name << std::endl;
-	std::cout << "\033[1;37mGrade of the Bureaucrat : \033[1;35m" << this->_grade << std::endl;
+	std::cout << "\033[0;33mBureaucrat Constructor called.\033[0m" << std::endl;
+	this->_grade = 150;
 	return ;
 }
 
-Bureaucrat::Bureaucrat( const Bureaucrat & copy )
+Bureaucrat::Bureaucrat( const Bureaucrat & copy ): _name(copy._name)
 {
-	if (this->_grade < 1)
-		throw Bureaucrat::RankTooHighInCreation();
-	else if (this->_grade > 150)
-		throw Bureaucrat::RankTooLowInCreation();
+	*this = copy;
 	std::cout << "\033[0;33mBureaucrat Copy Constructor called.\033[0m" << std::endl;
-    *this = copy;
 	return ;
 }
 
 Bureaucrat::~Bureaucrat( void )
 {
-	std::cout << "\033[0;31mBureaucrat Destructor for \033[1;35m" << this->_name << "\033[0;31m called.\033[0m" << std::endl;
+	std::cout << "\033[0;31mBureaucrat Destructor called.\033[0m" << std::endl;
 	return ;
 }
 
 Bureaucrat & Bureaucrat::operator=( Bureaucrat const & rhs )
 {
-	if (this->_grade < 1)
-		throw Bureaucrat::RankTooHighInCreation();
-	else if (this->_grade > 150)
-		throw Bureaucrat::RankTooLowInCreation();
-	std::cout << "\033[0;34mBureaucrat Copy assignment operator called.\033[0m" << std::endl;
 	if ( this != &rhs )
-    {
-        this->_grade = rhs._grade;
-    }
+		this->_grade = rhs.getgrade();
+	std::cout << "\033[0;34mBureaucrat Copy assignment operator called.\033[0m" << std::endl;
 	return (*this);
 }
+
 
 std::string			Bureaucrat::getname( void ) const
 {
@@ -56,7 +42,12 @@ int					Bureaucrat::getgrade( void ) const
 
 void				Bureaucrat::setgrade( int new_grade )
 {
-	this->_grade = new_grade;
+	if (new_grade > 150)
+		throw Bureaucrat::GradeTooLowException();
+	else if (new_grade < 1)
+		throw Bureaucrat::GradeTooHighException();
+	else 
+		this->_grade = new_grade;
 	return ;
 }
 
@@ -64,7 +55,7 @@ void				Bureaucrat::setgrade( int new_grade )
 void				Bureaucrat::increasegrade( void )
 {
 	if (this->_grade <= 1)
-		throw Bureaucrat::RankTooLow();
+		throw Bureaucrat::GradeTooHighException();
 	else
 	{
 		setgrade(this->_grade - 1);
@@ -76,7 +67,7 @@ void				Bureaucrat::increasegrade( void )
 void				Bureaucrat::decreasegrade( void )
 {
 	if (this->_grade >= 150)
-		throw Bureaucrat::RankTooHigh();
+		throw Bureaucrat::GradeTooLowException();
 	else 
 	{
 		setgrade(this->_grade + 1);

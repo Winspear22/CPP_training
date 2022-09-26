@@ -8,7 +8,7 @@
 class Bureaucrat
 {
 public:
-	Bureaucrat( const std::string & name, int grade );
+	Bureaucrat( const std::string & name );
 	Bureaucrat( const Bureaucrat & copy );
 	~Bureaucrat( void );
 	Bureaucrat & operator=( const Bureaucrat & rhs );
@@ -21,38 +21,22 @@ public:
 
 private:
 	const std::string 		_name;
-    int					_grade;
+    int						_grade;
 	
-	class RankTooHighInCreation : public std::exception
+	class GradeTooHighException : public std::exception
 	{
 		public:
 			virtual const char *what() const throw()
 			{
-				return ( "\033[1;38mError. You cannot create a Bureaucrat under the rank of 1.\033[0m");
+				return ( "\033[1;31mError. You cannot create or promote a Bureaucrat under the grade 1.\033[0m");
 			}
 	};
-	class RankTooLowInCreation : public std::exception
+	class GradeTooLowException : public std::exception
 	{
 		public:
 			virtual const char *what() const throw()
 			{
-				return ( "\033[1;38mError. You cannot create a Bureaucrat above the rank of 150.\033[0m");
-			}
-	};
-	class RankTooHigh : public std::exception
-	{
-		public:
-			virtual const char *what() const throw()
-			{
-				return ( "\033[1;31mError. The Bureaucrat cannot be promoted : grade already at maximum -> 1.\033[0m");
-			}
-	};
-	class RankTooLow : public std::exception
-	{
-		public:
-			virtual const char *what() const throw()
-			{
-				return ("\033[1;31mError. The Bureaucrat cannot be demoted : grade already at minimum -> 150.\033[0m");
+				return ( "\033[1;31mError. You cannot create or demote a Bureaucrat above the grade 150.\033[0m");
 			}
 	};
 };
