@@ -21,6 +21,7 @@ public:
 	void				increasegrade( void );
 	void				decreasegrade( void );
 	void				signForm( AForm & papier );
+	void				executeForm( AForm const & Form );
 
 private:
 	const std::string 		_name;

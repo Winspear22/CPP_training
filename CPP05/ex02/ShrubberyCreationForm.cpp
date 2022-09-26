@@ -4,7 +4,7 @@
 ShrubberyCreationForm::ShrubberyCreationForm( std::string name ): AForm(name, 145, 137)
 {
     this->_target = name;
-	std::cout << "\033[0;32mShrubberyCreationForm Constructor called.\033[0m" << std::endl;
+	std::cout << "\033[0;34mShrubberyCreationForm Constructor called.\033[0m" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm & copy ): AForm("ShrubberyCreationForm", 145, 137)
@@ -35,7 +35,10 @@ void ShrubberyCreationForm::execute( const Bureaucrat & executor ) const
     if (executor.getgrade() > this->getgrade_to_sign() || executor.getgrade() > this->getgrade_to_execute())
         throw CantExecuteFormException();
     else
+    {
         this->_CreateTree();
+        std::cout << "\033[1;38m" << this->_target << "_shrubbery file created.\033[0m" << std::endl;
+    }
 }
 
 void ShrubberyCreationForm::_CreateTree( void ) const

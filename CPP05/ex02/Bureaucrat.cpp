@@ -101,6 +101,23 @@ void Bureaucrat::signForm(AForm & papier)
 	}
 }
 
+void				Bureaucrat::executeForm( AForm const & papier )
+{
+	if (papier.getgrade_to_execute() < 1 || papier.getgrade_to_execute() > 150)
+	{
+		std::cout << "\033[1;31m" << this->getname() << " could not execute " << papier.getname() << " because grade to execute is above 150 or under 1.\033[0m" << std::endl;
+		throw SignException();
+	}
+	if (papier.getgrade_to_execute() >= this->_grade)
+		std::cout << "\033[1;35m" << this->_name << "\033[0m executed \033[1;35m" << papier.getname() << "\033[0m" << std::endl;
+	else
+	{
+		std::cout << "\033[1;31m" << this->getname() << " could not execute " << papier.getname() << " because he is not high enough in the hierarchy.\033[0m" << std::endl;
+		throw SignException();
+	}
+	
+}
+
 
 std::ostream & operator<<( std::ostream & o, Bureaucrat const & rhs )
 {

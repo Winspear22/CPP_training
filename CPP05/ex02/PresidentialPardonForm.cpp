@@ -4,12 +4,13 @@
 PresidentialPardonForm::PresidentialPardonForm( std::string name ): AForm(name, 25, 5)
 {
     this->_target = name;
-	std::cout << "\033[0;32mPresidentialPardonForm Constructor called.\033[0m" << std::endl;
+	std::cout << "\033[0;34mPresidentialPardonForm Constructor called.\033[0m" << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm & copy ): AForm("PresidentialPardonForm", 25, 5)
 {
 	std::cout << "\033[0;33mPresidentialPardonForm Copy Constructor called.\033[0m" << std::endl;	
+	
 	*this = copy;
 	return ;
 }
@@ -35,5 +36,11 @@ void PresidentialPardonForm::execute( const Bureaucrat & executor ) const
     if (executor.getgrade() > this->getgrade_to_sign() || executor.getgrade() > this->getgrade_to_execute())
         throw CantExecuteFormException();
     else
-        std::cout << "Presidential" << std::endl;
+		this->_Presidentialardon();
+}
+
+void PresidentialPardonForm::_Presidentialardon( void ) const
+{
+	std::cout << "\033[1;35m" << this->_target << "\033[1;37m was forgiven by Zaphod Beeblebox.\033[0m" << std::endl;
+	return ;
 }

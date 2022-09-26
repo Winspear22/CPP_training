@@ -14,6 +14,10 @@ public:
     virtual void execute( const Bureaucrat & executor ) const;
 
 private:
+    std::string _target;
+
+	void _Presidentialardon( void ) const;
+
 	class CantExecuteFormException : public std::exception
 	{
 		public:
@@ -22,8 +26,6 @@ private:
 				return ("\033[1;31mError. This Bureaucrat cannot execute this PresidentialPardon Form. It is either not signed or the Bureaucrat does not have the required level\033[0m");
 			}
 	};
-
-    std::string _target;
 };
 
 #endif

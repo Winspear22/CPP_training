@@ -2,6 +2,9 @@
 # define ROBOTOMYREQUESTFORM_HPP
 
 # include "AForm.hpp"
+# include <cstdlib>
+# include <stdlib.h>
+# include <time.h>
 
 class RobotomyRequestForm: public AForm
 {
@@ -14,7 +17,8 @@ public:
     virtual void execute( const Bureaucrat & executor ) const;
 
 private:
-
+    std::string _target;
+    void _RobotomisePeople( void ) const;
     class CantExecuteFormException : public std::exception
 	{
 		public:
@@ -23,7 +27,6 @@ private:
 				return ("\033[1;31mError. This Bureaucrat cannot execute this RobotomyRequest Form. It is either not signed or the Bureaucrat does not have the required level\033[0m");
 			}
 	};
-    std::string _target;
 };
 
 #endif

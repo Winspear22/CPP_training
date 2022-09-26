@@ -4,7 +4,7 @@
 RobotomyRequestForm::RobotomyRequestForm( std::string name ): AForm(name, 72, 45)
 {
     this->_target = name;
-	std::cout << "\033[0;32mRobotomyRequestForm Constructor called.\033[0m" << std::endl;
+	std::cout << "\033[0;34mRobotomyRequestForm Constructor called.\033[0m" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm & copy ): AForm("RobotomyRequestForm", 25, 5)
@@ -35,5 +35,18 @@ void RobotomyRequestForm::execute( const Bureaucrat & executor ) const
     if (executor.getgrade() > this->getgrade_to_sign() || executor.getgrade() > this->getgrade_to_execute())
         throw CantExecuteFormException();
     else
-        std::cout << "Robotomy" << std::endl;
+        this->_RobotomisePeople();
 }
+
+void RobotomyRequestForm::_RobotomisePeople( void ) const
+{
+	int popo;
+	std::cout << "\033[1;37m*vVVvVRrRrRrRRrRrRrRr*\033[0m" << std::endl;
+	srand(time(NULL));
+	popo = rand();
+	if (popo % 2 == 0)
+		std::cout << "\033[1;32mSuccess of the Robotomy.\033[0m" << std::endl;
+	else
+		std::cout << "\033[1;31mFailure of the Robotomy.\033[0m" << std::endl;
+}
+
