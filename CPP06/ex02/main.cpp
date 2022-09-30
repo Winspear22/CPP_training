@@ -11,22 +11,21 @@ Base *generate( void)
 	i = rand();
 
     if (i % 3 == 0)
-    {
         return (new A());
-    }
-	if (i % 3 == 1)
-    {
+	else if (i % 3 == 1)
         return (new B());
-    }
-	if (i % 3 == 2)
-    {
+	else if (i % 3 == 2)
         return (new C());
-    }
 	return (NULL);
 }
 
 int main( void )
 {
+    Base *test;
     
+	test = generate();
+	identify(test);
+	identify(*test);
+	delete test;
     return (0);
 }

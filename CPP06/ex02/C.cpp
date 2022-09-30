@@ -2,10 +2,10 @@
 
 C::C( void )
 {
-    std::cout << "\033[1;36C constructor called." << std::endl;
+    std::cout << "\033[1;36mC constructor called.\033[0m" << std::endl;
 }
 
 C::~C( void )
 {
-    std::cout << "\033[1;36C detructor called." << std::endl;
+    std::cout << "\033[1;36mC detructor called.\033[0m" << std::endl;
 }

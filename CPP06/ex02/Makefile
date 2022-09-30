@@ -1,4 +1,4 @@
-NAME= SerializeConversion
+NAME= IdentifyType
 SRCS= main.cpp Base.cpp A.cpp B.cpp C.cpp
 INCLUDE= Base.hpp
 
