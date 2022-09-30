@@ -11,7 +11,6 @@ bool CheckIntType( std::string argv )
 	{
 		if (argv[0] != '-' && argv[0] != '+')
 			return (FAILURE);
-		std::cout << "Je suis ici" << std::endl;
 		i = 0;
 	}
 	while (argv[++i])
@@ -57,6 +56,6 @@ void WriteInt( std::string argv )
 	else
 		std::cout << "\033[1;37mchar: '\033[1;32m" <<  static_cast<char>(number) << "\033[1;37m'\033[0m" << std::endl;
 	std::cout << "\033[1;37mint: \033[1;32m" << static_cast<int>(number) << "\033[0m" << std::endl;
-	std::cout << "\033[1;37mfloat: \033[1;32m" << static_cast<float>(number) << "\033[1;33mf\033[0m" << std::endl;
+	std::cout << "\033[1;37mfloat: \033[1;32m" << static_cast<float>(number) << "\033[1;33m.0f\033[0m" << std::endl;
 	std::cout << "\033[1;37mdouble: \033[1;32m" << static_cast<double>(number) << ".0" << "\033[0m" <<  std::endl;
 }

@@ -1,5 +1,6 @@
 NAME= ScalaireConversion
-SRCS= main.cpp ScalaireConversion.cpp ConversionToInt.cpp ConversionToFloat.cpp ConversionToDouble.cpp ConversionToChar.cpp
+SRCS= main.cpp ScalaireConversion.cpp ConversionToInt.cpp ConversionToFloat.cpp ConversionToDouble.cpp ConversionToChar.cpp \
+		ConversionToInf.cpp ConversionToNaN.cpp
 INCLUDE= ScalaireConversion.hpp
 
 OBJS		=		$(SRCS:.cpp=.o)

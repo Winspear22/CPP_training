@@ -5,6 +5,7 @@
 # include <iostream>
 # include <cctype>
 # include <typeinfo>
+# include <string>
 
 # define SUCCESS 0
 # define FAILURE 1

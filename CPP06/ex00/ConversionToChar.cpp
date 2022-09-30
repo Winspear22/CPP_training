@@ -2,9 +2,14 @@
 
 bool	CheckPrintability( char c )
 {
+	if (static_cast<int>(c) < 0)
+	{
+		std::cout << "\033[1;37mchar: \033[1;31mimpossible\033[0m" << std::endl;
+		return (FAILURE);
+	}
 	if (static_cast<int>(c) < 32 || static_cast<int>(c) > 126)
 	{
-		std::cout << "\033[1;37mchar: \033[1;31mNon displayable.\033[0m" << std::endl;
+		std::cout << "\033[1;37mchar: \033[1;31mNon displayable\033[0m" << std::endl;
 		return (FAILURE);
 	}
 	return (SUCCESS);
@@ -22,7 +27,7 @@ void	WriteChar(std::string str)
 	else
 		std::cout << "\033[1;37mchar: '\033[1;32m" <<  static_cast<char>(c) << "\033[1;37m'\033[0m" << std::endl;
 	std::cout << "\033[1;37mint: \033[1;32m" << static_cast<int>(c) << "\033[0m" << std::endl;
-	std::cout << "\033[1;37mfloat: \033[1;32m" << static_cast<float>(c) << "\033[1;33mf\033[0m" << std::endl;
+	std::cout << "\033[1;37mfloat: \033[1;32m" << static_cast<float>(c) << "\033[1;33m.0f\033[0m" << std::endl;
 	std::cout << "\033[1;37mdouble: \033[1;32m" << static_cast<double>(c) << ".0" << "\033[0m" <<  std::endl;
 }
 
