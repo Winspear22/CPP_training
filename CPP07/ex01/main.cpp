@@ -20,8 +20,7 @@ void display_str( std::string str )
 
 void    ft_putchar(const char c)
 {
-   // write(1, &c, 1);
-   std::cout << c;// << std::endl;
+   std::cout << c;
 }
 
 int main( void )
