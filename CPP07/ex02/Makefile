@@ -1,6 +1,6 @@
-NAME= Iter
-SRCS= main.cpp
-INCLUDE= iter.hpp
+NAME= Array
+SRCS= main.cpp Array.cpp 
+INCLUDE= Array.hpp
 
 OBJS		=		$(SRCS:.cpp=.o)
 DEPS		=		$(SRCS:.cpp=.d)
