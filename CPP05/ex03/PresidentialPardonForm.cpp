@@ -1,5 +1,16 @@
-#include "PresidentialPardonForm.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/04 15:38:09 by adaloui           #+#    #+#             */
+/*   Updated: 2022/10/04 15:38:10 by adaloui          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm( std::string name ): AForm(name, 25, 5)
 {

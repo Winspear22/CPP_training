@@ -1,5 +1,16 @@
-#include "Bureaucrat.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/04 15:34:39 by adaloui           #+#    #+#             */
+/*   Updated: 2022/10/04 15:34:43 by adaloui          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat( const std::string & name ): _name(name)
 {

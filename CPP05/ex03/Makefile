@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/10/04 15:38:04 by adaloui           #+#    #+#              #
+#    Updated: 2022/10/04 15:38:05 by adaloui          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME= Intern
 SRCS= main.cpp Bureaucrat.cpp AForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp ShrubberyCreationForm.cpp Intern.cpp
 INCLUDE= Bureaucrat.hpp
