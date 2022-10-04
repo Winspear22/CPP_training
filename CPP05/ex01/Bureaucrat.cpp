@@ -77,27 +77,17 @@ void				Bureaucrat::decreasegrade( void )
 
 void Bureaucrat::signForm(Form & papier)
 {
-	if (papier.getgrade_to_execute() < 1 || papier.getgrade_to_execute() > 150)
-	{
-		std::cout << "\033[1;31m" << this->getname() << " could not sign " << papier.getname() << " because grade to execute is above 150 or under 1.\033[0m" << std::endl;
-		throw SignException();
-	}
-	else if (papier.getgrade_to_sign() < 1 || papier.getgrade_to_sign() > 150)
-	{
-		std::cout << "\033[1;31m" << this->getname() << " could not sign " << papier.getname() << " because grade to sign is above 150 or under 1.\033[0m" << std::endl;
-		throw SignException();
-	}
-	else if (papier.getsign_status() == SIGNED)
+	if (papier.getsign_status() == SIGNED)
 		std::cout << "\033[1;31m" << this->getname() << " could not sign " << papier.getname() << " because it is already signed.\033[0m" << std::endl;
 	else if (papier.getgrade_to_sign() >= this->_grade)
 	{
-		papier.setsign_status(SIGNED);
+		papier.beSigned(*this);
 		std::cout << "\033[1;35m" << this->_name << "\033[0m signed \033[1;35m" << papier.getname() << "\033[0m" << std::endl;
 	}
 	else
 	{
 		std::cout << "\033[1;31m" << this->getname() << " could not sign " << papier.getname() << " because he does not have the right level.\033[0m" << std::endl;
-		throw SignException();
+		throw CannotSignFormException();
 	}
 }
 

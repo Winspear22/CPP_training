@@ -53,7 +53,7 @@ int main( void )
 	std::cout << "\033[1;31m================================\033[0m" << std::endl;
 	try
 	{
-		Form papier7("Formulaire 7", 0, 0);
+		Form papier7("Formulaire 7", 0, 1);
 	}
 	catch(const std::exception& e)
 	{
@@ -61,15 +61,28 @@ int main( void )
 	}
 	try
 	{
-		Form papier7("Formulaire 7", 151, 151);
+		Form papier7("Formulaire 7", 151, 1);
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	
-
-
+		try
+	{
+		Form papier7("Formulaire 7", 1, 0);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	try
+	{
+		Form papier7("Formulaire 7", 1, 151);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 	std::cout << "\033[1;31m===========================\033[0m" << std::endl;
 	std::cout << "\033[1;36mLISTING ALL THE BUREAUCRATS\033[0m" << std::endl;
 	std::cout << "\033[1;31m===========================\033[0m" << std::endl;
@@ -104,13 +117,13 @@ int main( void )
 	try
 	{
 		Pierre.signForm(papier5);
-
+		
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
-		std::cout << "\033[1;31m===================================\033[0m" << std::endl;
+	std::cout << "\033[1;31m===================================\033[0m" << std::endl;
 	std::cout << "\033[1;36mTRYING TO SIGN WITH THE RIGHT LEVEL\033[0m" << std::endl;
 	std::cout << "\033[1;31m===================================\033[0m" << std::endl;
 	
