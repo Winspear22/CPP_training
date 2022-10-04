@@ -176,13 +176,6 @@ int main( void )
 	try
 	{
 		Random_Form = Adnen.makeForm("popo", "ShrubberyCreation");
-		if (Random_Form)
-		{
-			Pierre.signForm(*Random_Form);
-			Pierre.executeForm(*Random_Form);
-			Random_Form->execute(Pierre);
-			delete Random_Form;
-		}
     }
   	catch(const std::exception& e)
 	{
@@ -191,17 +184,9 @@ int main( void )
 	try
     {
 		Random_Form = Adnen.makeForm("lolo", "ShrubberyCreation");
-		if (Random_Form)
-		{
-			Paul.signForm(*Random_Form);
-			Paul.executeForm(*Random_Form);
-			Random_Form->execute(Paul);
-			delete Random_Form;
-		}
     }
   	catch(const std::exception& e)
 	{
-		//delete Random_Form;
 		std::cerr << e.what() << std::endl;
 	}
 	return (0);
