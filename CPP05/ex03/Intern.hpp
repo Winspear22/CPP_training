@@ -24,7 +24,8 @@ private:
 		 
 			virtual const char *what() const throw()
 			{
-				return ("\033[1;31mError. The Intern cannot create this Form because it does not exist.\033[0m");
+				std::cout << "\033[1;31mError. The Intern cannot create this Form because it does not exist.\033[0m" << std::endl;
+				return (0);
 			}
 	};
 };

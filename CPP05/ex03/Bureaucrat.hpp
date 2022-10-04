@@ -43,7 +43,7 @@ private:
 				return ( "\033[1;31mError. You cannot create or demote a Bureaucrat above the grade 150.\033[0m");
 			}
 	};
-	class SignException : public std::exception
+	class CannotSignFormException : public std::exception
 	{
 		public :
 		 

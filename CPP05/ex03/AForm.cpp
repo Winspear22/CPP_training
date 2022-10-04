@@ -3,7 +3,7 @@
 
 AForm::AForm( const std::string name, int grade_to_sign, int grade_to_execute): _name(name), _grade_to_sign(grade_to_sign), _grade_to_execute(grade_to_execute)
 {
-	this->checkGrades(); 
+	this->check_all_grades(); 
 	this->_is_signed = NOT_SIGNED;
 	std::cout << "\033[0;32mAForm Constructor called.\033[0m" << std::endl;
 }
@@ -60,7 +60,7 @@ void AForm::setsign_status(bool signature)
 	this->_is_signed = signature;
 }
 
-void	AForm::checkGrades( void )
+void	AForm::check_all_grades( void )
 {
 	if (this->_grade_to_sign < 1
 			|| this->_grade_to_execute < 1)
@@ -72,14 +72,10 @@ void	AForm::checkGrades( void )
 
 void AForm::beSigned(Bureaucrat salarie)
 {
-	if  (salarie.getgrade() < this->_grade_to_sign && this->_grade_to_sign > 1 && this->_grade_to_sign < 150)
-	{
-		this->_is_signed = SIGNED;
-		std::cout << salarie.getname() << " signed " << this->_name << std::endl;
-	}
+	if  (salarie.getgrade() <= this->_grade_to_sign)
+		setsign_status(SIGNED);
 	else
 		throw AForm::GradeTooLowException();
-		
 }
 
 std::ostream & operator<<( std::ostream & o, AForm const & rhs )

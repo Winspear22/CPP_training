@@ -12,7 +12,7 @@ public:
     ~ShrubberyCreationForm( void );
     ShrubberyCreationForm & operator=( const ShrubberyCreationForm & rhs );
 
-    virtual void execute( const Bureaucrat & executor ) const;
+    virtual void execute( Bureaucrat const & executor );
 
 private:
     std::string _target;

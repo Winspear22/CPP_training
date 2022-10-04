@@ -23,9 +23,9 @@ public:
     int	getgrade_to_execute( void ) const;
 	bool getsign_status( void ) const;
 	void	setsign_status(bool _is_signed);
-	virtual void execute( const Bureaucrat & executor ) const = 0;
+	virtual void execute( Bureaucrat const & executor ) = 0;
 
-	void	checkGrades( void );
+	void	check_all_grades( void );
 
 private:
 	const std::string 	_name;
@@ -38,7 +38,7 @@ private:
 		public:
 			virtual const char *what() const throw()
 			{
-				return ( "\033[1;31mError. You cannot create a AForm with a grade under 1.\033[0m"); // ton grade est trop bas (15 --> t'es trop élevé dans la hierrarchie)
+				return ( "\033[1;31mError. You cannot create a AForm with a grade under 1.\033[0m");
 			}
 	};
 	class GradeTooLowException : public std::exception
@@ -46,7 +46,7 @@ private:
 		public:
 			virtual const char *what() const throw()
 			{
-				return ("\033[1;31mError. You cannot create a AForm with a grade above 150.\033[0m"); // ton grade est trop haut (110 --> t'es pas assez gradé)
+				return ("\033[1;31mError. You cannot create an AForm with a grade above 150, you cannot sign it if the Bureaucrat's grade is too low.\033[0m");
 			}
 	};
 };

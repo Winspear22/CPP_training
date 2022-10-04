@@ -29,11 +29,11 @@ PresidentialPardonForm & PresidentialPardonForm::operator=( PresidentialPardonFo
 	return (*this);
 }
 
-void PresidentialPardonForm::execute( const Bureaucrat & executor ) const
+void PresidentialPardonForm::execute( Bureaucrat const & executor )
 {
     if (this->getsign_status() == NOT_SIGNED)
         throw CantExecuteFormException();
-    if (executor.getgrade() > this->getgrade_to_sign() || executor.getgrade() > this->getgrade_to_execute())
+    if (executor.getgrade() > this->getgrade_to_execute())
         throw CantExecuteFormException();
     else
 		this->_Presidentialardon();

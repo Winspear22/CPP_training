@@ -28,11 +28,11 @@ RobotomyRequestForm & RobotomyRequestForm::operator=( RobotomyRequestForm const 
 	return (*this);
 }
 
-void RobotomyRequestForm::execute( const Bureaucrat & executor ) const
+void RobotomyRequestForm::execute( Bureaucrat const & executor )
 {
     if (this->getsign_status() == NOT_SIGNED)
         throw CantExecuteFormException();
-    if (executor.getgrade() > this->getgrade_to_sign() || executor.getgrade() > this->getgrade_to_execute())
+    if (executor.getgrade() > this->getgrade_to_execute())
         throw CantExecuteFormException();
     else
         this->_RobotomisePeople();
