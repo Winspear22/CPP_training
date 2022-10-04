@@ -11,19 +11,26 @@ public:
     ~PresidentialPardonForm( void );
     PresidentialPardonForm & operator=( const PresidentialPardonForm & rhs );
 
-    virtual void execute( const Bureaucrat & executor ) const;
+    virtual void execute( Bureaucrat const & executor );
 
 private:
     std::string _target;
-
 	void _Presidentialardon( void ) const;
 
-	class CantExecuteFormException : public std::exception
+	class NotSignedException : public std::exception
 	{
 		public:
 			virtual const char *what() const throw()
 			{
-				return ("\033[1;31mError. This Bureaucrat cannot execute this PresidentialPardon Form. It is either not signed or the Bureaucrat does not have the required level\033[0m");
+				return ("\033[1;31mError. This Bureaucrat cannot execute this PresidentialPardon Form. It is not signed.\033[0m");
+			}
+	};
+	class GradeTooLowException : public std::exception
+	{
+		public:
+			virtual const char *what() const throw()
+			{
+				return ("\033[1;31mError. This Bureaucrat cannot execute this PresidentialPardon Form. He is not high enough in the hierarchy.\033[0m");
 			}
 	};
 };
