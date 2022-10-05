@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 12:40:00 by adaloui           #+#    #+#             */
-/*   Updated: 2022/10/05 12:40:01 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/10/05 13:06:40 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,28 +20,19 @@
 
 bool	CheckTypeIdentity( std::string argv )
 {
-	if (CheckCharType( argv ) == SUCCESS)
+	int i;
+	bool (*check_fct[4])(std::string argv) = {CheckCharType, CheckIntType, CheckFloatType, CheckDoubleType};
+	void (*write_fct[4])(std::string argv) = {WriteChar, WriteInt, WriteFloat, WriteFloat};
+	
+	i = -1;
+	while (++i < 4)
 	{
-		WriteChar( argv );
-		return (SUCCESS);
+		if (check_fct[i](argv) == SUCCESS)
+		{
+			write_fct[i](argv);
+			return (SUCCESS);
+		}
 	}
-	if (CheckIntType( argv ) == SUCCESS)
-	{
-		WriteInt( argv );
-		return (SUCCESS);
-	}
-	if (CheckFloatType( argv ) == SUCCESS)
-	{
-		WriteFloat( argv );
-		return (SUCCESS);
-	}
-	if (CheckDoubleType( argv ) == SUCCESS)
-	{
-		WriteDouble( argv );
-		return (SUCCESS);
-	}
-	else
-		return (FAILURE);
 	return (FAILURE);
 }
 
@@ -53,14 +44,14 @@ int main(int argc, char **argv)
         std::cout << "\033[1;31mError, you need one argument. Ex : ./a.out 42\033[0m" << std::endl;
         return (0);
     }
-	std::string popo;
+	std::string str;
 
-	popo = argv[1];
-	if (CheckTypeIdentity( popo ) == SUCCESS)
+	str = argv[1];
+	if (CheckTypeIdentity( str ) == SUCCESS)
 		return (SUCCESS);
-	else if (CheckInf( popo ) == SUCCESS)
-		WriteInf( popo );
-	else if (CheckNaN( popo ) == SUCCESS)
+	else if (CheckInf( str ) == SUCCESS)
+		WriteInf( str );
+	else if (CheckNaN( str ) == SUCCESS)
 		WriteNaN();
 	else
 		std::cout << "\033[1;31mError, you must type a valid type (char, int, float or double).\033[0m" << std::endl;
