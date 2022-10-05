@@ -1,5 +1,17 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/10/05 12:40:04 by adaloui           #+#    #+#              #
+#    Updated: 2022/10/05 12:42:40 by adaloui          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME= ScalaireConversion
-SRCS= main.cpp ScalaireConversion.cpp ConversionToInt.cpp ConversionToFloat.cpp ConversionToDouble.cpp ConversionToChar.cpp \
+SRCS= main.cpp ConversionToInt.cpp ConversionToFloat.cpp ConversionToDouble.cpp ConversionToChar.cpp \
 		ConversionToInf.cpp ConversionToNaN.cpp
 INCLUDE= ScalaireConversion.hpp
 
@@ -7,7 +19,7 @@ OBJS		=		$(SRCS:.cpp=.o)
 DEPS		=		$(SRCS:.cpp=.d)
 
 CC= c++
-CFLAGS= -Wall -Wextra -std=c++98 -g3
+CFLAGS= -Wall -Wextra -Werror -std=c++98 -g3
 
 %.o:				%.cpp
 	@$(CC) $(CFLAGS) -MMD -c $< -o $@ -I $(INCLUDE)
