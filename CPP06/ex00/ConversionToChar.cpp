@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ConversionToChar.cpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 12:38:24 by adaloui           #+#    #+#             */
-/*   Updated: 2022/10/05 12:38:25 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/10/05 22:20:57 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ bool	CheckPrintability( char c )
 		std::cout << "\033[1;37mchar: \033[1;31mimpossible\033[0m" << std::endl;
 		return (FAILURE);
 	}
-	if (static_cast<int>(c) < 32 || static_cast<int>(c) > 126)
+	if (static_cast<int>(c) < 32 || static_cast<int>(c) == 127)
 	{
 		std::cout << "\033[1;37mchar: \033[1;31mNon displayable\033[0m" << std::endl;
 		return (FAILURE);
