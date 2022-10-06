@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 12:40:48 by adaloui           #+#    #+#             */
-/*   Updated: 2022/10/05 12:40:49 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/10/06 01:52:06 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 typedef struct s_Data
 {
 	std::string str;
-	int j;
+	double j;
 }				Data;
 
 uintptr_t	serialize(Data *ptr);

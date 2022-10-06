@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+         #
+#    By: user42 <user42@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 12:40:56 by adaloui           #+#    #+#              #
-#    Updated: 2022/10/05 12:40:57 by adaloui          ###   ########.fr        #
+#    Updated: 2022/10/06 01:38:00 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ OBJS		=		$(SRCS:.cpp=.o)
 DEPS		=		$(SRCS:.cpp=.d)
 
 CC= c++
-CFLAGS= -Wall -Wextra -Werror -std=c++98 -g3
+CFLAGS= -Wall -Wextra -std=c++98 -g3
 
 %.o:				%.cpp
 	@$(CC) $(CFLAGS) -MMD -c $< -o $@ -I $(INCLUDE)

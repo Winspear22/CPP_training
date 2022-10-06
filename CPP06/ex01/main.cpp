@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 12:40:52 by adaloui           #+#    #+#             */
-/*   Updated: 2022/10/05 12:40:53 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/10/06 02:09:19 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,14 @@
 
 int main( int argc, char **argv )
 {
+	(void)argc;
 	(void)argv;
-	if (argc != 3)
-	{
-		std::cout << "\033[1;31mError. Please use one argument. Ex : ./a.out popo 15\033[0m" << std::endl;
-		return (FAILURE);
-	}
 	Data		*data = new Data;
 	Data		*data_2;
 	uintptr_t	i;
 
-	data->str = argv[1];
-	data->j = atoi(argv[2]);
+	data->str = "Z";
+	data->j = 90;
 	i = serialize(data);
 	data_2 = deserialize(i);
 	std::cout << "\033[1;31m==============\033[0m" << std::endl;
