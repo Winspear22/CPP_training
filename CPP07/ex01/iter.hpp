@@ -16,4 +16,12 @@ void iter( T *tab, int size, void (*f)(const T))
 		f(tab[i]);
 }
 
+template<typename T>
+void iter(T const *tab, size_t const size,  void(*f)(T const &ref))
+{
+    for (size_t i = 0; i < size; i++)
+        f(tab[i]);
+    return;
+}
+
 #endif
