@@ -2,12 +2,11 @@
 
 /*int main( void )
 {
-	Array<int> Test;
+	Array <int>Test;
     Array <int>Test2(10);
 	Array <int>Test3(10);
 	Array<std::string>stringArray(10);
 
-    int *j = new int[10];
 	int i;
 	stringArray[0] = "Hi";
 	stringArray[1] = "Hello";
@@ -15,23 +14,29 @@
 	stringArray[3] = "Fine and you?";
 	stringArray[4] = "Doing great thanks!";
 	stringArray[5] = "You're very welcome";
-(void)j;
 	i = 0;
 	while (i < 10)
 	{
-		Test2[i] = 15;
-		//std::cout << Test2[i] << std::endl;
+		Test2[i] = i;
+		std::cout << Test2[i] << std::endl;
 		i++;
 	}
-		i = 0;
-	std::cout << "j = " << std::endl;
+	Test3 = Test2;
+	i = 0;
 	while (i < 10)
 	{
-		j[i] = 15;
-		std::cout << j[i] << std::endl;
+		Test3[i] = i;
+		std::cout << Test3[i] << std::endl;
 		i++;
 	}
-	delete [] j;
+	Array <int>Test4(Test3);
+	i = 0;
+	while (i < 10)
+	{
+		Test4[i] = i;
+		std::cout << Test4[i] << std::endl;
+		i++;
+	}
 	return (0);
 }*/
 
@@ -88,7 +93,7 @@
     return 0;
 }*/
 
-int	main( void )
+/*int	main( void )
 {
 	Array<int>			intArray;
 	Array<std::string>	stringArray(10);
@@ -124,4 +129,55 @@ int	main( void )
 	}
 
 	return 0;
-}
+}*/
+
+#define MAX_VAL 750
+ int main(int, char**)
+ {
+     Array<int> numbers(MAX_VAL);
+     int* mirror = new int[MAX_VAL];
+     srand(time(NULL));
+     for (int i = 0; i < MAX_VAL; i++)
+     {
+         const int value = rand();
+         numbers[i] = value;
+         mirror[i] = value;
+     }
+   //  SCOPE
+     {
+         Array<int> tmp = numbers;
+         Array<int> test(tmp);
+     }
+
+     for (int i = 0; i < MAX_VAL; i++)
+     {
+         if (mirror[i] != numbers[i])
+         {
+             std::cerr << "didn't save the same value!!" << std::endl;
+             return 1;
+         }
+     }
+     try
+     {
+         numbers[-2] = 0;
+     }
+     catch(const std::exception& e)
+     {
+         std::cerr << e.what() << '\n';
+     }
+     try
+     {
+         numbers[MAX_VAL] = 0;
+     }
+     catch(const std::exception& e)
+     {
+         std::cerr << e.what() << '\n';
+     }
+
+     for (int i = 0; i < MAX_VAL; i++)
+     {
+         numbers[i] = rand();
+     }
+     delete [] mirror;
+     return 0;
+ }
