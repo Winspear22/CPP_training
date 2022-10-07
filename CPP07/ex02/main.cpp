@@ -1,44 +1,136 @@
 #include "Array.hpp"
 
-/*int main( void )
+int main( void )
 {
-	Array <int>Test;
-    Array <int>Test2(10);
-	Array <int>Test3(10);
-	Array<std::string>stringArray(10);
+	Array <int>My_tab;
+    Array <int>My_tab2(10);
+	Array <int>My_tab3(10);
+	Array<std::string>My_string;
+    Array<std::string>My_string2(5);
+    Array<std::string>My_string3(5);
 
 	int i;
-	stringArray[0] = "Hi";
-	stringArray[1] = "Hello";
-	stringArray[2] = "How are you?";
-	stringArray[3] = "Fine and you?";
-	stringArray[4] = "Doing great thanks!";
-	stringArray[5] = "You're very welcome";
-	i = 0;
-	while (i < 10)
+	My_string2[0] = "Bonjour";
+	My_string2[1] = "Comment ça va ?";
+	My_string2[2] = "Je m'appelle Adnen";
+	My_string2[3] = "J'ai 26 ans";
+	My_string2[4] = "J'habite à Paris";
+	std::cout << "\033[1;31m===================\033[0m" << std::endl;
+    std::cout << "\033[1;33mDEFAULT CONSTRUCTOR\033[0m" << std::endl;
+    std::cout << "\033[1;31m===================\033[0m" << std::endl;
+
+	i = -1;
+	std::cout << "\033[1;37mUsing Default constructor with int tab : \033[0m" << std::endl;
+	while (++i < 10)
 	{
-		Test2[i] = i;
-		std::cout << Test2[i] << std::endl;
-		i++;
+		My_tab2[i] = i;
+		std::cout << "i = " << i << " tab = " << My_tab2[i] << std::endl;
 	}
-	Test3 = Test2;
-	i = 0;
-	while (i < 10)
+	i = -1;
+	std::cout << std::endl;
+	std::cout << "\033[1;37mUsing Default constructor with string tab : \033[0m" << std::endl;
+
+	while (++i < 5)
+		std::cout << "i = " << i << " " << My_string2[i] << std::endl;
+
+	std::cout << "\033[1;31m============================\033[0m" << std::endl;
+    std::cout << "\033[1;33mUSING = OPERATOR CONSTRUCTOR\033[0m" << std::endl;
+    std::cout << "\033[1;31m============================\033[0m" << std::endl;
+
+	My_tab3 = My_tab2;
+	My_string3 = My_string2;
+	i = -1;
+	std::cout << "\033[1;37mUsing Array assignement overload constructor with int tab : \033[0m" << std::endl;
+	while (++i < 10)
 	{
-		Test3[i] = i;
-		std::cout << Test3[i] << std::endl;
-		i++;
+		My_tab3[i] = i;
+		std::cout << "i = " << i << " tab = " << My_tab3[i] << std::endl;
 	}
-	Array <int>Test4(Test3);
-	i = 0;
-	while (i < 10)
+	i = -1;
+	std::cout << std::endl;
+	std::cout << "\033[1;37mUsing Array assignement overload constructor with string tab : \033[0m" << std::endl;
+
+	while (++i < 5)
+		std::cout << "i = " << i << " " << My_string3[i] << std::endl;
+
+	std::cout << "\033[1;31m======================\033[0m" << std::endl;
+    std::cout << "\033[1;33mUSING COPY CONSTRUCTOR\033[0m" << std::endl;
+    std::cout << "\033[1;31m======================\033[0m" << std::endl;
+
+	Array <int>My_tab4(My_tab3);
+	Array <std::string>My_string4(My_string3);
+	i = -1;
+	std::cout << "\033[1;37mUsing Array copy constructor with int tab : \033[0m" << std::endl;
+	while (++i < 10)
 	{
-		Test4[i] = i;
-		std::cout << Test4[i] << std::endl;
-		i++;
+		My_tab4[i] = i;
+		std::cout << "i = " << i << " tab = " << My_tab4[i] << std::endl;
 	}
+	i = -1;
+	std::cout << std::endl;
+	std::cout << "\033[1;37mUsing Array copy constructor with string tab : \033[0m" << std::endl;
+
+	while (++i < 5)
+		std::cout << "i = " << i << " " << My_string4[i] << std::endl;
+
+	std::cout << "\033[1;31m===========================================\033[0m" << std::endl;
+    std::cout << "\033[1;33mTRYING TO ACCESS FORBIDDEN TAB MEMORY SPACE\033[0m" << std::endl;
+    std::cout << "\033[1;31m===========================================\033[0m" << std::endl;
+	try
+    {
+        My_tab2[-2] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+	try
+    {
+        My_tab3[15] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+	try
+    {
+        My_tab4[-14] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+	try
+    {
+        My_string2[45] = "0";
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+	try
+    {
+        My_string2[-6] = "0";
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+    try
+    {
+        My_string2[-185] = "0";
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+	
+	std::cout << "\033[1;31m==================\033[0m" << std::endl;
+    std::cout << "\033[1;33mDESTRUCTORS CALLED\033[0m" << std::endl;
+    std::cout << "\033[1;31m==================\033[0m" << std::endl;
+
 	return (0);
-}*/
+}
 
 /*int main(int, char**)
 {
@@ -131,7 +223,7 @@
 	return 0;
 }*/
 
-#define MAX_VAL 750
+/*#define MAX_VAL 750
  int main(int, char**)
  {
      Array<int> numbers(MAX_VAL);
@@ -180,4 +272,4 @@
      }
      delete [] mirror;
      return 0;
- }
+ }*/

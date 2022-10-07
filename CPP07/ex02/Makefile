@@ -1,5 +1,5 @@
 NAME= Array
-SRCS= main.cpp Array.cpp 
+SRCS= main.cpp
 INCLUDE= Array.hpp
 
 OBJS		=		$(SRCS:.cpp=.o)
