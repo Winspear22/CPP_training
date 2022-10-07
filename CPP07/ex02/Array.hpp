@@ -17,9 +17,9 @@ public:
 		std::cout << "\033[1;32mArray Default constructor without argument called.\033[0m" << std::endl;
 		this->_size = 0;
 		this->_tab = NULL;
-		this->is_used = I_WAS_NOT_ALLOCATED;
+		this->_is_used = I_WAS_NOT_ALLOCATED;
 		return ;
-	};
+	}
 	Array<T> ( const unsigned int n )
 	{
 		if (n < 0)
@@ -29,13 +29,15 @@ public:
 		if (n > 0)
 		{
 			this->_tab = new T[n];
-			this->is_used = I_WAS_ALLOCATED;
+			this->_is_used = I_WAS_ALLOCATED;
 		}
+		if (n == 0)
+			throw Array::NegativeTabException(); 
 		return ;
-	};
+	}
 	Array<T>( Array<T> const & copy )
 	{
-		this->is_used = I_WAS_NOT_ALLOCATED;
+		this->_is_used = I_WAS_NOT_ALLOCATED;
 		std::cout << "\033[1;36mArray Copy constructor called.\033[0m" << std::endl;
 		*this = copy;
 	}
@@ -44,42 +46,42 @@ public:
 		std::cout << "\033[1;34mArray Destructor called.\033[0m" << std::endl;
 		if (this->_size > 0)
 			delete [] this->_tab;	
-	};
+	}
 	T & operator []( unsigned int rhs )
 	{
 		if (rhs >= this->_size || rhs < 0)
 			throw Array::NegativeTabException();
 		return (this->_tab[rhs]);
-	};
+	}
 	Array<T> & operator=( const Array<T> & rhs )
 	{
 		std::cout << "\033[0;34mArray assignment overload operator called.\033[0m" << std::endl;
-		if (this == &rhs)
-			return (*this);
-		this->_size = rhs.size();
+		size_t i;
 
-		if (this->is_used == I_WAS_NOT_ALLOCATED)
+		i = -1;
+		this->_size = rhs.size();
+		if (this->_is_used == I_WAS_NOT_ALLOCATED)
 		{
 			this->_tab = new T[this->size()];
-			for (size_t i = 0; i < this->_size; i++)
+			while (++i < this->_size)
 				this->_tab[i] = rhs._tab[i];
 			return (*this);
 		}
 		else
 		{
-			for (size_t i = 0; i < this->_size; i++)
+			while (++i < this->_size)
 				this->_tab[i] = rhs._tab[i];
 			return (*this);
 		}
-	};
+	}
 	unsigned int size( void ) const
 	{
 		return (this->_size);
-	};
+	}
 private:
-	unsigned int _size;
-	T			*_tab;
-	int			is_used;
+	unsigned int	_size;
+	T				*_tab;
+	int				_is_used;
 
 	class NegativeTabException: public std::exception
 	{
