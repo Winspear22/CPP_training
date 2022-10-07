@@ -1,16 +1,16 @@
 #include "iter.hpp"
 
-void display_tab( const int i )
+void display_tab( const int &i )
 {
     std::cout << i << " ";
 }
 
-void display_str( std::string str )
+void display_str( const std::string &str )
 {
     std::cout << str; 
 }
 
-void    ft_putchar(const char c)
+void    ft_putchar(const char &c)
 {
    std::cout << c;
 }
