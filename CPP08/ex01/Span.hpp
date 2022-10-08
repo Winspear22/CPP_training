@@ -3,6 +3,11 @@
 
 # include <iomanip>
 # include <iostream>
+# include <algorithm>
+# include <list>
+# include <vector>
+# include <stdexcept>
+# include <cstdlib>
 
 class Span
 {
@@ -18,6 +23,9 @@ public:
 
 private:
 	Span( void );
+	std::vector<int> _vector;
+    std::list<int> _list;
+
 
 	unsigned int _N;
 
@@ -32,7 +40,7 @@ private:
 	{
     	virtual const char *what() const throw()
 		{
-        	return ("\033[1;31mError, the container is empty.\033[0m");
+        	return ("\033[1;31mError, the container is empty or too small.\033[0m");
     	}
 	};
 	class NumberNotFound : public std::exception
@@ -43,5 +51,9 @@ private:
     	}
 	};
 };
+
+std::ostream & operator<<( std::ostream & o, std::list<int>::iterator i );
+std::ostream & operator<<( std::ostream & o, std::vector<int>::iterator i );
+
 
 #endif
