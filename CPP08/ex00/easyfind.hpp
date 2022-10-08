@@ -8,14 +8,6 @@
 # include <vector>
 # include <stdexcept>
 
-
-template <typename T>
-void easyfind( const T &tab, int found )
-{
-	
-    return ;
-}
-
 class CouldNotFindIntException : public std::exception
 {
     virtual const char *what() const throw()
@@ -23,6 +15,20 @@ class CouldNotFindIntException : public std::exception
         return ("\033[1;31mError, could not find any corresponding value.\033[0m");
     }
 };
+
+template <typename T>
+typename T::iterator easyfind( T &tab, int nb )
+{
+	typename T::iterator i;
+
+	i = find(tab.begin(), tab.end(), nb);
+	if (i == tab.end())
+		throw CouldNotFindIntException();
+	else
+		std::cout << "\033[1;31mNumber found ! It was : \033[1;37m" << nb << "\033[0m" << std::endl;
+    return (i);
+}
+
 
 std::ostream & operator<<( std::ostream & o, std::list<int>::iterator i )
 {

@@ -1,4 +1,4 @@
-NAME= OurFirstTemplates
+NAME= EasyFind
 SRCS= main.cpp
 INCLUDE= easyfind.hpp
 
