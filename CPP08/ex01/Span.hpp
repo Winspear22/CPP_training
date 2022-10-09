@@ -18,11 +18,11 @@ public:
 	~Span( void );
 	Span &operator=(Span const &rhs);
 
-	void AddNumber( void );
-	int  ShortestSpan( void );
-	int  LongestSpan( void );
+	void addNumber( int nb );
+	void addRandomNumber( void );
+	int  shortestSpan( void );
+	int  longestSpan( void );
 	void DisplayVector( void );
-	void FillNumbers( void );
 
 private:
 	Span( void );
@@ -35,7 +35,7 @@ private:
 	{
     	virtual const char *what() const throw()
 		{
-        	return ("\033[1;31mError, could not add more N.\033[0m");
+        	return ("\033[1;31mError, could not add more number than the size of the container.\033[0m");
     	}
 	};
 	class EmptySpan : public std::exception
