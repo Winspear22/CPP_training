@@ -8,6 +8,7 @@
 # include <vector>
 # include <stdexcept>
 # include <cstdlib>
+# include <limits>
 
 class Span
 {
@@ -18,13 +19,14 @@ public:
 	Span &operator=(Span const &rhs);
 
 	void AddNumber( void );
-	void ShortestSpan( void );
-	void LongestSpan( void );
+	int  ShortestSpan( void );
+	int  LongestSpan( void );
+	void DisplayVector( void );
+	void FillNumbers( void );
 
 private:
 	Span( void );
-	std::vector<int> _vector;
-    std::list<int> _list;
+    std::vector<int> _list;
 
 
 	unsigned int _N;
@@ -52,7 +54,7 @@ private:
 	};
 };
 
-std::ostream & operator<<( std::ostream & o, std::list<int>::iterator i );
+//std::ostream & operator<<( std::ostream & o, std::list<int>::iterator i );
 std::ostream & operator<<( std::ostream & o, std::vector<int>::iterator i );
 
 
