@@ -6,29 +6,11 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 16:30:55 by adaloui           #+#    #+#             */
-/*   Updated: 2022/10/11 16:30:56 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/10/11 19:03:56 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
-
-/*int main( void )
-{
-    try
-    {
-		Span my_span(2000);
-		my_span.AddNumber();
-		my_span.DisplayVector();
-		std::cout << my_span.ShortestSpan() << std::endl;
-       	std::cout << my_span.LongestSpan() << std::endl;
-	}
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-    
-    return (0);
-}*/
 
 int main()
 {
@@ -55,17 +37,24 @@ int main()
     std::cout << "\033[1;31m==================\033[0m" << std::endl;
 	try
 	{
+		std::cout << "\033[1;31m====================\033[0m" << std::endl;
+    	std::cout << "\033[1;37mSHORTEST 1 -> 10 = 9\033[0m" << std::endl;
+    	std::cout << "\033[1;31m====================\033[0m" << std::endl;
+		std::cout << "\033[1;31m=============================\033[0m" << std::endl;
+    	std::cout << "\033[1;37mLONGEST -10000 -> 999 = 10999 \033[0m" << std::endl;
+    	std::cout << "\033[1;31m=============================\033[0m" << std::endl;
+
 		Span sp = Span(10);
-		sp.addNumber(8);
-		sp.addNumber(12);
-		sp.addNumber(17);
+		sp.addNumber(-100);
+		sp.addNumber(-50);
 		sp.addNumber(1);
-		sp.addNumber(1);
-		sp.addNumber(88);
-		sp.addNumber(3);
-		sp.addNumber(65);
-		sp.addNumber(565);
-		sp.addNumber(1452);
+		sp.addNumber(50);
+		sp.addNumber(100);
+		sp.addNumber(-1000);
+		sp.addNumber(-10000);
+		sp.addNumber(999);
+		sp.addNumber(10);
+		sp.addNumber(890);
 		std::cout << sp.shortestSpan() << std::endl;
 		std::cout << sp.longestSpan() << std::endl;
 	}
@@ -75,17 +64,24 @@ int main()
 	}
 	try
 	{
+		std::cout << "\033[1;31m======================\033[0m" << std::endl;
+    	std::cout << "\033[1;37mSHORTEST 10 -> 20 = 10\033[0m" << std::endl;
+    	std::cout << "\033[1;31m======================\033[0m" << std::endl;
+		std::cout << "\033[1;31m=======================\033[0m" << std::endl;
+    	std::cout << "\033[1;37mLONGEST 90 -> 150 = 140 \033[0m" << std::endl;
+    	std::cout << "\033[1;31m=======================\033[0m" << std::endl;
+
 		Span sp = Span(10);
-		sp.addNumber(6);
-		sp.addNumber(16);
-		sp.addNumber(17);
-		sp.addNumber(44);
-		sp.addNumber(11);
-		sp.addNumber(678);
-		sp.addNumber(-16);
-		sp.addNumber(22);
-		sp.addNumber(44);
-		sp.addNumber(14);
+		sp.addNumber(10);
+		sp.addNumber(20);
+		sp.addNumber(30);
+		sp.addNumber(40);
+		sp.addNumber(50);
+		sp.addNumber(60);
+		sp.addNumber(70);
+		sp.addNumber(80);
+		sp.addNumber(90);
+		sp.addNumber(150);
 		std::cout << sp.shortestSpan() << std::endl;
 		std::cout << sp.longestSpan() << std::endl;
 	}
@@ -110,7 +106,6 @@ int main()
 	std::cout << "\033[1;31m=========================================================\033[0m" << std::endl;
     std::cout << "\033[1;33mTRYING TO ADD MORE NUMBERS THAN THE SIZE OF THE CONTAINER\033[0m" << std::endl;
     std::cout << "\033[1;31m=========================================================\033[0m" << std::endl;
-
 	try
 	{
 		Span sp = Span(5);
@@ -130,7 +125,6 @@ int main()
 	std::cout << "\033[1;31m==========================================\033[0m" << std::endl;
     std::cout << "\033[1;33mTRYING TO CREATE A CONTAINER WITH ONE CELL\033[0m" << std::endl;
     std::cout << "\033[1;31m==========================================\033[0m" << std::endl;
-
 	try
 	{
 		Span sp = Span(1);
@@ -150,7 +144,6 @@ int main()
 	std::cout << "\033[1;31m====================================\033[0m" << std::endl;
     std::cout << "\033[1;33mTRYING TO DISPLAY AN EMPTY CONTAINER\033[0m" << std::endl;
     std::cout << "\033[1;31m====================================\033[0m" << std::endl;
-
 	try
 	{
 		Span sp = Span(5);

@@ -6,7 +6,7 @@
 /*   By: adaloui <adaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 16:31:09 by adaloui           #+#    #+#             */
-/*   Updated: 2022/10/11 16:31:10 by adaloui          ###   ########.fr       */
+/*   Updated: 2022/10/11 18:06:23 by adaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 # include <iomanip>
 # include <iostream>
 # include <algorithm>
-# include <list>
 # include <vector>
+# include <list>
 # include <stdexcept>
 # include <cstdlib>
 # include <limits>
@@ -38,11 +38,10 @@ public:
 
 private:
 	Span( void );
-    std::vector<int> _list;
-
+    std::vector<int>	_vector;
+	std::list<int>		_list;
 
 	unsigned int _N;
-
 	class AddingTooMuchNException : public std::exception
 	{
     	virtual const char *what() const throw()
@@ -66,8 +65,8 @@ private:
 	};
 };
 
-//std::ostream & operator<<( std::ostream & o, std::list<int>::iterator i );
 std::ostream & operator<<( std::ostream & o, std::vector<int>::iterator i );
+std::ostream & operator<<( std::ostream & o, std::list<int>::iterator i );
 
 
 #endif
